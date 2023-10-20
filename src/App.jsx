@@ -9,7 +9,7 @@ import Services from './components/Services'
 
 function App() {
   
-  const restBase = 'https://wp.bcitwebdeveloper.ca/mindset-demo/wp-json/wp/v2/'
+  const restBase = 'https://jackthecoder.com/zxbpsrwen/wp-json/wp/v2/'
   
   const featuredImage = ( featuredImageObject ) => {
     let imgWidth = featuredImageObject.media_details.sizes.full.width;
@@ -31,7 +31,7 @@ function App() {
     <Router basename="/">
       <header id="masthead" className="site-header">
         <div className="site-branding">
-          <p className="site-title">Headless WordPress App</p>
+          <p className="site-title">JD</p>
         </div>
         <nav className="site-navigation">
           <ul>
@@ -52,7 +52,7 @@ function App() {
         </Routes>
       </main>
       <footer>
-        <p className="copyright">Created by <a href="https://wp.bcitwebdeveloper.ca/" target="_blank" rel="noopener noreferrer">Jonathon Leathers</a>.</p>
+        <p className="copyright">Created by <a href="https://jackthecoder.com/" target="_blank" rel="noopener noreferrer">Jack Do</a>.</p>
       </footer>
     </Router>
   )

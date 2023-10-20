@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import Loading from './Loading'
 
 const Home = ( {restBase} ) => {
-    const restPath = restBase + ''
+    const restPath = restBase + 'pages/7?_embed'
     const [restData, setData] = useState([])
     const [isLoaded, setLoadStatus] = useState(false)
 
@@ -25,9 +25,10 @@ const Home = ( {restBase} ) => {
         { isLoaded ?
             <article id={`post-${restData.id}`}>
                 <h1>{restData.title.rendered}</h1>
-                <div className="entry-content">
+                <div className="entry-conten" dangerouslySetInnerHTML={{__html: restData.content.rendered}}>
                     
                 </div>
+                <p className='text-orange-600'>Testing Tailwind</p>
             </article>
         : 
             <Loading /> 

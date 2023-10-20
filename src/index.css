@@ -618,3 +618,9 @@ footer p {
 	height: 300px;
 	object-fit: cover;
 }
+
+/* ------Tailwind----- */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
