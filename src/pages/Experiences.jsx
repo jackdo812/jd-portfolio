@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
-import Loading from './Loading'
+import Loading from '../components/Loading'
 
-const Services = ( {restBase} ) => {
+const Experiences = ( {restBase} ) => {
     const restPathPage = restBase + ''
     const restPathPosts = restBase + ''
     const [restDataPage, setDataPage] = useState([])
@@ -41,4 +41,4 @@ const Services = ( {restBase} ) => {
     )
 }
 
-export default Services
+export default Experiences

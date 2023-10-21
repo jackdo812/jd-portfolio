@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import Loading from './Loading'
+import Loading from '../components/Loading'
 
-const Posts = ( {restBase, featuredImage} ) => {
+const Projects = ( {restBase, featuredImage} ) => {
     const restPath = restBase + ''
     const [restData, setData] = useState([])
     const [isLoaded, setLoadStatus] = useState(false)
@@ -43,4 +43,4 @@ const Posts = ( {restBase, featuredImage} ) => {
     )
 }
 
-export default Posts
+export default Projects
