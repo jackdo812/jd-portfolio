@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react'
 import Loading from '../components/Loading'
 
-const Home = ( {restBase} ) => {
-    const restPath = restBase + 'pages/7?_embed'
+const Connect = ( {restBase} ) => {
+    const restPath = restBase + ''
     const [restData, setData] = useState([])
     const [isLoaded, setLoadStatus] = useState(false)
 
@@ -19,21 +19,20 @@ const Home = ( {restBase} ) => {
         }
         fetchData()
     }, [restPath])
-    
+
     return (
         <>
         { isLoaded ?
             <article id={`post-${restData.id}`}>
                 <h1>{restData.title.rendered}</h1>
-                <div className="entry-content" dangerouslySetInnerHTML={{__html: restData.content.rendered}}>
+                <div className="entry-content" dangerouslySetInnerHTML={{__html:restData.content.rendered}}>
                 </div>
-                <p className='text-orange-600'>Testing Tailwind</p>
             </article>
         : 
-            <Loading /> 
+            <Loading />
         }
-        </>            
+        </>
     )
 }
 
-export default Home
+export default Connect

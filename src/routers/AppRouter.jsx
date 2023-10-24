@@ -8,6 +8,7 @@ import About from '../pages/About'
 import Projects from '../pages/Projects'
 import SingleProject from '../pages/SingleProject'
 import Experiences from '../pages/Experiences'
+import Connect from '../pages/Connect'
 
 function AppRouter() {
   
@@ -40,6 +41,7 @@ function AppRouter() {
             <Route path='/projects' element={<Projects restBase={restBase} featuredImage={featuredImage} />} />
             <Route path='/projects/:slug' element={<SingleProject restBase={restBase} />} />
             <Route path='/experiences' element={<Experiences restBase={restBase} />} />
+            <Route path='/connect' element={<Connect restBase={restBase} />} />
           </Routes>
         </main>
         <Footer />
