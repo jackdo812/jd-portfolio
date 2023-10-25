@@ -5,7 +5,7 @@ import Loading from '../components/Loading'
 import {useQuery} from '@tanstack/react-query';
 import {getPage} from '../api/fetchData';
 
-const Experiences = ( {restBase} ) => {
+const Experiences = () => {
 
     const { isPending, error, data } = useQuery({
         queryKey: ['experiencesData'],

@@ -6,7 +6,7 @@ import Loading from '../components/Loading'
 import {useQuery} from '@tanstack/react-query';
 import {getPage, getPost} from '../api/fetchData';
 
-const Projects = ( {restBase, featuredImage} ) => {
+const Projects = ( {featuredImage} ) => {
     const { isPending: pageIsPending, error: pageError, data: pageData, isSuccess } = useQuery({
         queryKey: ['pageProjectsData'],
         queryFn: () => getPage(11)
@@ -14,7 +14,7 @@ const Projects = ( {restBase, featuredImage} ) => {
       
      const { isPending: postsIsPending, error: postsError, data: postsData } = useQuery({
         queryKey: ['postProjectsData'],
-        queryFn: () => getPost(),
+        queryFn: () => getPost(""),
           enabled: isSuccess,
       })
       
@@ -34,7 +34,7 @@ const Projects = ( {restBase, featuredImage} ) => {
                         {post.featured_media !== 0 && post._embedded &&
                             <figure className="featured-image" dangerouslySetInnerHTML={featuredImage(post._embedded['wp:featuredmedia'][0])}></figure>
                         }
-                        <Link to={`/blog/${post.slug}`}><h2>{post.title.rendered}</h2></Link>
+                        <Link to={`/projects/${post.slug}`}><h2>{post.title.rendered}</h2></Link>
                         <div className="entry-content" dangerouslySetInnerHTML={{__html:post.excerpt.rendered}}></div>
                     </article>
                 )}

@@ -3,43 +3,30 @@ import { useParams } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import Loading from '../components/Loading'
 
-const SingleProject = ( {restBase} ) => {
-    const { slug } = useParams();
-    const restPath = restBase + `posts/?slug=` + slug + `&_embed`;
-    const [restData, setData] = useState([])
-    const [isLoaded, setLoadStatus] = useState(false)
+// TanQuery Components
+import {useQuery} from '@tanstack/react-query';
+import {getPost} from '../api/fetchData';
 
-    useEffect(() => {
-        const fetchData = async () => {
-            const response = await fetch(restPath)
-            if ( response.ok ) {
-                const data = await response.json()
-                setData(data[0])
-                setLoadStatus(true)
-            } else {
-                setLoadStatus(false)
-            }
-        }
-        fetchData()
-    }, [restPath])
-        
+const SingleProject = () => {
+    const { slug } = useParams();
+    const slugPath = `slug=${slug}&`;
+    const { isPending, error, data } = useQuery({
+        queryKey: ['singleProjectData'],
+        queryFn: () => getPost(slugPath)
+      })
+    
+      if (isPending) return <Loading />
+    
+      if (error) return 'An error has occurred: ' + error.message
+    
     return (
         <>
-        { isLoaded ?
-            <>
-                <article id={`post-${restData.id}`}>
-                    <h1>{restData.title.rendered}</h1>
-                    <div className="entry-content" dangerouslySetInnerHTML={{__html:restData.content.rendered}}></div>
-                </article>
-                <nav className="posts-navigation">
-                    {restData.previous_post['id'] &&
-                        <Link to={`/blog/${restData.previous_post['slug']}`} className="prev-post">Previous: {restData.previous_post['title']}</Link>
-                    }
-                </nav>
-            </>
-        : 
-            <Loading />
-        }
+
+            <article id={`post-${data[0].id}`}>
+                <h1>{data[0].title.rendered}</h1>
+                <div className="entry-content" dangerouslySetInnerHTML={{__html:data[0].content.rendered}}></div>
+            </article>
+       
         </>   
     )
 }

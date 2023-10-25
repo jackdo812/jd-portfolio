@@ -6,8 +6,8 @@ const getPage  = (pageNum) => {
       )
 }
 
-const getPost  = () => {
-    return fetch(`https://jackthecoder.com/zxbpsrwen/wp-json/wp/v2/posts?_embed`).then(
+const getPost  = (slugPath) => {
+    return fetch(`https://jackthecoder.com/zxbpsrwen/wp-json/wp/v2/posts/?${slugPath}_embed`).then(
         (res) => res.json(),
       )
 }

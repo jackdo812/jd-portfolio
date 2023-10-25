@@ -4,7 +4,7 @@ import Loading from '../components/Loading'
 import {useQuery} from '@tanstack/react-query';
 import {getPage} from '../api/fetchData';
 
-const Home = ( {restBase} ) => {
+const Home = ( ) => {
 
     const { isPending, error, data } = useQuery({
         queryKey: ['homeData'],

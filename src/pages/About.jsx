@@ -5,9 +5,7 @@ import Loading from '../components/Loading'
 import {useQuery} from '@tanstack/react-query';
 import {getPage} from '../api/fetchData';
 
-const About = ( {restBase} ) => {
-    const restPath = restBase + 'pages/26?_embed'
-   
+const About = () => {
 
     const { isPending, error, data } = useQuery({
         queryKey: ['aboutData'],
