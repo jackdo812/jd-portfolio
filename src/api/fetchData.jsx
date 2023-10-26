@@ -6,8 +6,9 @@ const getPage  = (pageNum) => {
       )
 }
 
-const getPost  = (slugPath) => {
-    return fetch(`https://jackthecoder.com/zxbpsrwen/wp-json/wp/v2/posts/?${slugPath}_embed`).then(
+const getPost  = (slug) => {
+    const postUrl = slug ? `posts/?slug=${slug}&_embed` : "posts?_embed";
+    return fetch(`https://jackthecoder.com/zxbpsrwen/wp-json/wp/v2/${postUrl}`).then(
         (res) => res.json(),
       )
 }

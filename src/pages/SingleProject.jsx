@@ -9,10 +9,9 @@ import {getPost} from '../api/fetchData';
 
 const SingleProject = () => {
     const { slug } = useParams();
-    const slugPath = `slug=${slug}&`;
     const { isPending, error, data } = useQuery({
-        queryKey: ['singleProjectData'],
-        queryFn: () => getPost(slugPath)
+        queryKey: ['singleProjectData', slug],
+        queryFn: () => getPost(slug)
       })
     
       if (isPending) return <Loading />

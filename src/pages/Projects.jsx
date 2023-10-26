@@ -14,7 +14,7 @@ const Projects = ( {featuredImage} ) => {
       
      const { isPending: postsIsPending, error: postsError, data: postsData } = useQuery({
         queryKey: ['postProjectsData'],
-        queryFn: () => getPost(""),
+        queryFn: () => getPost(),
           enabled: isSuccess,
       })
       
