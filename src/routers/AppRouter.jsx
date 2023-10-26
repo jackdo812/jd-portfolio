@@ -27,7 +27,7 @@ function AppRouter() {
         height="${imgHeight}"
         alt="${featuredImageObject.alt_text}"
         srcset="${imgURL} ${imgWidth}w,
-        ${featuredImageObject.media_details.sizes.large ? featuredImageObject.media_details.sizes.large.source_url + ' 1024w,' : ''}
+        ${featuredImageObject.media_details.sizes.full ? featuredImageObject.media_details.sizes.full.source_url + ' 1024w,' : ''}
         ${featuredImageObject.media_details.sizes.medium_large ? featuredImageObject.media_details.sizes.medium_large.source_url + ' 768w,' : ''}
         ${featuredImageObject.media_details.sizes.medium ? featuredImageObject.media_details.sizes.medium.source_url + ' 300w' : ''}"
         sizes="(max-width: ${imgWidth}) 100vw, ${imgWidth}px">`;

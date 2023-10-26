@@ -1,7 +1,7 @@
 
 
 const getPage  = (pageNum) => {
-    return fetch(`https://jackthecoder.com/zxbpsrwen/wp-json/wp/v2/pages/${pageNum}?_embed`).then(
+    return fetch(`https://jackthecoder.com/zxbpsrwen/wp-json/wp/v2/pages/${pageNum}?_embed&acf_format=standard`).then(
         (res) => res.json(),
       )
 }
