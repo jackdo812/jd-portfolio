@@ -54,13 +54,14 @@ const About = () => {
                         }
                     </section>
                     <section className='Techstack-section'>
-                        {data.acf.tech_stack_title &&
+                        {/* Tech Stack title */}
+                        {(data.acf.tech_stack_title && data.acf.tech_stack) &&
                             <h2 className='font-bold'>{data.acf.tech_stack_title}</h2>
                         }
-                        {/* Tech Stack */}
-
-                        {/* Filter coding here */}
-                        <TechStack data={data}/>
+                        {/* Tech Stack List */}
+                        {data.acf.tech_stack && 
+                            <TechStack TechStack={data.acf.tech_stack}/>
+                        }
 
                     </section>
                     <section className='hobbies-section'>
