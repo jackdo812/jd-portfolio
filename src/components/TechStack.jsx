@@ -30,7 +30,6 @@ function TechStack({TechStack}) {
             if (!uniqueSkillCategories.has(item.skill_categories.trim())) {
                 // Add the category to the set to mark it as seen
                 uniqueSkillCategories.add(item.skill_categories.trim());
-                console.log(`'.${item.skill_categories.toLowerCase()}'`);
          return (
             <button key={index} className='border mr-2 bg-slate-400' onClick={() => filterItems(`.${item.skill_categories.toLowerCase()}`)}>{item.skill_categories}</button>
 
@@ -41,7 +40,10 @@ function TechStack({TechStack}) {
             
         </div>
         <div className="Techstack-item grid" ref={gridRef}>
-        {TechStack.map((item, index) => {
+        {TechStack
+        .slice() // Create a copy of the array to avoid modifying the original
+        .sort((a, b) => a.skills_name.localeCompare(b.skills_name)) // Sort alphabetically
+        .map((item, index) => {
             return (
                 <div key={index} className={`element-item mr-2 border bg-green-300 ${item.skill_categories.toLowerCase()}`}>{item.skills_name}</div>
             );
