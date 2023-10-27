@@ -1,10 +1,14 @@
 import { useState, useEffect } from 'react'
 import Loading from '../components/Loading'
 import { Link } from 'react-router-dom';
+import TechStack from '../components/TechStack'
 
 // TanQuery Components
 import {useQuery} from '@tanstack/react-query';
 import {getPage} from '../api/fetchData';
+
+// Isotope Components
+import Isotope from 'isotope-layout';
 
 const About = () => {
 
@@ -56,6 +60,7 @@ const About = () => {
                         {/* Tech Stack */}
 
                         {/* Filter coding here */}
+                        <TechStack data={data}/>
 
                     </section>
                     <section className='hobbies-section'>
