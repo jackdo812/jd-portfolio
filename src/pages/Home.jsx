@@ -58,7 +58,7 @@ const Home = ( ) => {
                         <h2>{data.acf.section_2_title}</h2>
                     }
                     {/* Project List */}
-                    
+
                     {/* See all button */}
                     {(data.acf.section_2_cta_text && data.acf.section_2_cta_link) &&
                         <Link to={data.acf.section_2_cta_link} className='text-2xl' target='_blank' rel='noopener'>
