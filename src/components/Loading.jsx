@@ -1,9 +1,9 @@
-import loading from '../assets/gifs/loading.gif';
+import loading from '../assets/gifs/Loading-leaves.gif';
 
 const Loading = () => {
     
     return (
-        <img src={loading} alt="Loading" className="loading" id="loading" />
+        <img className="loading w-[512px] h-[512px]" src={loading} alt="Loading" id="loading" />
     )
 
 }
