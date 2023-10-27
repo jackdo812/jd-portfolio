@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react'
 import Loading from '../components/Loading'
 import SocialMedia from '../components/SocialMedia';
+import CopyToClipboard from '../components/CopyToClipBoard';
 
 // TanQuery Components
 import {useQuery} from '@tanstack/react-query';
 import {getPage} from '../api/fetchData';
+
 
 const Connect = () => {
 
@@ -27,6 +29,10 @@ const Connect = () => {
                 {(data.acf.linkedin_link || data.acf.github_link) &&
                     <SocialMedia linkedInLink={data.acf.linkedin_link} githubLink={data.acf.github_link}/>
                 }
+                {data.acf.contact_email &&
+                    <CopyToClipboard emailAdress={data.acf.contact_email}/>
+                }
+                
             </article>
    
    
