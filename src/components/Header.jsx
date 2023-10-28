@@ -13,7 +13,7 @@ const Header = () => {
         <div className="site-branding">
         <p className="site-title">JD Portfolio</p>
         </div>
-        <div className='hamburger-menu'>
+        <div className='hamburger-menu hidden sm:block'>
           <button onClick={toggleMenu}>{isMenuOpen ? 'Close' : 'Menu'}</button>
         </div>
         {isMenuOpen &&
