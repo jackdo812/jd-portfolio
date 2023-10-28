@@ -1,5 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import Nav from './Nav'
 
 const Header = () => {
   return (
@@ -7,15 +8,7 @@ const Header = () => {
         <div className="site-branding">
         <p className="site-title">JD Portfolio</p>
         </div>
-        <nav className="site-navigation">
-        <ul>
-            <li><NavLink to='/' end>Home</NavLink></li>
-            <li><NavLink to='/about'>About</NavLink></li>
-            <li><NavLink to='/projects'>Projects</NavLink></li>
-            <li><NavLink to='/experiences'>Experiences</NavLink></li>
-            <li><NavLink to='/connect'>Connect</NavLink></li>
-        </ul>
-        </nav>
+        <Nav />
   </header>
   )
 }
