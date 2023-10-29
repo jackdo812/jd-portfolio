@@ -1,18 +1,27 @@
 import { useState, useEffect } from 'react'
 import Loading from '../components/Loading'
+import MyVerticallyCenteredModal from '../components/MyVerticallyCenteredModal';
+import Button from 'react-bootstrap/Button';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+
+
 
 // TanQuery Components
 import {useQuery} from '@tanstack/react-query';
 import {getPage} from '../api/fetchData';
-import { MdWork } from "react-icons/md";
+
 
 
 // Timeline components
 import { VerticalTimeline, VerticalTimelineElement }  from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
+import { MdWork } from "react-icons/md";
+
+
 
 const Experiences = () => {
-
+    const [modalShow, setModalShow] = useState(false);
     const { isPending, error, data } = useQuery({
         queryKey: ['experiencesData'],
         queryFn: () => getPage(28)
@@ -21,6 +30,7 @@ const Experiences = () => {
       if (isPending) return <Loading/>
     
       if (error) return 'An error has occurred: ' + error.message
+
 
     return (
         <>
@@ -46,7 +56,16 @@ const Experiences = () => {
                         <p>
                         Creative Direction, User Experience, Visual Design, Project Management, Team Leading
                         </p>
-                        <button className='bg-red-600'>View More</button>
+                        <div>
+                        <Button className='border-black bg-orange-500 hover:bg-green-500' variant="primary" onClick={() => setModalShow(true)}>
+                            Modal Button
+                        </Button>
+
+                        <MyVerticallyCenteredModal
+                            show={modalShow}
+                            onHide={() => setModalShow(false)}
+                        />
+                        </div>
                     </VerticalTimelineElement>
                     <VerticalTimelineElement
                         className="vertical-timeline-element--work"
@@ -92,6 +111,7 @@ const Experiences = () => {
                     </VerticalTimelineElement>
                     
                     </VerticalTimeline>
+                
                 </section>
             </article>
       
