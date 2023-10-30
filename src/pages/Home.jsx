@@ -1,21 +1,30 @@
 import Loading from '../components/Loading'
 import { Link } from 'react-router-dom';
 import JackGif from '../assets/gifs/jack_cartoon.gif'
+import ProjectCard from '../components/ProjectCard';
 
 // TanQuery Components
 import {useQuery} from '@tanstack/react-query';
-import {getPage} from '../api/fetchData';
+import {getPage, getPost} from '../api/fetchData';
 
 const Home = ( ) => {
 
-    const { isPending, error, data } = useQuery({
+    const { isPending, error, data, isSuccess } = useQuery({
         queryKey: ['homeData'],
         queryFn: () => getPage(7)
       })
+
+    const { isPending: postsIsPending, error: postsError, data: postsData } = useQuery({
+    queryKey: ['postProjectsData'],
+    queryFn: () => getPost(),
+        enabled: isSuccess,
+    })
     
       if (isPending) return <Loading />
+      if (postsIsPending) return <Loading />
     
       if (error) return 'An error has occurred: ' + error.message
+      if (postsError) return 'An error has occurred: ' + postsError.message
     
     return (
         <>
@@ -58,7 +67,9 @@ const Home = ( ) => {
                         <h2>{data.acf.section_2_title}</h2>
                     }
                     {/* Project List */}
-
+                    {postsData &&
+                        <ProjectCard postsData={postsData} isOnHome={true} />
+                    }
                     {/* See all button */}
                     {(data.acf.section_2_cta_text && data.acf.section_2_cta_link) &&
                         <Link to={data.acf.section_2_cta_link} className='text-2xl' target='_blank' rel='noopener'>

@@ -533,7 +533,7 @@ a:active {
 	margin-bottom: 5rem;
 }
 
-#main article::after {
+/* #main article::after {
 	content: '';
 	position: absolute;
 	bottom: -3rem;
@@ -544,7 +544,7 @@ a:active {
 	height: 1px;
 	margin: 0 auto;
 	background-color: #aaa;
-}
+} */
 
 #main .featured-works {
 	display: grid;

@@ -30,8 +30,11 @@ const Projects = ( {featuredImage} ) => {
         <>
                 <h1>Projects</h1>
                 
-               
+               {postsData ? (
                 <ProjectCard postsData={postsData}/>
+                ) : (
+                <p>There are no projects to display</p>
+                )}
                
               
          
