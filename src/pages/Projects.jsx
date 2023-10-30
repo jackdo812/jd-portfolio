@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import Loading from '../components/Loading'
+import ProjectCard from '../components/ProjectCard'
 
 // TanQuery Components
 import {useQuery} from '@tanstack/react-query';
@@ -28,16 +29,11 @@ const Projects = ( {featuredImage} ) => {
     return (
         <>
                 <h1>Projects</h1>
-                <p>{pageData.id}</p>
-                {postsData.map(post => 
-                    <article key={post.id} id={`post-${post.id}`}>
-                        {post.featured_media !== 0 && post._embedded &&
-                            <figure className="featured-image" dangerouslySetInnerHTML={featuredImage(post._embedded['wp:featuredmedia'][0])}></figure>
-                        }
-                        <Link to={`/projects/${post.slug}`}><h2>{post.title.rendered}</h2></Link>
-                        <div className="entry-content" dangerouslySetInnerHTML={{__html:post.excerpt.rendered}}></div>
-                    </article>
-                )}
+                
+               
+                <ProjectCard postsData={postsData}/>
+               
+              
          
        
         </>
