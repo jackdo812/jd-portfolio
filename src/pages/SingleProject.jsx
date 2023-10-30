@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import Loading from '../components/Loading'
 import FullWidthTabs from '../components/FullWidthTabs'
+import Carousels from '../components/Carousels'
 
 // TanQuery Components
 import {useQuery} from '@tanstack/react-query';
@@ -26,6 +27,7 @@ const SingleProject = () => {
                 <h1>{data[0].title.rendered}</h1>
                 <div className="entry-content" dangerouslySetInnerHTML={{__html:data[0].content.rendered}}></div>
                 <FullWidthTabs />
+                <Carousels />
             </article>
        
         </>   
