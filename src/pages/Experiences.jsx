@@ -5,13 +5,9 @@ import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
-
-
 // TanQuery Components
 import {useQuery} from '@tanstack/react-query';
-import {getPage} from '../api/fetchData';
-
-
+import {getPage, getCPT} from '../api/fetchData';
 
 // Timeline components
 import { VerticalTimeline, VerticalTimelineElement }  from 'react-vertical-timeline-component';
@@ -21,98 +17,135 @@ import { MdWork } from "react-icons/md";
 
 
 const Experiences = () => {
-    const [modalShow, setModalShow] = useState(false);
-    const { isPending, error, data } = useQuery({
-        queryKey: ['experiencesData'],
+    // const [modalShow, setModalShow] = useState(false);
+      
+    // Initialize modalShow state with false values for each item in cptData
+    // const cptDataLength = cptData.length;
+    // console.log(cptDataLength);
+    // const [modalShow, setModalShow] = useState(Array(cptDataLength).fill(false));
+    // console.log(modalShow);
+
+       // Initialize modalShow state with false values for each item in cptData
+    //    const initialModalStates = cptData.map(() => false);
+    //    console.log(initialModalStates);
+    //    const [modalShow, setModalShow] = useState(initialModalStates);
+    
+
+    const { isPending: pageIsPending, error: pageError, data: pageData, isSuccess } = useQuery({
+        queryKey: ['experiencesPageData'],
         queryFn: () => getPage(28)
       })
     
-      if (isPending) return <Loading/>
-    
-      if (error) return 'An error has occurred: ' + error.message
+    const { isPending: cptPending, error: cptError, data: cptData } = useQuery({
+        queryKey: ['experiencesCPTData'],
+        queryFn: () => getCPT('jd-portfolio-exp'),
+        enabled: isSuccess,
+      })
 
+      
+    //   if (pageIsPending) return <Loading/>
+    //   if (cptPending) return <Loading/>
+
+      if (pageIsPending || cptPending) return <Loading />;
+      
+      if (pageError) return 'An error has occurred: ' + pageError.message
+      if (cptError) return 'An error has occurred: ' + cptError.message
+
+    
+    // Initialize modalShow state with false values
+    const [modalShow, setModalShow] = useState([]);
+
+    useEffect(() => {
+        if (cptData) {
+            const initialModalStates = cptData.map(() => false);
+            setModalShow(initialModalStates);
+        }
+    }, [cptData]);
+
+
+    // Sort the cptData by the exp_priority field
+
+    cptData.sort((a, b) => {
+    const priorityA = a.acf.exp_priority;
+    const priorityB = b.acf.exp_priority;
+    
+    if (priorityA === priorityB) {
+        return 0; // Leave them in their current order
+    } else if (priorityA === "") {
+        return 1; // Put empty values at the end
+    } else if (priorityB === "") {
+        return -1; // Put empty values at the end
+    } else {
+        // Convert to numbers and compare numerically
+        return priorityA - priorityB;
+    }
+    });
+
+   
 
     return (
         <>
        
-            <article id={`post-${data.id}`}>
-                <h1>{data.title.rendered}</h1>
-                <div className="entry-content" dangerouslySetInnerHTML={{__html:data.content.rendered}}>
+            <article id={`post-${pageData.id}`}>
+                <h1>{pageData.title.rendered}</h1>
+                <div className="entry-content" dangerouslySetInnerHTML={{__html:pageData.content.rendered}}>
                 </div>
                 {/* Timeline section */}
-                <section className='timeline-section'>
-                <VerticalTimeline lineColor="green">
-                    <VerticalTimelineElement
-                        className="vertical-timeline-element--work"
-                        contentStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
-                        contentArrowStyle={{ borderRight: '7px solid  rgb(33, 150, 243)' }}
-                        date="2011 - present"
-                        iconStyle={{ background: 'rgb(33, 150, 243)', color: '#fff', border: '2px solid green' }}
-                        // iconClassName='border-2 border-green-600'
-                        icon={<MdWork />}
-                    >
-                        <h3 className="vertical-timeline-element-title">Creative Director</h3>
-                        <h4 className="vertical-timeline-element-subtitle">Miami, FL</h4>
-                        <p>
-                        Creative Direction, User Experience, Visual Design, Project Management, Team Leading
-                        </p>
-                        <div>
-                        <Button className='border-black bg-orange-500 hover:bg-green-500' variant="primary" onClick={() => setModalShow(true)}>
-                            Modal Button
-                        </Button>
-
-                        <MyVerticallyCenteredModal
-                            show={modalShow}
-                            onHide={() => setModalShow(false)}
-                        />
-                        </div>
-                    </VerticalTimelineElement>
-                    <VerticalTimelineElement
-                        className="vertical-timeline-element--work"
-                        contentStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
-                        contentArrowStyle={{ borderRight: '7px solid  rgb(33, 150, 243)' }}
-                        date="2010 - 2011"
-                        iconStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
-                        icon={<MdWork />}
-                    >
-                        <h3 className="vertical-timeline-element-title">Art Director</h3>
-                        <h4 className="vertical-timeline-element-subtitle">San Francisco, CA</h4>
-                        <p>
-                        Creative Direction, User Experience, Visual Design, SEO, Online Marketing
-                        </p>
-                    </VerticalTimelineElement>
-                    <VerticalTimelineElement
-                        className="vertical-timeline-element--work"
-                        contentStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
-                        contentArrowStyle={{ borderRight: '7px solid  rgb(33, 150, 243)' }}
-                        date="2008 - 2010"
-                        iconStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
-                        icon={<MdWork />}
-                    >
-                        <h3 className="vertical-timeline-element-title">Web Designer</h3>
-                        <h4 className="vertical-timeline-element-subtitle">Los Angeles, CA</h4>
-                        <p>
-                        User Experience, Visual Design
-                        </p>
-                    </VerticalTimelineElement>
-                    <VerticalTimelineElement
-                        className="vertical-timeline-element--work"
-                        contentStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
-                        contentArrowStyle={{ borderRight: '7px solid  rgb(33, 150, 243)' }}
-                        date="2006 - 2008"
-                        iconStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
-                        icon={<MdWork />}
-                    >
-                        <h3 className="vertical-timeline-element-title">Web Designer</h3>
-                        <h4 className="vertical-timeline-element-subtitle">San Francisco, CA</h4>
-                        <p>
-                        User Experience, Visual Design
-                        </p>
-                    </VerticalTimelineElement>
-                    
-                    </VerticalTimeline>
+                {cptData && 
                 
-                </section>
+                    <section className='timeline-section'>
+                        
+                    <VerticalTimeline lineColor="green">
+                        {cptData.map((cpt, index) => {
+                            return (
+                         <VerticalTimelineElement
+                            key={index}
+                            className="vertical-timeline-element--work"
+                            contentStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
+                            contentArrowStyle={{ borderRight: '7px solid  rgb(33, 150, 243)' }}
+                            date={cpt.acf.work_duration}
+                            iconStyle={{ background: 'rgb(33, 150, 243)', color: '#fff', border: '2px solid green' }}
+                            // iconClassName='border-2 border-green-600'
+                            icon={<MdWork />}
+                        >
+                            <h2 className="vertical-timeline-element-title">{cpt.acf.job_title}</h2>
+                            <h3 className="vertical-timeline-element-subtitle">{cpt.title.rendered}</h3>
+                            {/* <div className="job-description" dangerouslySetInnerHTML={{__html:cpt.acf.job_description}}></div> */}
+                            <p>{cpt.acf.past_exp_matter}</p>
+                            <div>
+                            {/* <Button className='border-black bg-orange-500 hover:bg-green-500' variant="primary" onClick={() => setModalShow(true)}>
+                                More Info
+                            </Button> */}
+                            {/* <Button
+                                className='border-black bg-orange-500 hover:bg-green-500'
+                                variant="primary"
+                                onClick={() => setModalShow((prev) => prev.map((value, idx) => (idx === index ? true : value)))}
+                                >
+                                More Info
+                                </Button> */}
+
+
+                            {/* <MyVerticallyCenteredModal
+                                show={modalShow}
+                                onHide={() => setModalShow(false)}
+                                data={cpt}
+                            /> */}
+                            {/* <MyVerticallyCenteredModal
+                                show={modalShow[index]}
+                                onHide={() => setModalShow((prev) => prev.map((value, idx) => (idx === index ? false : value)))}
+                                data={cpt}
+                                /> */}
+
+                            </div>
+                        </VerticalTimelineElement>
+                          
+                            )
+                         })}
+                      </VerticalTimeline>  
+                      
+                    
+                    </section>
+                }
             </article>
       
         </>

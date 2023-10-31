@@ -13,5 +13,11 @@ const getPost  = (slug) => {
       )
 }
 
+const getCPT  = (name) => {
+  return fetch(`https://jackthecoder.com/zxbpsrwen/wp-json/wp/v2/${name}`).then(
+      (res) => res.json(),
+    )
+}
 
-export {getPage, getPost}
+
+export {getPage, getPost, getCPT}
