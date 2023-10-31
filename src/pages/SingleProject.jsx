@@ -22,9 +22,14 @@ const SingleProject = () => {
     
     return (
         <>
+            <h1>{data[0].title.rendered}</h1>
+            <p className='italic'>
+            {data[0]._embedded["wp:term"][1].map((tag, index) => (
+                <span key={index}>{tag.name}{index < data[0]._embedded["wp:term"][1].length - 1 ? " | " : null}</span>
+            ))}
+            </p>
 
             <article id={`post-${data[0].id}`}>
-                <h1>{data[0].title.rendered}</h1>
                 <div className="entry-content" dangerouslySetInnerHTML={{__html:data[0].content.rendered}}></div>
                 <FullWidthTabs />
                 <Carousels />
