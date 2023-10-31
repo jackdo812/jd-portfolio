@@ -146,6 +146,11 @@ const Experiences = () => {
                     
                     </section>
                 }
+                {pageData.acf.cta_text && pageData.acf.cta_link &&
+                    <a href={pageData.acf.cta_link} className='text-2xl' target='_blank' rel='noopener'>
+                        {pageData.acf.cta_text}
+                    </a>
+                }
             </article>
       
         </>
