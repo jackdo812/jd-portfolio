@@ -3,7 +3,8 @@ import Modal from 'react-bootstrap/Modal';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
-function MyVerticallyCenteredModal(props) {
+function MyVerticallyCenteredModal(props) { 
+  console.log(props);
   return (
     <Modal
       {...props}
@@ -21,6 +22,7 @@ function MyVerticallyCenteredModal(props) {
         <p>
           {props.data.acf.past_exp_matter}
         </p>
+        
       </Modal.Body>
       <Modal.Footer>
         <Button className='bg-orange-500 hover:bg-green-500' onClick={props.onHide}>Close</Button>

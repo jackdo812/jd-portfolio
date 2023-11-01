@@ -110,19 +110,19 @@ const Experiences = () => {
                         >
                             <h2 className="vertical-timeline-element-title">{cpt.acf.job_title}</h2>
                             <h3 className="vertical-timeline-element-subtitle">{cpt.title.rendered}</h3>
-                            {/* <div className="job-description" dangerouslySetInnerHTML={{__html:cpt.acf.job_description}}></div> */}
-                            <p>{cpt.acf.past_exp_matter}</p>
+                            <div className="job-description" dangerouslySetInnerHTML={{__html:cpt.acf.job_description}}></div>
+                            {/* <p>{cpt.acf.past_exp_matter}</p> */}
                             <div>
                             {/* <Button className='border-black bg-orange-500 hover:bg-green-500' variant="primary" onClick={() => setModalShow(true)}>
                                 More Info
                             </Button> */}
-                            {/* <Button
+                            <Button
                                 className='border-black bg-orange-500 hover:bg-green-500'
                                 variant="primary"
                                 onClick={() => setModalShow((prev) => prev.map((value, idx) => (idx === index ? true : value)))}
                                 >
                                 More Info
-                                </Button> */}
+                                </Button>
 
 
                             {/* <MyVerticallyCenteredModal
@@ -130,11 +130,11 @@ const Experiences = () => {
                                 onHide={() => setModalShow(false)}
                                 data={cpt}
                             /> */}
-                            {/* <MyVerticallyCenteredModal
+                            <MyVerticallyCenteredModal
                                 show={modalShow[index]}
                                 onHide={() => setModalShow((prev) => prev.map((value, idx) => (idx === index ? false : value)))}
                                 data={cpt}
-                                /> */}
+                                />
 
                             </div>
                         </VerticalTimelineElement>
