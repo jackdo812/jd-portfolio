@@ -24,15 +24,24 @@ function AppRouter() {
   
   const restBase = 'https://jackthecoder.com/zxbpsrwen/wp-json/wp/v2/'
 
-  const { isPending, error, data } = useQuery({
+  const { isPending: mediaPending, error: medieError, data: mediaData } = useQuery({
     queryKey: ['mediaSourceData'],
     queryFn: () => getPage(178)
   })
 
+  const { isPending: connectPending, error: connectError, data: connectData } = useQuery({
+    queryKey: ['connectData'],
+    queryFn: () => getPage(30)
+  })
+
+  if (connectPending) return<Loading />
+
+  if (connectError) return 'An error has occurred: ' + connectError.message
+
   
-  if (isPending) return <Loading />;
+  if (mediaPending) return <Loading />;
       
-  if (error) return 'An error has occurred: ' + error.message
+  if (medieError) return 'An error has occurred: ' + medieError.message
   
   
   const featuredImage = ( featuredImageObject ) => {
@@ -57,7 +66,7 @@ function AppRouter() {
     <BrowserRouter basename="/">
       <WindowScrollToTop />
         <div className="wrapper">
-          <Header data={data.acf}/>
+          <Header mediaData={mediaData.acf} connectData={connectData.acf}/>
           
             <main id="main">
               <Routes>
