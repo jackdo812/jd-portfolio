@@ -17,18 +17,6 @@ import { MdWork } from "react-icons/md";
 
 
 const Experiences = () => {
-    // const [modalShow, setModalShow] = useState(false);
-      
-    // Initialize modalShow state with false values for each item in cptData
-    // const cptDataLength = cptData.length;
-    // console.log(cptDataLength);
-    // const [modalShow, setModalShow] = useState(Array(cptDataLength).fill(false));
-    // console.log(modalShow);
-
-       // Initialize modalShow state with false values for each item in cptData
-    //    const initialModalStates = cptData.map(() => false);
-    //    console.log(initialModalStates);
-    //    const [modalShow, setModalShow] = useState(initialModalStates);
     
 
     const { isPending: pageIsPending, error: pageError, data: pageData, isSuccess } = useQuery({
@@ -42,25 +30,11 @@ const Experiences = () => {
         enabled: isSuccess,
       })
 
-      
-    //   if (pageIsPending) return <Loading/>
-    //   if (cptPending) return <Loading/>
 
       if (pageIsPending || cptPending) return <Loading />;
       
       if (pageError) return 'An error has occurred: ' + pageError.message
       if (cptError) return 'An error has occurred: ' + cptError.message
-
-    
-    // Initialize modalShow state with false values
-    const [modalShow, setModalShow] = useState([]);
-
-    useEffect(() => {
-        if (cptData) {
-            const initialModalStates = cptData.map(() => false);
-            setModalShow(initialModalStates);
-        }
-    }, [cptData]);
 
 
     // Sort the cptData by the exp_priority field
@@ -110,33 +84,9 @@ const Experiences = () => {
                         >
                             <h2 className="vertical-timeline-element-title">{cpt.acf.job_title}</h2>
                             <h3 className="vertical-timeline-element-subtitle">{cpt.title.rendered}</h3>
-                            <div className="job-description" dangerouslySetInnerHTML={{__html:cpt.acf.job_description}}></div>
-                            {/* <p>{cpt.acf.past_exp_matter}</p> */}
-                            <div>
-                            {/* <Button className='border-black bg-orange-500 hover:bg-green-500' variant="primary" onClick={() => setModalShow(true)}>
-                                More Info
-                            </Button> */}
-                            <Button
-                                className='border-black bg-orange-500 hover:bg-green-500'
-                                variant="primary"
-                                onClick={() => setModalShow((prev) => prev.map((value, idx) => (idx === index ? true : value)))}
-                                >
-                                More Info
-                                </Button>
-
-
-                            {/* <MyVerticallyCenteredModal
-                                show={modalShow}
-                                onHide={() => setModalShow(false)}
-                                data={cpt}
-                            /> */}
-                            <MyVerticallyCenteredModal
-                                show={modalShow[index]}
-                                onHide={() => setModalShow((prev) => prev.map((value, idx) => (idx === index ? false : value)))}
-                                data={cpt}
-                                />
-
-                            </div>
+                            {/* <div className="job-description" dangerouslySetInnerHTML={{__html:cpt.acf.job_description}}></div> */}
+                            <p>{cpt.acf.past_exp_matter}</p>
+                           
                         </VerticalTimelineElement>
                           
                             )
