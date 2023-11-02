@@ -29,6 +29,10 @@ export default {
         'lato': ['Lato', 'sans-serif'],
         'roboto': ['Roboto Serif', 'sans-serif'],
       },
+      backgroundImage: {
+        'foggy': "url('/src/assets/images/foggy-light-fafbee.jpg')",
+        'forest': "url('/src/assets/images/paper-texture.jpg')",
+      },
     },
   },
   plugins: [],
