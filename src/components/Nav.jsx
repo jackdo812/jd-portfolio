@@ -9,8 +9,8 @@ const Nav = () => {
   }
 
   return (
-    <nav className="h-full main-nav self-center hidden sm:block sm:justify-evenly pb-8 transition-all duration-500" onClick={blur}>
-      <ul className="font-bold flex justify-evenly ">
+    <nav className={`main-nav self-center hidden sm:block sm:justify-evenly sm:transition-all sm:duration-500 sm:absolute sm:bg-orange-200 sm:w-full sm:left-0 animate-flydown sm:h-screen sm:z-50`} onClick={blur}>
+      <ul className="font-bold text-left ml-8">
         <li>
           <NavLink to="/"
             className={location.pathname === "/" ? "text-green-500 underline" : ""}>Home</NavLink>
