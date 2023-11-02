@@ -9,7 +9,7 @@ const Nav = () => {
   }
 
   return (
-    <nav className="main-nav self-center hidden sm:block sm:justify-evenly pb-8" onClick={blur}>
+    <nav className="h-full main-nav self-center hidden sm:block sm:justify-evenly pb-8 transition-all duration-500" onClick={blur}>
       <ul className="font-bold flex justify-evenly ">
         <li>
           <NavLink to="/"

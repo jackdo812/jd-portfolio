@@ -20,7 +20,7 @@ function Carousels({singleProjectData}) {
   const idToRemove = singleProjectData.id;
  
   const filteredPostsData = postsData.filter((post) => post.id !== idToRemove);
-  console.log(filteredPostsData);
+  
   return (
     <Carousel indicators={false} nextIcon={<NextIconSvg />} prevIcon={<PrevIconSvg />}>
       {filteredPostsData.map((post, index) => {

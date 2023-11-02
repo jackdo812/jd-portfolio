@@ -1,5 +1,6 @@
 // Router Components
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import React, { useEffect } from 'react';
 
 
 
@@ -12,6 +13,8 @@ import SingleProject from '../pages/SingleProject'
 import Experiences from '../pages/Experiences'
 import Connect from '../pages/Connect'
 import Loading from '../components/Loading'
+import WindowScrollToTop from '../utilities/WindowScrollToTop'
+
 
 // TanQuery Components
 import {useQuery} from '@tanstack/react-query';
@@ -48,8 +51,11 @@ function AppRouter() {
     return {__html: img}
   }
 
+ 
+
   return (
     <BrowserRouter basename="/">
+      <WindowScrollToTop />
         <div className="wrapper">
           <Header data={data.acf}/>
           
