@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react'
 import Loading from '../components/Loading'
 import SocialMedia from '../components/SocialMedia';
-import CopyToClipboard from '../components/CopyToClipBoard';
+import CopyToClipboard from '../utilities/CopyToClipBoard';
+
 
 // TanQuery Components
 import {useQuery} from '@tanstack/react-query';
