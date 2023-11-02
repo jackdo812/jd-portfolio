@@ -3,7 +3,24 @@ export default {
   content: [  "./index.html",
   "./src/**/*.{js,ts,jsx,tsx}",],
   theme: {
-    extend: {},
+    extend: {
+      animation: {
+        fade: 'fade 1s ease-in-out',
+        fade2: 'fade2 1s ease-in-out',
+      },
+      keyframes: {
+        fade: {
+          '0%': { opacity: '0' },
+          '50%': { opacity: '0.5' },
+          '100%': { opacity: '1' },
+        },
+        fade2: {
+          '0%': { opacity: '0' },
+          '50%': { opacity: '0.5' },
+          '100%': { opacity: '1' },
+        },
+        }
+    },
   },
   plugins: [],
 }

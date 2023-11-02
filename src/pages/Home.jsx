@@ -62,7 +62,7 @@ const Home = ( ) => {
                         }
                     </section>
                     {/* Scroll down arrow */}
-                    <a href='#featured-projects-section'>
+                    <a href='#featured-projects-section' className='block w-fit my-0 mx-auto'>
                         <div className='animate-bounce '>
                             <svg className='w-[48px] h-[48px] rotate-90 ' aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                                 <title>Arrow Down icon</title>
