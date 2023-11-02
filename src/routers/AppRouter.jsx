@@ -11,12 +11,26 @@ import Projects from '../pages/Projects'
 import SingleProject from '../pages/SingleProject'
 import Experiences from '../pages/Experiences'
 import Connect from '../pages/Connect'
+import Loading from '../components/Loading'
 
-
+// TanQuery Components
+import {useQuery} from '@tanstack/react-query';
+import {getPage} from '../api/fetchData';
 
 function AppRouter() {
   
   const restBase = 'https://jackthecoder.com/zxbpsrwen/wp-json/wp/v2/'
+
+  const { isPending, error, data } = useQuery({
+    queryKey: ['mediaSourceData'],
+    queryFn: () => getPage(178)
+  })
+
+  
+  if (isPending) return <Loading />;
+      
+  if (error) return 'An error has occurred: ' + error.message
+  
   
   const featuredImage = ( featuredImageObject ) => {
     let imgWidth = featuredImageObject.media_details.sizes.full.width;
@@ -37,7 +51,7 @@ function AppRouter() {
   return (
     <BrowserRouter basename="/">
         <div className="wrapper">
-          <Header/>
+          <Header data={data.acf}/>
           
             <main id="main">
               <Routes>
