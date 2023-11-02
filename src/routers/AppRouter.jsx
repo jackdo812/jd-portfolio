@@ -65,7 +65,7 @@ function AppRouter() {
   return (
     <BrowserRouter basename="/">
       <WindowScrollToTop />
-        <div className="wrapper">
+        <div className="wrapper font-lato">
           <Header mediaData={mediaData.acf} connectData={connectData.acf}/>
           
             <main id="main">

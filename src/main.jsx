@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client'
 import AppRouter from './routers/AppRouter';
 import { store } from "./store/store";
 import { Provider } from "react-redux";
+import '../normalize-fwd.css';
 import './index.css'
 
 // TanQuery Components

@@ -24,7 +24,11 @@ export default {
           '0%': { height: '0px' },
           '100%': { height: '100vh' },
         },
-        }
+      },
+      fontFamily: {
+        'lato': ['Lato', 'sans-serif'],
+        'roboto': ['Roboto Serif', 'sans-serif'],
+      },
     },
   },
   plugins: [],
