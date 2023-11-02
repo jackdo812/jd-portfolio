@@ -26,7 +26,6 @@ const Projects = ( {featuredImage} ) => {
       if (pageError) return 'An error has occurred: ' + pageError.message
       if (postsError) return 'An error has occurred: ' + postsError.message
 
-      console.log(postsData);
       
     return (
         <>

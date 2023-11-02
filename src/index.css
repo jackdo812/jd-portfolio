@@ -696,3 +696,9 @@ footer p {
   .carousel-inner {
 	height: 400px;
   }
+
+  /* Testing Animation Menu */
+
+  .move-up {
+	transform: translateY(-10px);
+  }

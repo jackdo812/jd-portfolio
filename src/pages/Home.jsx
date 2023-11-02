@@ -61,8 +61,15 @@ const Home = ( ) => {
                             </Link>
                         }
                     </section>
-                </div>
-                <section className='featured-projects'>
+                    {/* Scroll down arrow */}
+                    <a href='#featured-projects-section'>
+                        <div className='animate-bounce '>
+                            <svg className='w-[48px] h-[48px] rotate-90 ' aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                <title>Arrow Down icon</title>
+                                <path d="M10.024 4h6.015l7.961 8-7.961 8h-6.015l7.961-8-7.961-8zm-10.024 16h6.015l7.961-8-7.961-8h-6.015l7.961 8-7.961 8z"/></svg>
+                        </div>
+                    </a>
+                <section id='featured-projects-section' className='featured-projects'>
                     {data.acf.section_2_title &&
                         <h2>{data.acf.section_2_title}</h2>
                     }
@@ -77,6 +84,7 @@ const Home = ( ) => {
                         </Link>
                     }
                 </section>
+                </div>
             </article>
         </>            
     )
