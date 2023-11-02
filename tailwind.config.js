@@ -30,8 +30,13 @@ export default {
         'roboto': ['Roboto Serif', 'sans-serif'],
       },
       backgroundImage: {
-        'foggy': "url('/src/assets/images/foggy-light-fafbee.jpg')",
-        'forest': "url('/src/assets/images/paper-texture.jpg')",
+        'foggybg': "url('/src/assets/images/foggy-light-fafbee.jpg')",
+        'forestbg': "url('/src/assets/images/paper-texture.jpg')",
+      },
+      colors: {
+        "foggy": "#FAFBEE",
+        "forest": "#053B06",
+        "leaf": "#04773B",
       },
     },
   },
