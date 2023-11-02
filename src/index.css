@@ -352,10 +352,10 @@ ol {
 	padding: 0;
 }
 
-p + ul,
+/* p + ul,
 p + ol {
 	margin: -1em 0 1.5em 3em;
-}
+} */
 
 ul {
 	list-style: disc;
@@ -690,3 +690,9 @@ footer p {
 	background: black !important;
 
   } */
+
+  /* Carousels - See other projects */
+
+  .carousel-inner {
+	height: 400px;
+  }

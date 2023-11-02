@@ -1,23 +1,23 @@
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 
-function FullWidthTabs () {
+function FullWidthTabs ({dataACF}) {
     return (
-  <Tabs>
+  <Tabs className={'mt-4'}>
     <TabList>
-      <Tab>Title 1</Tab>
-      <Tab>Title 2</Tab>
-      <Tab>Title 3</Tab>
+      <Tab>{dataACF.project_details_heading_1}</Tab>
+      <Tab>{dataACF.project_details_heading_2}</Tab>
+      <Tab>{dataACF.project_details_heading_3}</Tab>
     </TabList>
 
     <TabPanel>
-      <h2>Any content 1</h2>
+      <div dangerouslySetInnerHTML={{__html:dataACF.project_details_content_1}}></div>
     </TabPanel>
     <TabPanel>
-      <h2>Any content 2</h2>
+    <div dangerouslySetInnerHTML={{__html:dataACF.project_details_content_2}}></div>
     </TabPanel>
     <TabPanel>
-      <h2>Any content 3</h2>
+    <div dangerouslySetInnerHTML={{__html:dataACF.project_details_content_3}}></div>
     </TabPanel>
   </Tabs>
 );
