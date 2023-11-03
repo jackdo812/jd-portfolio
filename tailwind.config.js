@@ -37,6 +37,7 @@ export default {
         "foggy": "#FAFBEE",
         "forest": "#053B06",
         "leaf": "#04773B",
+        "soil": "#ae8b0c",
       },
     },
   },

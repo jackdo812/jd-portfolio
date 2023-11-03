@@ -44,6 +44,13 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+	.highlight {
+		background: linear-gradient(0deg, rgb(232 181 0 / 29%) 0%, rgba(250,251,238,1) 56%);
+		border-bottom: 2px solid #f6c411 !important;
+	}
+}
+
 
 /* React Tabs Styling */
 
