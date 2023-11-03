@@ -73,21 +73,29 @@ const Experiences = () => {
                     <div className='timeline-section'>   
                     <VerticalTimeline lineColor="green">
                         {cptData.map((cpt, index) => {
-                            return (
-                         <VerticalTimelineElement
-                            key={index}
-                            className="vertical-timeline-element--work"
-                            contentStyle={{ background: '#FAFBEE', border: '1px solid #04773B', color: '#053B06' }}
-                            contentArrowStyle={{ borderRight: '7px solid #04773B' }}
-                            date={cpt.acf.work_duration}
-                            iconStyle={{ background: '#f1c834', color: '#fff', border: '2px solid green' }}
-                            iconClassName='border-2 border-green-600'
-                            icon={<MdWork />}
-                        >
-                            <h2 className="vertical-timeline-element-title font-bold">{cpt.acf.job_title}</h2>
-                            <h3 className="vertical-timeline-element-subtitle italic pt-2">{cpt.title.rendered}</h3>
-                            <p>{cpt.acf.past_exp_matter}</p>           
-                        </VerticalTimelineElement>  
+                            return (                   
+                               <VerticalTimelineElement
+                                   key={index}
+                                   className="vertical-timeline-element--work"
+                                   contentStyle={{ background: '#FAFBEE', border: '1px solid #04773B', color: '#053B06' }}
+                                   contentArrowStyle={{ borderRight: '7px solid #04773B' }}                           
+                                   date={cpt.acf.work_duration}
+                                   iconStyle={{ background: '#f1c834', color: '#fff', border: '2px solid green' }}
+                                   iconClassName='border-2 border-green-600'
+                                   icon={<MdWork />}
+                               >
+                                    {(cpt.acf.job_title && cpt.title.rendered && cpt.acf.past_exp_matter) ? (
+                                        <>
+                                            <h2 className="vertical-timeline-element-title font-bold">{cpt.acf.job_title}</h2>
+                                            <h3 className="vertical-timeline-element-subtitle italic pt-2">{cpt.title.rendered}</h3>
+                                            <p>{cpt.acf.past_exp_matter}</p>               
+                                        </>
+                                    ) : ( 
+                                        <p>Infomation loading... Please double-check your input...!</p>
+                                    )
+
+                                    }
+                               </VerticalTimelineElement>    
                             )
                          })}
                       </VerticalTimeline>  
