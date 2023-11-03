@@ -10,7 +10,7 @@ const Nav = ({connectData, closeMenu}) => {
   }
 
   return (
-    <nav className={`main-nav self-center hidden sm:block sm:justify-evenly sm:transition-all sm:duration-500 sm:absolute sm:bg-orange-200 sm:w-full sm:left-0 animate-flydown sm:h-screen sm:z-50`} onClick={blur}>
+    <nav className={`main-nav self-center hidden md:block md:justify-evenly md:transition-all md:duration-500 md:absolute md:bg-orange-200 md:w-full md:left-0 animate-flydown md:h-screen md:z-50`} onClick={blur}>
      
         <SocialMedia linkedInLink={connectData.linkedin_link} githubLink={connectData.github_link} height={'30px'} width={'30px'}/>
   

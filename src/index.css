@@ -49,6 +49,36 @@
 		background: linear-gradient(0deg, rgb(232 181 0 / 29%) 0%, rgba(250,251,238,1) 56%);
 		border-bottom: 2px solid #f6c411 !important;
 	}
+	.primary-button {
+		color: #fafbee;
+		background-color: #04773B;
+		border-color: #04773B;
+		border-radius: 10px;
+		text-transform: uppercase;
+		padding: .5rem 1rem;
+		font-weight: 700;
+	}
+	.primary-button-hover {
+		color: #053B06;
+		background-color: #f1c834;
+		border-color: #f1c834;
+		font-weight: 700;
+	}
+	.secondary-button {
+		color: #04773B;
+		border-color: 04773B;
+		border: 2px solid #04773B;
+		border-radius: 10px;
+		text-transform: uppercase;
+		padding: .5rem 1rem;
+		font-weight: 700;
+	}
+	.secondary-button-hover {
+		color: #ae8b0c;
+		border-color: #ae8b0c;
+		border: 2px solid #ae8b0c;
+		font-weight: 700;
+	}
 }
 
 
