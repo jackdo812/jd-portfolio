@@ -59,47 +59,46 @@ const Experiences = () => {
 
     return (
         <>
-       
             <article id={`post-${pageData.id}`}>
-                <h1>{pageData.title.rendered}</h1>
-                <div className="entry-content" dangerouslySetInnerHTML={{__html:pageData.content.rendered}}>
+                {pageData.title.rendered ? (
+                    <h1 className='text-3xl font-bold font-roboto text-center uppercase pb-10 pt-16'>{pageData.title.rendered}</h1>
+                )  : (
+                    <h1>Experiences</h1>
+                )
+                }
+                <div className="text-center pb-4 mx-2" dangerouslySetInnerHTML={{__html:pageData.content.rendered}}>
                 </div>
                 {/* Timeline section */}
                 {cptData && 
-                
-                    <section className='timeline-section'>
-                        
+                    <div className='timeline-section'>   
                     <VerticalTimeline lineColor="green">
                         {cptData.map((cpt, index) => {
                             return (
                          <VerticalTimelineElement
                             key={index}
                             className="vertical-timeline-element--work"
-                            contentStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
-                            contentArrowStyle={{ borderRight: '7px solid  rgb(33, 150, 243)' }}
+                            contentStyle={{ background: '#FAFBEE', border: '1px solid #04773B', color: '#053B06' }}
+                            contentArrowStyle={{ borderRight: '7px solid #04773B' }}
                             date={cpt.acf.work_duration}
-                            iconStyle={{ background: 'rgb(33, 150, 243)', color: '#fff', border: '2px solid green' }}
-                            // iconClassName='border-2 border-green-600'
+                            iconStyle={{ background: '#f1c834', color: '#fff', border: '2px solid green' }}
+                            iconClassName='border-2 border-green-600'
                             icon={<MdWork />}
                         >
-                            <h2 className="vertical-timeline-element-title">{cpt.acf.job_title}</h2>
-                            <h3 className="vertical-timeline-element-subtitle">{cpt.title.rendered}</h3>
-                            {/* <div className="job-description" dangerouslySetInnerHTML={{__html:cpt.acf.job_description}}></div> */}
-                            <p>{cpt.acf.past_exp_matter}</p>
-                           
-                        </VerticalTimelineElement>
-                          
+                            <h2 className="vertical-timeline-element-title font-bold">{cpt.acf.job_title}</h2>
+                            <h3 className="vertical-timeline-element-subtitle italic pt-2">{cpt.title.rendered}</h3>
+                            <p>{cpt.acf.past_exp_matter}</p>           
+                        </VerticalTimelineElement>  
                             )
                          })}
                       </VerticalTimeline>  
-                      
-                    
-                    </section>
+                    </div>
                 }
                 {pageData.acf.cta_text && pageData.acf.cta_link &&
-                    <a href={pageData.acf.cta_link} className='text-2xl' target='_blank' rel='noopener'>
+                    <div className='flex justify-center pt-10 mb-10'>
+                    <a href={pageData.acf.cta_link} className='primary-button' target='_blank' rel='noopener'>
                         {pageData.acf.cta_text}
                     </a>
+                    </div>
                 }
             </article>
       

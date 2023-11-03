@@ -24,7 +24,7 @@ const Connect = () => {
         <div className='wrapper flex flex-col min-h-screen'>
             <div className='content flex-1'> 
                 <article id={`post-${data.id}`}>
-                    <h1 className='font-bold uppercase text-center text-3xl pt-20 mb-14'>{data.title.rendered}</h1>
+                    <h1 className='font-bold font-roboto uppercase text-center text-3xl pt-20 mb-14'>{data.title.rendered}</h1>
                     <div className="text-center mb-10" dangerouslySetInnerHTML={{__html:data.content.rendered}}>
                     </div>
                     <div className='flex justify-center pt-10'>
