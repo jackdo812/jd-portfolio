@@ -35,12 +35,10 @@ function AppRouter() {
   })
 
   if (connectPending) return<Loading />
-
   if (connectError) return 'An error has occurred: ' + connectError.message
 
   
-  if (mediaPending) return <Loading />;
-      
+  if (mediaPending) return <Loading />; 
   if (medieError) return 'An error has occurred: ' + medieError.message
   
   
@@ -65,7 +63,7 @@ function AppRouter() {
   return (
     <BrowserRouter basename="/">
       <WindowScrollToTop />
-        <div className="wrapper font-lato bg-foggybg">
+        <div className="wrapper font-lato bg-foggybg text-forest">
           <Header mediaData={mediaData.acf} connectData={connectData.acf}/>
           
             <main id="main">

@@ -29,7 +29,7 @@ const Home = ( ) => {
     return (
         <>
         {data.acf.title && 
-            <h1 className='font-roboto text-[5rem]'>{data.acf.title}</h1>      
+            <h1 className='font-roboto text-[5rem] uppercase text-center'>{data.acf.title}</h1>      
         }
             <article id={`post-${data.id}`}>
                 <div className="entry-content">
