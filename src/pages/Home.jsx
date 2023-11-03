@@ -33,17 +33,17 @@ const Home = ( ) => {
             <img className='w-[300px] sm:hidden my-2 mx-auto' src={data.acf.portrait} alt="Animated cartoonized portrait" />
         }
         {data.acf.title && 
-            <h1 className='font-roboto text-[3.5rem] mb-4 uppercase text-center md:text-[5rem]'>{data.acf.title}</h1>      
+            <h1 className='font-roboto text-[3rem] mb-4 uppercase text-center md:text-[5rem]'>{data.acf.title}</h1>      
         }
             <article id={`post-${data.id}`}>
                 <div className="entry-content">
                     <section className='intro-section'>
                         {/* Intro Messages */}
                         {data.acf.intro_messages && 
-                            <h2 className='text-2xl text-center underline underline-offset-[5px] decoration-[#ae8b0c75]  ' dangerouslySetInnerHTML={{__html:data.acf.intro_messages}}></h2>
+                            <h2 className='text-[1.3rem] text-center underline underline-offset-[5px] decoration-[#ae8b0c75]  ' dangerouslySetInnerHTML={{__html:data.acf.intro_messages}}></h2>
                         }
                         {data.acf.intro_messages_2 && 
-                            <p className='text-2xl text-center mb-8' dangerouslySetInnerHTML={{__html:data.acf.intro_messages_2}}></p>
+                            <p className='text-[1.3rem] text-center mb-10' dangerouslySetInnerHTML={{__html:data.acf.intro_messages_2}}></p>
                         }
                         {/* Animated Portrait */}
                         {data.acf.portrait &&
@@ -70,25 +70,28 @@ const Home = ( ) => {
                     <a href='#featured-projects-section' className='block w-fit my-0 mx-auto'>
                         <div className='animate-bounce mt-14'>
                             <svg className='w-[48px] h-[48px] rotate-90 fill-soil' aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                                <title>Arrow Down icon</title>
+                                <title>scrolling down arrow icon</title>
                                 <path d="M10.024 4h6.015l7.961 8-7.961 8h-6.015l7.961-8-7.961-8zm-10.024 16h6.015l7.961-8-7.961-8h-6.015l7.961 8-7.961 8z"/></svg>
                         </div>
                     </a>
-                <section id='featured-projects-section' className='featured-projects'>
-                    {data.acf.section_2_title &&
-                        <h2>{data.acf.section_2_title}</h2>
-                    }
-                    {/* Project List */}
-                    {postsData &&
-                        <ProjectCard postsData={postsData} isOnHome={true} />
-                    }
-                    {/* See all button */}
-                    {(data.acf.section_2_cta_text && data.acf.section_2_cta_link) &&
-                        <Link to={data.acf.section_2_cta_link} className='text-2xl' target='_blank' rel='noopener'>
-                            {data.acf.section_2_cta_text}
-                        </Link>
-                    }
-                </section>
+                    <section id='featured-projects-section' className='featured-projects'>
+                        {data.acf.section_2_title &&
+                            <h2 className='font-roboto text-2xl text-center mt-20 mb-4'>{data.acf.section_2_title}</h2>
+                        }
+                        {/* Project List */}
+                        {postsData &&
+                            <ProjectCard postsData={postsData} isOnHome={true} />
+                        }
+                        {/* See all button */}
+                        {(data.acf.section_2_cta_text && data.acf.section_2_cta_link) &&
+                            <Link to={data.acf.section_2_cta_link} className='primary-button my-8 mx-auto w-fit flex' target='_blank' rel='noopener'>
+                                {data.acf.section_2_cta_text}
+                                <svg className='fill-foggy ml-2 w-[20px] h-[20px] self-center' aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                <title>arrow icon</title>
+                                <path d="M10.024 4h6.015l7.961 8-7.961 8h-6.015l7.961-8-7.961-8zm-10.024 16h6.015l7.961-8-7.961-8h-6.015l7.961 8-7.961 8z"/></svg>
+                            </Link>
+                        }
+                    </section>
                 </div>
             </article>
         </>            

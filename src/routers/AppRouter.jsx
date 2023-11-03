@@ -66,7 +66,7 @@ function AppRouter() {
         <div className="wrapper font-lato bg-foggybg text-forest">
           <Header mediaData={mediaData.acf} connectData={connectData.acf}/>
           
-            <main id="main">
+            <main id="main" className="mx-2">
               <Routes>
                 <Route path='/' element={<Home restBase={restBase} />} />
                 <Route path='/about' element={<About restBase={restBase} />} />
