@@ -33,14 +33,14 @@ const Home = ( ) => {
             <img className='w-[300px] sm:hidden my-2 mx-auto' src={data.acf.portrait} alt="Animated cartoonized portrait" />
         }
         {data.acf.title && 
-            <h1 className='font-roboto text-[3rem] mb-4 uppercase text-center md:text-[5rem]'>{data.acf.title}</h1>      
+            <h1 className='font-roboto text-[3rem] my-4 uppercase text-center md:text-[5rem]'>{data.acf.title}</h1>      
         }
             <article id={`post-${data.id}`}>
                 <div className="entry-content">
                     <section className='intro-section'>
                         {/* Intro Messages */}
                         {data.acf.intro_messages && 
-                            <h2 className='text-[1.3rem] text-center underline underline-offset-[5px] decoration-[#ae8b0c75]  ' dangerouslySetInnerHTML={{__html:data.acf.intro_messages}}></h2>
+                            <h2 className='text-[1.3rem] text-center mt-8 underline underline-offset-[5px] decoration-[#ae8b0c75]  ' dangerouslySetInnerHTML={{__html:data.acf.intro_messages}}></h2>
                         }
                         {data.acf.intro_messages_2 && 
                             <p className='text-[1.3rem] text-center mb-10' dangerouslySetInnerHTML={{__html:data.acf.intro_messages_2}}></p>
@@ -68,7 +68,7 @@ const Home = ( ) => {
                     </section>
                     {/* Scroll down arrow */}
                     <a href='#featured-projects-section' className='block w-fit my-0 mx-auto'>
-                        <div className='animate-bounce mt-14'>
+                        <div className='animate-bounce mt-20'>
                             <svg className='w-[48px] h-[48px] rotate-90 fill-soil' aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                                 <title>scrolling down arrow icon</title>
                                 <path d="M10.024 4h6.015l7.961 8-7.961 8h-6.015l7.961-8-7.961-8zm-10.024 16h6.015l7.961-8-7.961-8h-6.015l7.961 8-7.961 8z"/></svg>
