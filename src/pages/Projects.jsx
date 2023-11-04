@@ -1,5 +1,3 @@
-import { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
 import Loading from '../components/Loading'
 import ProjectCard from '../components/ProjectCard'
 
@@ -29,17 +27,25 @@ const Projects = ( {featuredImage} ) => {
       
     return (
         <>
-                <h1>Projects</h1>
+                {pageData.title.rendered ?(
+                  <h1 className='text-3xl font-bold font-roboto uppercase text-center pb-10 pt-16'>{pageData.title.rendered}</h1>
+                  ) : (
+                   <h1>Projects</h1>
+                  )
+                }
+                {pageData.acf.project_page_description &&
+                    <div className='text-center mb-14' dangerouslySetInnerHTML={{__html:pageData.acf.project_page_description}}></div>
+                }
                 
-               {postsData ? (
-                <ProjectCard postsData={postsData}/>
+               {postsData ? 
+               (
+                 <div className='mb-16'>    
+                 <ProjectCard postsData={postsData}/>
+                </div>
                 ) : (
                 <p>There are no projects to display</p>
-                )}
-               
-              
-         
-       
+                )
+                }
         </>
     )
 }

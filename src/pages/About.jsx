@@ -28,9 +28,9 @@ const About = () => {
             <article id={`post-${data.id}`}>
                 <div className="entry-content" >
                     <section className='bio-section'>
-                        <h2 className='font-bold'>Me, Myself and I</h2>
                         {/* Portrait photo */}
-                            <img className='w-[300px]' src={data.acf.about_page_portrait} alt="Portrait photo" />
+                        <img className='w-[300px] mt-8' src={data.acf.about_page_portrait} alt="Portrait photo" />
+                        <h2 className='font-bold uppercase font-roboto text-2xl text-center pb-10 pt-6'>Me, Myself & I</h2>
                         {/* Bio */}
                             {data.acf.bio &&
                                 <p dangerouslySetInnerHTML={{__html:data.acf.bio}}></p>
