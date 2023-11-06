@@ -53,6 +53,7 @@
 		color: #fafbee;
 		background-color: #04773B;
 		border-color: #04773B;
+		border: 1px solid #04773B;
 		border-radius: 10px;
 		text-transform: uppercase;
 		padding: .5rem 1rem;
@@ -67,7 +68,7 @@
 	.secondary-button {
 		color: #04773B;
 		border-color: 04773B;
-		border: 2px solid #04773B;
+		border: 1px solid #04773B;
 		border-radius: 10px;
 		text-transform: uppercase;
 		padding: .5rem 1rem;
@@ -91,24 +92,29 @@
 
 .react-tabs {
 	-webkit-tap-highlight-color: transparent;
-	border: 0.5px solid #aaa;
+	border: 0.5px solid #FAFBEE;
 	border-radius: 5px;
   }
   
   .react-tabs__tab-list {
-	border-bottom: 1px solid #aaa;
-	margin: 0 0 10px;
+	border-bottom: 1px solid #FAFBEE;
+	margin: 0;
 	padding: 0;
-	background-color: rgb(57, 194, 57);
+	background-color: #04773B;
 	display: flex;
 	justify-content: space-between;
+	border-top-right-radius: 10px;
+	border-top-left-radius: 10px;
+	font-weight: 700;
+	font-size: calc(0.7rem + 0.5vw);
+	color: #FAFBEE;
   }
   
   .react-tabs__tab {
 	display: inline-block;
 	border: 1px solid transparent;
 	border-bottom: none;
-	bottom: -1px;
+	bottom: 0px;
 	position: relative;
 	list-style: none;
 	padding: 6px 12px;
@@ -118,11 +124,13 @@
   }
   
   .react-tabs__tab--selected {
-	background: #fff;
-	border-color: #aaa;
-	color: black;
-	border-radius: 5px 5px 0 0;
+	background: #FAFBEE;
+	border-bottom: 1px solid #FAFBEE;
+	border-color: #FAFBEE;
+	color: #053B06;
+	border-radius: 7px 7px 0 0;
 	width: 33.34%;
+	text-decoration: underline;
   }
   
   .react-tabs__tab:focus {
@@ -132,24 +140,45 @@
   .react-tabs__tab:focus:after {
 	content: '';
 	position: absolute;
-	height: 5px;
+	height: 0px;
 	left: -4px;
 	right: -4px;
 	bottom: -5px;
-	background: #fff;
+	background: #FAFBEE;
   }
   
   .react-tabs__tab-panel {
 	display: none;
+	padding: 1rem;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
   }
+
+  /* .react-tabs__tab:hover {
+	background-color: red;
+  } */
+
   
   .react-tabs__tab-panel--selected {
 	display: block;
+	background-color: #FAFBEE;
   }
 
 
   /* Carousels - See other projects */
 
   .carousel-inner {
-	height: 400px;
+	height: 350px;
   }
+
+  @media (min-width: 22.5rem) {
+	.carousel-inner {
+	  height: 400px;
+  }
+}
+
+  @media (min-width: 28.125rem) {
+	.carousel-inner {
+	  height: 450px;
+  }
+}

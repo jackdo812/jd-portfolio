@@ -27,12 +27,12 @@ function Carousels({singleProjectData}) {
       {filteredPostsData.map((post, index) => {
         return (
           <Carousel.Item key={index}>
-            <Carousel.Caption className='relative right-0 bottom-0 left-0 text-red-600 w-[75%] mx-auto my-0'>
-              <article className='border border-black rounded pb-4'>
+            <Carousel.Caption className='relative right-0 bottom-0 left-0 text-forest w-[75%] min-[500px]:w-[300px] mx-auto my-0'>
+              <article className='border shadow-md shadow-forest border-leaf bg-foggy rounded pb-4'>
                 <Link to={`/projects/${post.slug}`}>
                   <img className='w-[300px] my-0 mx-auto' src={post.acf.video_teaser} alt="Project's GIF teaser" />
                   <h3 className='font-bold'>{post.title.rendered}</h3>
-                  <p>{post._embedded["wp:term"][1].map((tag, idx) => (
+                  <p className='italic'>{post._embedded["wp:term"][1].map((tag, idx) => (
                     <span key={idx}>{tag.name}{idx < post._embedded["wp:term"][1].length - 1 ? " | " : null}</span>
                   ))}
                   </p>
