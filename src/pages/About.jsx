@@ -8,17 +8,30 @@ import LocationPin from '../assets/gifs/locationpin_ripple.gif'
 import {useQuery} from '@tanstack/react-query';
 import {getPage} from '../api/fetchData';
 
+import ReactCardFlip from 'react-card-flip';
+
 
 const About = () => {
-    const [isHobby1Revealed, setIsHobby1Revealed] = useState(false)
 
-    const hobbyRevealed = () => {
-        setIsHobby1Revealed(true);
-    }
+    const [isHobby1Flipped, setIsHobby1Flipped] = useState(false);
+    const [isHobby2Flipped, setIsHobby2Flipped] = useState(false);
+    const [isHobby3Flipped, setIsHobby3Flipped] = useState(false);
 
-    const closeHobby = () => {
-        setIsHobby1Revealed(false);
-    }
+    const revealHobby1 = (e) => {
+        e.preventDefault();
+        setIsHobby1Flipped((prevState) => !prevState);
+    };
+
+    const revealHobby2 = (e) => {
+        e.preventDefault();
+        setIsHobby2Flipped((prevState) => !prevState);
+    };
+
+    const revealHobby3 = (e) => {
+        e.preventDefault();
+        setIsHobby3Flipped((prevState) => !prevState);
+    };
+
 
 
     const { isPending, error, data } = useQuery({
@@ -39,7 +52,7 @@ const About = () => {
                 <img className='w-[300px] pt-8 mx-auto my-0' src={data.acf.about_page_portrait} alt="Portrait photo" />
                 <div className="entry-content mx-4" >
                     <section className='bio-section'>
-                        <h2 className='font-bold font-roboto text-2xl pb-10 pt-6'>Me, Myself & I</h2>
+                        <h2 className='font-bold font-roboto text-2xl pb-10 pt-6 text-center'>Me, Myself & I</h2>
                         {/* Bio */}
                             {data.acf.bio &&
                                 <div dangerouslySetInnerHTML={{__html:data.acf.bio}} className='pb-3'></div>
@@ -52,7 +65,7 @@ const About = () => {
                             }                    
                         {/* Primary CTA */}
                         {data.acf.primary_cta_text_about && data.acf.primary_cta_link_about &&
-                            <Link className='primary-button block my-2 mx-auto w-fit' to={data.acf.primary_cta_link_about} > {data.acf.primary_cta_text_about}
+                            <Link className='primary-button block my-4 mx-auto w-fit' to={data.acf.primary_cta_link_about} > {data.acf.primary_cta_text_about}
                             </Link>
                         }
                         {/* Secondary CTA */}
@@ -64,7 +77,7 @@ const About = () => {
                     <section className='Techstack-section mt-20 '>
                         {/* Tech Stack title */}
                         {(data.acf.tech_stack_title && data.acf.tech_stack) &&
-                            <h2 className='font-bold font-roboto text-2xl mb-4'>{data.acf.tech_stack_title}</h2>
+                            <h2 className='font-bold font-roboto text-2xl mb-4 text-center'>{data.acf.tech_stack_title}</h2>
                         }
                         {/* Tech Stack List */}
                         {data.acf.tech_stack && 
@@ -74,14 +87,80 @@ const About = () => {
                     </section>
                     <section className='hobbies-section my-14'>
                         {data.acf.hobby_section_title &&
-                            <h2 className='font-bold font-roboto text-2xl mb-4'>{data.acf.hobby_section_title}</h2>
+                            <h2 className='font-bold font-roboto text-2xl mb-4 text-center'>{data.acf.hobby_section_title}</h2>
                         }
-                        {/* Hobbies */}
+                        {/* Hobbies Title */}
                         {data.acf.hobby_illustration_desktop &&
                             <img className='hidden' src={data.acf.hobby_illustration_desktop} alt="3 Mountains Drawing" />
                         }
-                   
-                
+                      
+                        {/* Hobbies Info and Flip Animation */}
+                        <div className=''>
+                            {data.acf.hobby_1 && data.acf.hobby_1_illustration &&
+                                <div className='mb-8'>
+                                    <ReactCardFlip isFlipped={isHobby1Flipped} flipDirection="horizontal">
+                                    <div className="front-component">
+                                            <div className='flip-card-front mx-auto my-0 rounded-[10px] max-w-[250px] backface-hidden z-20 h-[300px] border relative bg-white shadow-md'>
+                                                <img className={`absolute w-[250px] z-10 left-0 bottom-0`} src={data.acf.hobby_1_illustration} alt="Illustration for Hobby 1" />
+                                                <img className={`absolute z-20 w-[40px] left-[50%] bottom-[37%] cursor-pointer`} src={LocationPin} alt="Location Pin GIF" onClick={revealHobby1}/>
+                                            </div>
+                                    </div>
+
+                                    <div className="back-component">
+                                            <div className={`flip-card-back mx-auto my-0 rounded-[10px] w-[240px] transform rotate-y-180 backface-hidden relative shadow-md`}>
+                                                <img className={`w-[240px] rounded-[10px]`} src={data.acf.hobby_1} alt="Hobby 1" />
+                                                <span className={`absolute right-[10px] top-0 z-20 text-white text-2xl cursor-pointer underline`}>x</span>
+                                                <span className={`absolute right-[10px] top-0 z-20 text-sun animate-ping text-2xl cursor-pointer underline`} onClick={revealHobby1}>x</span>
+                                            </div>
+                                    </div>
+                                    </ReactCardFlip>
+                                </div>
+                            }
+
+
+                            
+                            {data.acf.hobby_2 && data.acf.hobby_2_illustration &&
+                                <div className='mb-8'>
+                                    <ReactCardFlip isFlipped={isHobby2Flipped} flipDirection="horizontal">
+                                    <div className="front-component">
+                                            <div className='flip-card-front mx-auto my-0 rounded-[10px] max-w-[250px] backface-hidden z-20 h-[300px] border relative bg-white shadow-md'>
+                                                <img className={`absolute w-[250px] z-10 left-0 bottom-0`} src={data.acf.hobby_2_illustration} alt="Illustration for Hobby 1" />
+                                                <img className={`absolute z-20 w-[40px] left-[40%] bottom-[26%] cursor-pointer`} src={LocationPin} alt="Location Pin GIF" onClick={revealHobby2}/>
+                                            </div>
+                                    </div>
+
+                                    <div className="back-component">
+                                            <div className={`flip-card-back mx-auto my-0 rounded-[10px] w-[240px] transform rotate-y-180 backface-hidden relative shadow-md`}>
+                                                <img className={`w-[240px] rounded-[10px]`} src={data.acf.hobby_2} alt="Hobby 1" />
+                                                <span className={`absolute right-[10px] top-0 z-20 text-white text-2xl cursor-pointer underline`}>x</span>
+                                                <span className={`absolute right-[10px] top-0 z-20 text-sun animate-ping text-2xl cursor-pointer underline`} onClick={revealHobby2}>x</span>
+                                            </div>
+                                    </div>
+                                    </ReactCardFlip>
+                             </div>
+                            }
+
+                            {data.acf.hobby_3 && data.acf.hobby_3_illustration &&
+                                <div className='mb-8'>
+                                    <ReactCardFlip isFlipped={isHobby3Flipped} flipDirection="horizontal">
+                                    <div className="front-component">
+                                            <div className='flip-card-front mx-auto my-0 rounded-[10px] max-w-[250px] backface-hidden z-20 h-[320px] border relative bg-white shadow-md'>
+                                                <img className={`absolute w-[250px] z-10 left-0 bottom-0`} src={data.acf.hobby_3_illustration} alt="Illustration for Hobby 1" />
+                                                <img className={`absolute z-20 w-[40px] left-[60%] bottom-[20%] cursor-pointer`} src={LocationPin} alt="Location Pin GIF" onClick={revealHobby3}/>
+                                            </div>
+                                    </div>
+
+                                    <div className="back-component">
+                                            <div className={`flip-card-back mx-auto my-0 rounded-[10px] w-[240px] transform rotate-y-180 backface-hidden relative shadow-md`}>
+                                                <img className={`w-[240px] rounded-[10px]`} src={data.acf.hobby_3} alt="Hobby 1" />
+                                                <span className={`absolute right-[10px] top-0 z-20 text-white text-2xl cursor-pointer underline`}>x</span>
+                                                <span className={`absolute right-[10px] top-0 z-20 text-sun animate-ping text-2xl cursor-pointer underline`} onClick={revealHobby3}>x</span>
+                                            </div>
+                                    </div>
+                                    </ReactCardFlip>
+                            </div>
+                            }
+                        </div>
                     </section>
                 </div>
             </article>
