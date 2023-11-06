@@ -13,8 +13,10 @@ const ProjectCard = ({postsData, isOnHome}) => {
   return (
     <div className='mx-4'>
       {isOnHome ? (
-          newPostsData.map(post => 
-            <article key={post.id} id={`post-${post.id}`} className='border-2 shadow-md rounded bg-foggy my-8 mx-auto max-w-[300px]'>
+        <div className='md:flex md:gap-8 min-[900px]:gap-16 min-[1200px]:gap-24'> 
+          {newPostsData.map(post => 
+           
+            <article key={post.id} id={`post-${post.id}`} className='border-2 shadow-md rounded bg-foggy my-8 mx-auto max-w-[300px] md:max-w-[250px] min-[950px]:max-w-[300px]'>
                 {/* {post.featured_media !== 0 && post._embedded &&
                     <figure className="featured-image" dangerouslySetInnerHTML={featuredImage(post._embedded['wp:featuredmedia'][0])}></figure>
                 } */}
@@ -24,10 +26,11 @@ const ProjectCard = ({postsData, isOnHome}) => {
                 {post.title.rendered &&
                     <h3 className='font-bold text-[1.3rem] text-center'>{post.title.rendered}</h3>    
                 }
-                <Link to={`/projects/${post.slug}`} className='primary-button my-4 mx-auto block w-fit'>More Info</Link>
+                <Link to={`/projects/${post.slug}`} className='primary-button my-4 mx-auto block w-fit transition-all duration-500 md:hover:primary-button-hover'>More Info</Link>
 
             </article>
-            )
+            )}
+          </div>  
       ): (
         
         newPostsData.map(post => 

@@ -1,6 +1,6 @@
 import Loading from '../components/Loading'
 import { Link } from 'react-router-dom';
-import JackGif from '../assets/gifs/jack_cartoon.gif'
+import {useState} from 'react';
 import ProjectCard from '../components/ProjectCard';
 
 // TanQuery Components
@@ -8,6 +8,15 @@ import {useQuery} from '@tanstack/react-query';
 import {getPage, getPost} from '../api/fetchData';
 
 const Home = ( ) => {
+    const [isSeeAllHovered, setIsSeeAllHovered] = useState(false);
+
+    const handleMouseEnter = () => {
+        setIsSeeAllHovered(true);
+      };
+    
+      const handleMouseLeave = () => {
+        setIsSeeAllHovered(false);
+      };
 
     const { isPending, error, data, isSuccess } = useQuery({
         queryKey: ['homeData'],
@@ -75,28 +84,30 @@ const Home = ( ) => {
                     {/* Scroll down arrow */}
                     <a href='#featured-projects-section' className='block w-fit my-0 mx-auto'>
                         <div className='animate-bounce mt-20 md:mt-52'>
-                            <svg className='w-[48px] h-[48px] rotate-90 fill-soil' aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <svg className='w-[48px] h-[48px] rotate-90 fill-soil md:hover:fill-forest md:transition-all md:duration-500' aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                                 <title>scrolling down arrow icon</title>
                                 <path d="M10.024 4h6.015l7.961 8-7.961 8h-6.015l7.961-8-7.961-8zm-10.024 16h6.015l7.961-8-7.961-8h-6.015l7.961 8-7.961 8z"/></svg>
                         </div>
                     </a>
-                    <section id='featured-projects-section' className='featured-projects'>
+                    <section id='featured-projects-section' className='featured-projects mb-8'>
                         {data.acf.section_2_title &&
-                            <h2 className='font-roboto text-2xl text-center mt-20 mb-4'>{data.acf.section_2_title}</h2>
+                            <h2 className='font-roboto text-2xl text-center mt-20 mb-4 md:!text-left md:pl-4'>{data.acf.section_2_title}</h2>
                         }
-                        {/* Project List */}
-                        {postsData &&
-                            <ProjectCard postsData={postsData} isOnHome={true} />
-                        }
-                        {/* See all button */}
-                        {(data.acf.section_2_cta_text && data.acf.section_2_cta_link) &&
-                            <Link to={data.acf.section_2_cta_link} className='primary-button my-8 mx-auto w-fit flex' target='_blank' rel='noopener'>
-                                {data.acf.section_2_cta_text}
-                                <svg className='fill-foggy ml-2 w-[20px] h-[20px] self-center' aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                                <title>arrow icon</title>
-                                <path d="M10.024 4h6.015l7.961 8-7.961 8h-6.015l7.961-8-7.961-8zm-10.024 16h6.015l7.961-8-7.961-8h-6.015l7.961 8-7.961 8z"/></svg>
-                            </Link>
-                        }
+                        <div className='md:flex'>
+                            {/* Project List */}
+                            {postsData &&
+                                <ProjectCard postsData={postsData} isOnHome={true} />
+                            }
+                            {/* See all button */}
+                            {(data.acf.section_2_cta_text && data.acf.section_2_cta_link) &&
+                                <Link to={data.acf.section_2_cta_link} className='primary-button my-8 mx-auto w-fit flex transition-all duration-500 md:h-fit md:self-center md:hover:primary-button-hover ' target='_blank' rel='noopener' onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+                                    {data.acf.section_2_cta_text}
+                                    <svg className={`fill-foggy ml-2 w-[20px] h-[20px] self-center transition-all duration-500 ${isSeeAllHovered ? 'md:fill-forest': ''} `} aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                    <title>arrow icon</title>
+                                    <path d="M10.024 4h6.015l7.961 8-7.961 8h-6.015l7.961-8-7.961-8zm-10.024 16h6.015l7.961-8-7.961-8h-6.015l7.961 8-7.961 8z"/></svg>
+                                </Link>
+                            }
+                        </div>
                     </section>
                 
             </article>
