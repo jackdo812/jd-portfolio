@@ -1,7 +1,7 @@
 import { NavLink, useLocation } from "react-router-dom";
 import SocialMedia from "./SocialMedia";
 
-const Nav = ({connectData, closeMenu}) => {
+const Nav = () => {
 
   const location = useLocation();
 
@@ -10,34 +10,27 @@ const Nav = ({connectData, closeMenu}) => {
   }
 
   return (
-    <nav className={`main-nav self-center hidden md:block md:justify-evenly md:transition-all md:duration-500 md:absolute md:bg-orange-200 md:w-full md:left-0 animate-flydown md:h-screen md:z-50`} onClick={blur}>
-     
-        <SocialMedia linkedInLink={connectData.linkedin_link} githubLink={connectData.github_link} height={'30px'} width={'30px'}/>
-  
-      <ul className="font-bold text-left ml-8">
-        <li>
+    <nav className={`main-nav self-center hidden md:block md:justify-evenly md:transition-all md:duration-500`} onClick={blur}>
+
+      <ul className="font-bold text-left ml-8 flex">
+        <li className="md:pr-4 md:text-[1.1rem] min-[900px]:md:text-xl min-[900px]:pr-8 md:hover:animate-fill">
           <NavLink to="/"
-            onClick={closeMenu}
-            className={location.pathname === "/" ? "text-green-500 underline" : ""}>Home</NavLink>
+            className={`md:hover:animate-fill ${location.pathname === "/" ? "text-green-500 underline" : ""} `}>Home</NavLink>
         </li>
-        <li>
-          <NavLink to="/about"
-            onClick={closeMenu}
+        <li className="md:pr-4 md:text-[1.1rem] min-[900px]:md:text-xl min-[900px]:pr-8">
+          <NavLink to="/about" 
             className={location.pathname === "/about" ? "text-green-500 underline" : ""}>About</NavLink>
-        </li>
-        <li>
-          <NavLink to="/projects"
-           onClick={closeMenu}
+        </li >
+        <li className="md:pr-4 md:text-[1.1rem] min-[900px]:md:text-xl min-[900px]:pr-8">
+          <NavLink to="/projects"          
             className={location.pathname === "/projects" ? "text-green-500 underline" : ""}>Projects</NavLink>
         </li>
-        <li>
-          <NavLink to="/experiences"
-           onClick={closeMenu}
+        <li className="md:pr-4 md:text-[1.1rem] min-[900px]:md:text-xl min-[900px]:pr-8">
+          <NavLink to="/experiences"         
             className={location.pathname === "/experiences" ? "text-green-500 underline" : ""}>Experiences</NavLink>
         </li>
-        <li>
-          <NavLink to="/connect"
-           onClick={closeMenu}
+        <li className="md:text-[1.1rem] min-[900px]:md:text-xl">
+          <NavLink to="/connect"      
             className={location.pathname === "/connect" ? "text-green-500 underline" : ""}>Connect</NavLink>
         </li>
       </ul>

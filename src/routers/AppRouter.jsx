@@ -63,10 +63,10 @@ function AppRouter() {
   return (
     <BrowserRouter basename="/">
       <WindowScrollToTop />
-        <div className="wrapper font-lato bg-foggybg text-forest">
+        <div className="wrapper font-lato bg-foggybg text-forest min-h-screen flex flex-col">
           <Header mediaData={mediaData.acf} connectData={connectData.acf}/>
           
-            <main id="main" className="mx-2 min-h-[78vh] md:min-h-[81vh]">
+            <main id="main" className="mx-2 grow">
               <Routes>
                 <Route path='/' element={<Home restBase={restBase} />} />
                 <Route path='/about' element={<About restBase={restBase} />} />

@@ -52,7 +52,7 @@ const About = () => {
                 <img className='w-[300px] pt-8 mx-auto my-0' src={data.acf.about_page_portrait} alt="Portrait photo" />
                 <div className="entry-content mx-4" >
                     <section className='bio-section'>
-                        <h2 className='font-bold font-roboto text-2xl pb-10 pt-6 text-center'>Me, Myself & I</h2>
+                        <h2 className='font-bold font-roboto text-3xl uppercase pb-10 pt-6 text-center'>Me, Myself & I</h2>
                         {/* Bio */}
                             {data.acf.bio &&
                                 <div dangerouslySetInnerHTML={{__html:data.acf.bio}} className='pb-3'></div>

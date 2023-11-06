@@ -20,9 +20,10 @@ export default {
           '50%': { opacity: '0.5' },
           '100%': { opacity: '1' },
         },
-        flydown: {
-          '0%': { height: '0px' },
-          '100%': { height: '100vh' },
+        fill: {
+          '0%': { height: '1px', width: '0%' },
+          '50%': { height: '1px', width: '100%' },
+          '100%': { height: '100%', width: '100%', background: '#04773B' },
         },
       },
       fontFamily: {
