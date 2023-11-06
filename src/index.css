@@ -65,6 +65,18 @@
 		border-color: #f1c834;
 		font-weight: 700;
 	}
+
+	.copied-email-button {
+		color: #053B06;
+		background-color: #f1c834;
+		border-color: #f1c834;
+		border: 1px solid #f1c834;
+		border-radius: 10px;
+		text-transform: uppercase;
+		padding: .5rem 1rem;
+		font-weight: 700;
+	}
+
 	.secondary-button {
 		color: #04773B;
 		border-color: 04773B;
