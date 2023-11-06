@@ -21,7 +21,7 @@ const Connect = () => {
       if (error) return 'An error has occurred: ' + error.message
 
     return (
-        <div className='wrapper flex flex-col min-h-screen'>
+        <div className='wrapper flex flex-col md:max-w-[800px] md:my-0 md:mx-auto'>
             <div className='content flex-1'> 
                 <article id={`post-${data.id}`}>
                     <h1 className='font-bold font-roboto uppercase text-center text-3xl pt-20 mb-14'>{data.title.rendered}</h1>

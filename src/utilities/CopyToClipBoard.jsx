@@ -17,7 +17,6 @@ function CopyToClipboard({emailAdress}) {
 
   return (
     <div className='flex justify-center my-8 pt-4'>
-      {/* <p>Email: {email}</p> */}
       <button className={`${isCopied ? 'copied-email-button' : 'primary-button'}`} onClick={copyToClipboard}>
         {isCopied ? 'Email Copied!' : 'Copy my Email'}
       </button>
