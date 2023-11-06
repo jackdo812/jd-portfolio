@@ -79,6 +79,11 @@
 		border: 2px solid #ae8b0c;
 		font-weight: 700;
 	}
+
+	.check {
+		background-color: #f1c834 !important;
+		color: #053B06 !important;
+	}
 }
 
 

@@ -26,37 +26,36 @@ const About = () => {
            
             <h1 className='hidden'>{data.title.rendered}</h1>
             <article id={`post-${data.id}`}>
-                <div className="entry-content" >
+                {/* Portrait photo */}
+                <img className='w-[300px] pt-8 mx-auto my-0' src={data.acf.about_page_portrait} alt="Portrait photo" />
+                <div className="entry-content mx-4" >
                     <section className='bio-section'>
-                        {/* Portrait photo */}
-                        <img className='w-[300px] mt-8' src={data.acf.about_page_portrait} alt="Portrait photo" />
-                        <h2 className='font-bold uppercase font-roboto text-2xl text-center pb-10 pt-6'>Me, Myself & I</h2>
+                        <h2 className='font-bold font-roboto text-2xl pb-10 pt-6'>Me, Myself & I</h2>
                         {/* Bio */}
                             {data.acf.bio &&
-                                <p dangerouslySetInnerHTML={{__html:data.acf.bio}}></p>
+                                <div dangerouslySetInnerHTML={{__html:data.acf.bio}} className='pb-3'></div>
                             }
                             {data.acf.bio_2 &&
-                                <p dangerouslySetInnerHTML={{__html:data.acf.bio_2}}></p>
+                                <div dangerouslySetInnerHTML={{__html:data.acf.bio_2}} className='pb-3'></div>
                             }
                             {data.acf.bio_3 &&
-                                <p dangerouslySetInnerHTML={{__html:data.acf.bio_3}}></p>
-                            }
-                    
+                                <div dangerouslySetInnerHTML={{__html:data.acf.bio_3}} className='pb-3'></div>
+                            }                    
                         {/* Primary CTA */}
                         {data.acf.primary_cta_text_about && data.acf.primary_cta_link_about &&
-                            <Link to={data.acf.primary_cta_link_about} > {data.acf.primary_cta_text_about}
+                            <Link className='primary-button block my-2 mx-auto w-fit' to={data.acf.primary_cta_link_about} > {data.acf.primary_cta_text_about}
                             </Link>
                         }
                         {/* Secondary CTA */}
                         {data.acf.secondary_cta_text_about && data.acf.secondary_cta_link_about &&
-                            <Link to={data.acf.secondary_cta_link_about} > {data.acf.secondary_cta_text_about}
+                            <Link className='secondary-button block my-2 mx-auto w-fit px-[8px] py-[6px]' to={data.acf.secondary_cta_link_about} > {data.acf.secondary_cta_text_about}
                             </Link>
                         }
                     </section>
-                    <section className='Techstack-section'>
+                    <section className='Techstack-section mt-20 '>
                         {/* Tech Stack title */}
                         {(data.acf.tech_stack_title && data.acf.tech_stack) &&
-                            <h2 className='font-bold'>{data.acf.tech_stack_title}</h2>
+                            <h2 className='font-bold font-roboto text-2xl mb-4'>{data.acf.tech_stack_title}</h2>
                         }
                         {/* Tech Stack List */}
                         {data.acf.tech_stack && 
@@ -64,7 +63,7 @@ const About = () => {
                         }
 
                     </section>
-                    <section className='hobbies-section'>
+                    <section className='hobbies-section my-14'>
                         {data.acf.hobby_section_title &&
                             <h2 className='font-bold'>{data.acf.hobby_section_title}</h2>
                         }
