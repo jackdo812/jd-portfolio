@@ -80,39 +80,8 @@ const About = () => {
                         {data.acf.hobby_illustration_desktop &&
                             <img className='hidden' src={data.acf.hobby_illustration_desktop} alt="3 Mountains Drawing" />
                         }
-                        {data.acf.hobby_1 && data.acf.hobby_1_illustration &&
-                            <div className={`flip-card perspective-1000 border rounded-[10px] bg-white shadow-md max-w-[300px] h-[344px] ${isHobby1Revealed ? 'transform rotate-y-180' : ''}`}>
-                                <div className={`flip-card-inner rounded-[10px] max-w-[300px] transition-transform duration-800 transform preserve-3d rotate-y-180 relative`}>
-
-                                    <div className='flip-card-front rounded-[10px] backface-hidden absolute z-20'>
-                                    <img className={` w-[300px] z-10 left-0 bottom-0 ${isHobby1Revealed ? 'opacity-0' : 'opacity-1'}`} src={data.acf.hobby_1_illustration} alt="Illustration for Hobby 1" />
-                                    <img className={` z-20 w-[40px] left-[50%] bottom-[35%] cursor-pointer ${isHobby1Revealed ? 'opacity-0' : 'opacity-1'}`} src={LocationPin} alt="Location Pin GIF" onClick={hobbyRevealed}/>
-                                    </div>
-
-                                    <div className={`flip-card-back rounded-[10px] transform rotate-y-180 backface-hidden absolute`}>
-                                        <img className={`w-[300px] rounded-[10px]`} src={data.acf.hobby_1} alt="Hobby 1" />
-                                        <span className={`absolute right-[10px] top-0 z-20 text-white text-2xl cursor-pointer ${isHobby1Revealed ? 'opacity-1' : 'opacity-0 hidden'}`}>x</span>
-                                        <span className={`absolute right-[10px] top-0 z-20 text-sun animate-ping text-2xl cursor-pointer ${isHobby1Revealed ? 'opacity-1' : 'opacity-0 hidden'}`} onClick={closeHobby}>x</span>
-                                    </div>
-
-                                </div>
-                            </div>
-                        } 
-                        {/* {data.acf.hobby_1_illustration &&
-                            <img className='' src={data.acf.hobby_1_illustration} alt="Illustration for Hobby 1" />
-                        } */}
-                        {/* {data.acf.hobby_2_illustration &&
-                            <img className='' src={data.acf.hobby_2_illustration} alt="Illustration for Hobby 1" />
-                        }
-                        {data.acf.hobby_2 &&
-                            <img className='w-[300px]' src={data.acf.hobby_2} alt="Hobby 2" />
-                        }
-                         {data.acf.hobby_3_illustration &&
-                            <img className='' src={data.acf.hobby_3_illustration} alt="Illustration for Hobby 1" />
-                        }
-                        {data.acf.hobby_3 &&
-                            <img className='w-[300px]' src={data.acf.hobby_3} alt="Hobby 3" />
-                        } */}
+                   
+                
                     </section>
                 </div>
             </article>
