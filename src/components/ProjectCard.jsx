@@ -11,10 +11,10 @@ const ProjectCard = ({postsData, isOnHome}) => {
     }
     console.log(newPostsData);
   return (
-    <div >
+    <div className='mx-4'>
       {isOnHome ? (
           newPostsData.map(post => 
-            <article key={post.id} id={`post-${post.id}`} className='border-2 shadow-md rounded bg-foggy my-8'>
+            <article key={post.id} id={`post-${post.id}`} className='border-2 shadow-md rounded bg-foggy my-8 mx-auto max-w-[300px]'>
                 {/* {post.featured_media !== 0 && post._embedded &&
                     <figure className="featured-image" dangerouslySetInnerHTML={featuredImage(post._embedded['wp:featuredmedia'][0])}></figure>
                 } */}

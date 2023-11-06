@@ -17,7 +17,7 @@ const Header = ({mediaData, connectData}) => {
   };
   
   return (
-    <header id="masthead" className="site-header relative shadow-md">
+    <header id="masthead" className="site-header relative shadow-md md:py-[1vh] md:px-[5vw]">
         <div className='flex items-center justify-center md:justify-start'>
           <Link to='/'>
             <img className='w-[70px] block my-2 mx-auto' src={mediaData.logo} alt="Logo" />
