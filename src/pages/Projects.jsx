@@ -26,7 +26,7 @@ const Projects = ( {featuredImage} ) => {
 
       
     return (
-        <>
+        <div className='wrapper md:max-w-[1024px] md:my-0 md:mx-auto'>
                 {pageData.title.rendered ?(
                   <h1 className='text-3xl font-bold font-roboto uppercase text-center pb-10 pt-16'>{pageData.title.rendered}</h1>
                   ) : (
@@ -46,7 +46,7 @@ const Projects = ( {featuredImage} ) => {
                 <p>There are no projects to display</p>
                 )
                 }
-        </>
+        </div>
     )
 }
 
