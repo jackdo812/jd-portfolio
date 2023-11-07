@@ -36,7 +36,7 @@ const Home = ( ) => {
       if (postsError) return 'An error has occurred: ' + postsError.message
     
     return (
-        <div className='wrapper md:max-w-[1024px] my-0 mx-auto'>
+        <div className='wrapper md:max-w-[1200px] my-0 mx-auto'>
         {/* Animated Portrait */}
          {data.acf.portrait &&
             <img className='w-[300px] md:hidden my-2 mx-auto' src={data.acf.portrait} alt="Animated cartoonized portrait" />
@@ -83,7 +83,7 @@ const Home = ( ) => {
                     </section>
                     {/* Scroll down arrow */}
                     <a href='#featured-projects-section' className='block w-fit my-0 mx-auto'>
-                        <div className='animate-bounce mt-20 md:mt-40'>
+                        <div className='animate-bounce mt-20 md:mt-30 min-[900px]:mt-36'>
                             <svg className='w-[48px] h-[48px] rotate-90 fill-soil md:hover:fill-forest md:transition-all md:duration-500' aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                                 <title>scrolling down arrow icon</title>
                                 <path d="M10.024 4h6.015l7.961 8-7.961 8h-6.015l7.961-8-7.961-8zm-10.024 16h6.015l7.961-8-7.961-8h-6.015l7.961 8-7.961 8z"/></svg>

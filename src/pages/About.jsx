@@ -13,6 +13,8 @@ import ReactCardFlip from 'react-card-flip';
 
 const About = () => {
 
+   
+    const [isHover, setIsHover] = useState(false);
     const [isHobby1Flipped, setIsHobby1Flipped] = useState(false);
     const [isHobby2Flipped, setIsHobby2Flipped] = useState(false);
     const [isHobby3Flipped, setIsHobby3Flipped] = useState(false);
@@ -32,7 +34,15 @@ const About = () => {
         setIsHobby3Flipped((prevState) => !prevState);
     };
 
+    const mouseEnter = (e) => {
+        e.preventDefault();
+        setIsHover(true);
+    }
 
+    const mouseLeave = (e) => {
+        e.preventDefault();
+        setIsHover(false);
+    }
 
     const { isPending, error, data } = useQuery({
         queryKey: ['aboutData'],
@@ -42,38 +52,45 @@ const About = () => {
       if (isPending) return <Loading/>
     
       if (error) return 'An error has occurred: ' + error.message
-
+      console.log(data);
     return (
-        <>
+        <div className='wrapper md:max-w-[1200px] md:mx-auto md:my-0'>
            
             <h1 className='hidden'>{data.title.rendered}</h1>
             <article id={`post-${data.id}`}>
                 {/* Portrait photo */}
-                <img className='w-[300px] pt-8 mx-auto my-0' src={data.acf.about_page_portrait} alt="Portrait photo" />
                 <div className="entry-content mx-4" >
-                    <section className='bio-section'>
-                        <h2 className='font-bold font-roboto text-3xl uppercase pb-10 pt-6 text-center'>Me, Myself & I</h2>
-                        {/* Bio */}
-                            {data.acf.bio &&
-                                <div dangerouslySetInnerHTML={{__html:data.acf.bio}} className='pb-3'></div>
-                            }
-                            {data.acf.bio_2 &&
-                                <div dangerouslySetInnerHTML={{__html:data.acf.bio_2}} className='pb-3'></div>
-                            }
-                            {data.acf.bio_3 &&
-                                <div dangerouslySetInnerHTML={{__html:data.acf.bio_3}} className='pb-3'></div>
-                            }                    
-                        {/* Primary CTA */}
-                        {data.acf.primary_cta_text_about && data.acf.primary_cta_link_about &&
-                            <Link className='primary-button block my-4 mx-auto w-fit' to={data.acf.primary_cta_link_about} > {data.acf.primary_cta_text_about}
-                            </Link>
-                        }
-                        {/* Secondary CTA */}
-                        {data.acf.secondary_cta_text_about && data.acf.secondary_cta_link_about &&
-                            <Link className='secondary-button block my-2 mx-auto w-fit px-[8px] py-[6px]' to={data.acf.secondary_cta_link_about} > {data.acf.secondary_cta_text_about}
-                            </Link>
-                        }
-                    </section>
+                    <div className='bio-wrapper md:flex'>
+                        <div className='md:w-[50%]'>
+                            <img className='w-[300px] pt-8 mx-auto my-0 md:w-[350px] lg:w-[400px]' onMouseEnter={mouseEnter} onMouseLeave={mouseLeave} src={isHover ? data.acf.about_page_portrait_hover : data.acf.about_page_portrait } alt="Portrait photo" />
+                        </div>
+                        <section className='bio-section md:w-[50%]'>
+                            <h2 className='font-bold font-roboto text-3xl uppercase pb-10 pt-6 text-center md:!text-left md:pt-10'>Me, Myself & I</h2>
+                            {/* Bio */}
+                                {data.acf.bio &&
+                                    <div dangerouslySetInnerHTML={{__html:data.acf.bio}} className='pb-3'></div>
+                                }
+                                {data.acf.bio_2 &&
+                                    <div dangerouslySetInnerHTML={{__html:data.acf.bio_2}} className='pb-3'></div>
+                                }
+                                {data.acf.bio_3 &&
+                                    <div dangerouslySetInnerHTML={{__html:data.acf.bio_3}} className='pb-3'></div>
+                                }         
+                            <div className='CTA-buttons-section md:flex md:justify-start md:gap-8'>           
+                                {/* Primary CTA */}
+                                {data.acf.primary_cta_text_about && data.acf.primary_cta_link_about &&
+                                    <Link className='primary-button block my-4 mx-auto w-fit md:!mx-0 md:hover:primary-button-hover md:transition-all md:duration-500' to={data.acf.primary_cta_link_about} > {data.acf.primary_cta_text_about}
+                                    </Link>
+                                }
+                                {/* Secondary CTA */}
+                                {data.acf.secondary_cta_text_about && data.acf.secondary_cta_link_about &&
+                                    <Link className='secondary-button block my-2 mx-auto w-fit px-[8px] py-[6px] md:h-fit md:self-center md:!mx-0 md:py-[8px] md:hover:secondary-button-hover md:transition-all md:duration-500' to={data.acf.secondary_cta_link_about} > {data.acf.secondary_cta_text_about}
+                                    </Link>
+                                }
+                            </div>
+                        </section>
+
+                    </div>
                     <section className='Techstack-section mt-20 '>
                         {/* Tech Stack title */}
                         {(data.acf.tech_stack_title && data.acf.tech_stack) &&
@@ -165,7 +182,7 @@ const About = () => {
                 </div>
             </article>
        
-        </>
+        </div>
     )
 }
 
