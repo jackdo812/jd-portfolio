@@ -76,7 +76,7 @@ const About = () => {
                                 {data.acf.bio_3 &&
                                     <div dangerouslySetInnerHTML={{__html:data.acf.bio_3}} className='pb-3'></div>
                                 }         
-                            <div className='CTA-buttons-section md:flex md:justify-start md:gap-8'>           
+                            <div className='CTA-buttons-section md:flex md:justify-between bp-850:justify-start bp-850:gap-8'>           
                                 {/* Primary CTA */}
                                 {data.acf.primary_cta_text_about && data.acf.primary_cta_link_about &&
                                     <Link className='primary-button block my-4 mx-auto w-fit md:!mx-0 md:hover:primary-button-hover md:transition-all md:duration-500' to={data.acf.primary_cta_link_about} > {data.acf.primary_cta_text_about}
