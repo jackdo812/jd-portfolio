@@ -91,10 +91,10 @@ const About = () => {
                         </section>
 
                     </div>
-                    <section className='Techstack-section mt-20 '>
+                    <section className='Techstack-section mt-20 md:max-w-[1024px] md:mx-auto md:my-28'>
                         {/* Tech Stack title */}
                         {(data.acf.tech_stack_title && data.acf.tech_stack) &&
-                            <h2 className='font-bold font-roboto text-2xl mb-4 text-center'>{data.acf.tech_stack_title}</h2>
+                            <h2 className='font-bold font-roboto text-2xl mb-4 text-center md:!text-left'>{data.acf.tech_stack_title}</h2>
                         }
                         {/* Tech Stack List */}
                         {data.acf.tech_stack && 
