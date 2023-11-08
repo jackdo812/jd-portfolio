@@ -5,15 +5,20 @@ export default {
   theme: {
     extend: {
       animation: {
-        fade: 'fade 1s ease-in-out',
+        fade: 'fade 0.5s ease-in-out',
         fade2: 'fade2 1s ease-in-out',
         flydown: 'flydown 0.8s ease-in-out',
+        zoom: 'zoom 0.3s ease-in-out',
       },
       keyframes: {
         fade: {
           '0%': { opacity: '0' },
           '50%': { opacity: '0.5' },
           '100%': { opacity: '1' },
+        },
+        zoom: {
+          '0%': { transform: 'scale(0)' },
+          '100%': { transform: 'scale(1)' },
         },
         fade2: {
           '0%': { opacity: '0' },
