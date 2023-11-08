@@ -50,7 +50,7 @@ const Home = ( ) => {
                             }
                             {/* Intro Messages */}
                             {data.acf.intro_messages && 
-                                <h2 className='text-[1.3rem] text-center mt-8 underline underline-offset-[5px] decoration-[#ae8b0c75] md:text-[1.5rem] ' dangerouslySetInnerHTML={{__html:data.acf.intro_messages}}></h2>
+                                <h2 className='text-[1.3rem] text-center mt-8 underline underline-offset-[5px] decoration-[#ae8b0c75] decoration-4 md:text-[1.5rem] ' dangerouslySetInnerHTML={{__html:data.acf.intro_messages}}></h2>
                             }
                             {data.acf.intro_messages_2 && 
                                 <p className='text-[1.3rem] text-center mb-10 md:mt-6' dangerouslySetInnerHTML={{__html:data.acf.intro_messages_2}}></p>
