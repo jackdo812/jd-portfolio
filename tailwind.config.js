@@ -47,6 +47,7 @@ export default {
         "sun": "#f1c834",
       },
       screens: {
+        "bp-800": "800px",
         "bp-850": "850px",
       },
     },
