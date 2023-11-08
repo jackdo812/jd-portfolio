@@ -5,7 +5,7 @@ import Loading from './Loading';
 import { Link } from 'react-router-dom';
 // TanQuery Components
 import {useQuery} from '@tanstack/react-query';
-import {getPage, getPost} from '../api/fetchData';
+import {getPost} from '../api/fetchData';
 
 
 function Carousels({singleProjectData}) {

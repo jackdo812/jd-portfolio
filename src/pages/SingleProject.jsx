@@ -90,13 +90,13 @@ const SingleProject = () => {
 
                                 {/* Primary CTA*/}
                                 {(data[0].acf.single_project_primary_cta_text && data[0].acf.single_project_primary_cta_link) &&
-                                    <Link to={data[0].acf.single_project_primary_cta_link} className='primary-button' target='_blank' rel='noopener'> 
+                                    <Link to={data[0].acf.single_project_primary_cta_link} className='primary-button md:hover:primary-button-hover md:transition-all md:duration-500 ' target='_blank' rel='noopener'> 
                                         {data[0].acf.single_project_primary_cta_text}
                                     </Link>
                                 }
                                 {/* Secondary CTA*/}
                                 {(data[0].acf.single_project_secondary_cta_text && data[0].acf.single_project_secondary_cta_link) &&
-                                    <Link to={data[0].acf.single_project_secondary_cta_link} className='secondary-button' target='_blank' rel='noopener'> 
+                                    <Link to={data[0].acf.single_project_secondary_cta_link} className='secondary-button md:hover:secondary-button-hover md:transition-all md:duration-500' target='_blank' rel='noopener'> 
                                         {data[0].acf.single_project_secondary_cta_text}
                                     </Link>
                                 }
