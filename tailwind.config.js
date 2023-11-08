@@ -9,6 +9,7 @@ export default {
         fade2: 'fade2 1s ease-in-out',
         flydown: 'flydown 0.8s ease-in-out',
         zoom: 'zoom 0.3s ease-in-out',
+        fill: 'fill 0.5s ease-in-out',
       },
       keyframes: {
         fade: {

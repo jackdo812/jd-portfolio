@@ -64,7 +64,7 @@ function AppRouter() {
     <BrowserRouter basename="/">
       <WindowScrollToTop />
         <div className="wrapper font-lato bg-foggybg text-forest min-h-screen flex flex-col">
-          <Header mediaData={mediaData.acf} connectData={connectData.acf}/>
+          <Header mediaData={mediaData.acf}/>
           
             <main id="main" className="mx-2 grow">
               <Routes>
@@ -77,7 +77,7 @@ function AppRouter() {
               </Routes>
             </main>
          
-          <Footer />
+          <Footer connectData={connectData.acf} />
         </div>
     </BrowserRouter>
   )

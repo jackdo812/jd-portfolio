@@ -161,10 +161,6 @@
 	border-bottom-right-radius: 10px;
   }
 
-  /* .react-tabs__tab:hover {
-	background-color: red;
-  } */
-
   
   .react-tabs__tab-panel--selected {
 	display: block;
@@ -196,5 +192,6 @@
 		margin: 0 auto;
 	}
 }
+
 
 
