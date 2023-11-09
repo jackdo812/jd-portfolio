@@ -1,5 +1,6 @@
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
+import { Fade } from "react-awesome-reveal";
 
 function FullWidthTabs ({dataACF}) {
   console.log(dataACF);
@@ -12,13 +13,19 @@ function FullWidthTabs ({dataACF}) {
     </TabList>
 
     <TabPanel>
+      <Fade>
       <div dangerouslySetInnerHTML={{__html:dataACF.project_details_content_1}}></div>
+      </Fade>
     </TabPanel>
     <TabPanel>
-    <div dangerouslySetInnerHTML={{__html:dataACF.project_details_content_2}}></div>
+      <Fade>
+      <div dangerouslySetInnerHTML={{__html:dataACF.project_details_content_2}}></div>
+      </Fade>
     </TabPanel>
     <TabPanel>
-    <div dangerouslySetInnerHTML={{__html:dataACF.project_details_content_3}}></div>
+      <Fade>
+      <div dangerouslySetInnerHTML={{__html:dataACF.project_details_content_3}}></div>
+      </Fade>
     </TabPanel>
   </Tabs>
 );

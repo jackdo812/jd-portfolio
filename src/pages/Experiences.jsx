@@ -18,7 +18,19 @@ import { MdWork } from "react-icons/md";
 
 
 const Experiences = () => {
-    
+    const [showLoading, setShowLoading] = useState(true);
+
+    useEffect(() => {
+        // Delay the appearance of the loading GIF for 1 second (1000 milliseconds)
+        const delayTimeout = setTimeout(() => {
+        setShowLoading(false);
+        }, 1000);
+
+        // Clear the timeout to avoid memory leaks
+        return () => {
+        clearTimeout(delayTimeout);
+        };
+    }, []);
 
     const { isPending: pageIsPending, error: pageError, data: pageData, isSuccess } = useQuery({
         queryKey: ['experiencesPageData'],
@@ -59,8 +71,9 @@ const Experiences = () => {
    
 
     return (
+        showLoading ? <Loading /> : (
         <Fade>
-        <>
+         <>
             <article id={`post-${pageData.id}`}>
                 {pageData.title.rendered ? (
                     <h1 className='text-3xl font-bold font-roboto text-center uppercase pb-10 pt-16'>{pageData.title.rendered}</h1>
@@ -112,8 +125,9 @@ const Experiences = () => {
                 }
             </article>
       
-        </>
+         </>
         </Fade>
+        )
     )
 }
 

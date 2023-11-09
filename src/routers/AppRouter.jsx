@@ -1,6 +1,6 @@
 // Router Components
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import React, { useEffect } from 'react';
+import React, {useEffect } from 'react';
 
 
 
@@ -58,14 +58,14 @@ function AppRouter() {
     return {__html: img}
   }
 
- 
+
 
   return (
     <BrowserRouter basename="/">
       <WindowScrollToTop />
         <div className="wrapper font-lato bg-foggybg text-forest min-h-screen flex flex-col">
           <Header mediaData={mediaData.acf}/>
-          
+         
             <main id="main" className="mx-2 grow">
               <Routes>
                 <Route path='/' element={<Home restBase={restBase} />} />
@@ -76,7 +76,7 @@ function AppRouter() {
                 <Route path='/connect' element={<Connect restBase={restBase} />} />
               </Routes>
             </main>
-         
+          
           <Footer connectData={connectData.acf} />
         </div>
     </BrowserRouter>

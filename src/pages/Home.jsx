@@ -1,6 +1,6 @@
 import Loading from '../components/Loading'
 import { Link } from 'react-router-dom';
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import ProjectCard from '../components/ProjectCard';
 import { Fade } from "react-awesome-reveal";
 
@@ -9,6 +9,20 @@ import {useQuery} from '@tanstack/react-query';
 import {getPage, getPost} from '../api/fetchData';
 
 const Home = ( ) => {
+    const [showLoading, setShowLoading] = useState(true);
+
+    useEffect(() => {
+        // Delay the appearance of the loading GIF for 1 second (1000 milliseconds)
+        const delayTimeout = setTimeout(() => {
+        setShowLoading(false);
+        }, 1000);
+
+        // Clear the timeout to avoid memory leaks
+        return () => {
+        clearTimeout(delayTimeout);
+        };
+    }, []);
+
     const [isSeeAllHovered, setIsSeeAllHovered] = useState(false);
 
     const handleMouseEnter = () => {
@@ -37,6 +51,7 @@ const Home = ( ) => {
       if (postsError) return 'An error has occurred: ' + postsError.message
     
     return (
+    showLoading ? <Loading /> : (
         <Fade >
         <div className='wrapper md:max-w-[1200px] my-0 mx-auto'>
         {/* Animated Portrait */}
@@ -115,6 +130,7 @@ const Home = ( ) => {
             </article>
         </div>            
     </Fade>
+    )
     )
 }
 

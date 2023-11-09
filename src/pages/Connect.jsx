@@ -11,6 +11,20 @@ import {getPage} from '../api/fetchData';
 
 
 const Connect = () => {
+
+    const [showLoading, setShowLoading] = useState(true);
+
+    useEffect(() => {
+        // Delay the appearance of the loading GIF for 1 second (1000 milliseconds)
+        const delayTimeout = setTimeout(() => {
+        setShowLoading(false);
+        }, 1000);
+
+        // Clear the timeout to avoid memory leaks
+        return () => {
+        clearTimeout(delayTimeout);
+        };
+    }, []);
     
     const { isPending, error, data } = useQuery({
         queryKey: ['connectData'],
@@ -23,6 +37,7 @@ const Connect = () => {
       if (error) return 'An error has occurred: ' + error.message
 
     return (
+    showLoading ? <Loading /> : (
     <Fade>
         <div className='wrapper flex flex-col md:max-w-[800px] md:my-0 md:mx-auto'>
             <div className='content flex-1'> 
@@ -42,6 +57,7 @@ const Connect = () => {
             </div>
         </div>
     </Fade>
+        )
     )
 }
 

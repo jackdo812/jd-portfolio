@@ -14,6 +14,20 @@ import ReactCardFlip from 'react-card-flip';
 
 const About = () => {
 
+    const [showLoading, setShowLoading] = useState(true);
+
+    useEffect(() => {
+        // Delay the appearance of the loading GIF for 1 second (1000 milliseconds)
+        const delayTimeout = setTimeout(() => {
+        setShowLoading(false);
+        }, 1000);
+
+        // Clear the timeout to avoid memory leaks
+        return () => {
+        clearTimeout(delayTimeout);
+        };
+    }, []);
+
    
     const [isHover, setIsHover] = useState(false);
     const [isHobby1Flipped, setIsHobby1Flipped] = useState(false);
@@ -55,6 +69,7 @@ const About = () => {
       if (error) return 'An error has occurred: ' + error.message
       
     return (
+        showLoading ? <Loading /> : (
         <Fade>
         <div className='wrapper md:max-w-[1200px] md:mx-auto md:my-0'>
            
@@ -207,6 +222,7 @@ const About = () => {
        
         </div>
         </Fade>
+        )
     )
 }
 

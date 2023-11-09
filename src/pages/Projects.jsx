@@ -1,4 +1,5 @@
 import Loading from '../components/Loading'
+import { useState, useEffect } from 'react';
 import ProjectCard from '../components/ProjectCard'
 import { Fade } from "react-awesome-reveal";
 
@@ -7,6 +8,21 @@ import {useQuery} from '@tanstack/react-query';
 import {getPage, getPost} from '../api/fetchData';
 
 const Projects = ( {featuredImage} ) => {
+
+    const [showLoading, setShowLoading] = useState(true);
+
+    useEffect(() => {
+        // Delay the appearance of the loading GIF for 1 second (1000 milliseconds)
+        const delayTimeout = setTimeout(() => {
+        setShowLoading(false);
+        }, 1000);
+
+        // Clear the timeout to avoid memory leaks
+        return () => {
+        clearTimeout(delayTimeout);
+        };
+    }, []);
+
     const { isPending: pageIsPending, error: pageError, data: pageData, isSuccess } = useQuery({
         queryKey: ['pageProjectsData'],
         queryFn: () => getPage(11)
@@ -27,6 +43,7 @@ const Projects = ( {featuredImage} ) => {
 
       
     return (
+    showLoading ? <Loading /> : (
       <Fade>
         <div className='wrapper md:max-w-[1024px] md:my-0 md:mx-auto'>
                 {pageData.title.rendered ?(
@@ -50,6 +67,7 @@ const Projects = ( {featuredImage} ) => {
                 }
         </div>
       </Fade>
+    )
     )
 }
 

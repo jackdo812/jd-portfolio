@@ -11,6 +11,20 @@ import {useQuery} from '@tanstack/react-query';
 import {getPost} from '../api/fetchData';
 
 const SingleProject = () => {
+    const [showLoading, setShowLoading] = useState(true);
+
+    useEffect(() => {
+        // Delay the appearance of the loading GIF for 1 second (1000 milliseconds)
+        const delayTimeout = setTimeout(() => {
+        setShowLoading(false);
+        }, 1000);
+
+        // Clear the timeout to avoid memory leaks
+        return () => {
+        clearTimeout(delayTimeout);
+        };
+    }, []);
+
     const { slug } = useParams();
     const { isPending, error, data } = useQuery({
         queryKey: ['singleProjectData', slug],
@@ -22,6 +36,7 @@ const SingleProject = () => {
       if (error) return 'An error has occurred: ' + error.message
    
     return (
+    showLoading ? <Loading /> : (
     <Fade>
         <div className='single-project-content mx-4 bp-800:max-w-[1200px] bp-800:!mx-auto bp-800:my-0'>
                 
@@ -122,6 +137,7 @@ const SingleProject = () => {
        
         </div>   
      </Fade>
+    )
     )
 }
 
