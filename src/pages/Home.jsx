@@ -67,10 +67,10 @@ const Home = ( ) => {
                             }
                             {/* Intro Messages */}
                             {data.acf.intro_messages && 
-                                <h2 className='text-[1.3rem] text-center mt-2 uppercase underline underline-offset-[5px] decoration-[#ae8b0c75] decoration-4 md:text-[1.7rem] md:!pb-8 ' dangerouslySetInnerHTML={{__html:data.acf.intro_messages}}></h2>
+                                <h2 className='text-[1.2rem] text-center uppercase underline underline-offset-[5px] decoration-[#ae8b0c75] decoration-4 min-[500px]:text-[1.4rem] min-[600px]:text-[1.5rem] md:text-[1.7rem] md:!pb-8 ' dangerouslySetInnerHTML={{__html:data.acf.intro_messages}}></h2>
                             }
                             {data.acf.intro_messages_2 && 
-                                <p className='text-[1.3rem] text-center mb-10 md:mt-2 md:mb-4' dangerouslySetInnerHTML={{__html:data.acf.intro_messages_2}}></p>
+                                <p className='text-[1.2rem] text-center my-10 min-[600px]:text-[1.3rem] md:mt-2 md:mb-4' dangerouslySetInnerHTML={{__html:data.acf.intro_messages_2}}></p>
                             }
                             <div className='md:min-[900px]:flex md:min-[900px]:justify-around'>
                                 {/* Primary CTA */}
