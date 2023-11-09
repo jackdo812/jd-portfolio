@@ -60,7 +60,7 @@ const Home = ( ) => {
         }
             <article className="entry-content my-2" id={`post-${data.id}`}>
                 
-                    <section className='intro-section md:mt-28 md:flex md:gap-8'>
+                    <section className='intro-section md:mt-40 md:flex md:gap-8'>
                         <div className='md:w-[60%]'>
                             {data.acf.title && 
                                 <h1 className='font-roboto text-[3rem] my-4 uppercase text-center md:text-[4.5rem] md:pt-8 md:!mb-0'>{data.acf.title}</h1>      
@@ -106,7 +106,7 @@ const Home = ( ) => {
                                 <path d="M10.024 4h6.015l7.961 8-7.961 8h-6.015l7.961-8-7.961-8zm-10.024 16h6.015l7.961-8-7.961-8h-6.015l7.961 8-7.961 8z"/></svg>
                         </div>
                     </a>
-                    <section id='featured-projects-section' className='featured-projects mb-8'>
+                    <section id='featured-projects-section' className='featured-projects mb-8 md:pt-20'>
                         {data.acf.section_2_title &&
                             <h2 className='font-roboto text-2xl text-center mt-20 mb-4 md:!text-left md:pl-4'>{data.acf.section_2_title}</h2>
                         }
