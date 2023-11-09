@@ -138,6 +138,7 @@
 	border-radius: 7px 7px 0 0;
 	width: 33.34%;
 	text-decoration: underline;
+	text-decoration-color: #ae8b0c;
   }
   
   .react-tabs__tab:focus {

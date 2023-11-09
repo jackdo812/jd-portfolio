@@ -5,9 +5,14 @@ import { Link } from 'react-router-dom'
 const ProjectCard = ({postsData, isOnHome}) => {
     let newPostsData;
     if (isOnHome) {
-        newPostsData = postsData.slice(0, 2);
+      newPostsData = postsData.filter((post) => !post.acf.is_in_progress).slice(0, 2); // not showing any in-progress projects on home page
     } else {
-        newPostsData = postsData;
+        // Sort projects to move in-progress ones to the end
+    newPostsData = [...postsData].sort((a, b) => {
+      if (a.acf.is_in_progress && !b.acf.is_in_progress) return 1;
+      if (!a.acf.is_in_progress && b.acf.is_in_progress) return -1;
+      return 0;
+    });
     }
   return (
     <>
@@ -23,7 +28,7 @@ const ProjectCard = ({postsData, isOnHome}) => {
                   <img className='w-[300px] mx-auto my-0' src={post.acf.video_teaser} alt="Animated Cartoonized Portrait" />
                 }
                 {post.title.rendered &&
-                    <h3 className='font-bold text-[1.3rem] text-center'>{post.title.rendered}</h3>    
+                    <h3 className='font-bold text-[1.3rem] text-center' dangerouslySetInnerHTML={{ __html: post.title.rendered }} />     
                 }
                 <Link to={`/projects/${post.slug}`} className='primary-button my-4 mx-auto block w-fit transition-all duration-500 md:hover:primary-button-hover'>More Info</Link>
 
@@ -42,7 +47,7 @@ const ProjectCard = ({postsData, isOnHome}) => {
                     <img className='w-[300px] mx-auto my-0' src={post.acf.video_teaser} alt="Animated Cartoonized Portrait" />
                   }
                   {post.title.rendered &&
-                      <h3 className='font-bold text-[1.3rem] text-center'>{post.title.rendered}</h3>    
+                      <h3 className='font-bold text-[1.3rem] text-center' dangerouslySetInnerHTML={{ __html: post.title.rendered }} />  
                   }
                   <p className='italic text-center pb-2'>{post._embedded["wp:term"][1].map((tag, index) => (
                       <span key={index}>{tag.name}{index < post._embedded["wp:term"][1].length - 1 ? " | " : null}</span>
@@ -55,7 +60,12 @@ const ProjectCard = ({postsData, isOnHome}) => {
                       }
                   </p>           
                   }
+                  {!post.acf.is_in_progress ? (
                   <Link to={`/projects/${post.slug}`} className='primary-button my-4 mx-auto block w-fit md:hover:primary-button-hover md:transition-all md:duration-500'>More Info</Link>
+                  ) : (
+                    <p className='secondary-button my-4 mx-auto black w-fit cursor-not-allowed'>In Progress</p>
+                  )
+                }
                 </div>
             </article>
           )}
