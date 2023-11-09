@@ -15,23 +15,23 @@ const Nav = () => {
       <ul className="font-bold text-left ml-8 flex">
         <li className="md:pr-4 md:text-[1.1rem] min-[900px]:text-xl min-[900px]:pr-8  md:hover:scale-[1.2] md:transition-all md:duration-300 md:ease-in-out">
           <NavLink to="/"
-            className={`${location.pathname === "/" ? "text-green-500 underline" : ""} `}>Home</NavLink>
+            className={`${location.pathname === "/" ? "text-soil underline" : ""} `}>Home</NavLink>
         </li>
         <li className="md:pr-4 md:text-[1.1rem] min-[900px]:text-xl min-[900px]:pr-8 md:hover:scale-[1.2] md:transition-all md:duration-300 md:ease-in-out">
           <NavLink to="/about" 
-            className={location.pathname === "/about" ? "text-green-500 underline" : ""}>About</NavLink>
+            className={location.pathname === "/about" ? "text-soil underline" : ""}>About</NavLink>
         </li >
         <li className="md:pr-4 md:text-[1.1rem] min-[900px]:text-xl min-[900px]:pr-8 md:hover:scale-[1.2] md:transition-all md:duration-300 md:ease-in-out">
           <NavLink to="/projects"          
-            className={location.pathname === "/projects" ? "text-green-500 underline" : ""}>Projects</NavLink>
+            className={location.pathname === "/projects" ? "text-soil underline" : ""}>Projects</NavLink>
         </li>
         <li className="md:pr-4 md:text-[1.1rem] min-[900px]:text-xl min-[900px]:pr-8 md:hover:scale-[1.2] md:transition-all md:duration-300 md:ease-in-out">
           <NavLink to="/experiences"         
-            className={location.pathname === "/experiences" ? "text-green-500 underline" : ""}>Experiences</NavLink>
+            className={location.pathname === "/experiences" ? "text-soil underline" : ""}>Experiences</NavLink>
         </li>
         <li className="md:text-[1.1rem] min-[900px]:text-xl md:hover:scale-[1.2] md:transition-all md:duration-300 md:ease-in-out">
           <NavLink to="/connect"      
-            className={location.pathname === "/connect" ? "text-green-500 underline" : ""}>Connect</NavLink>
+            className={location.pathname === "/connect" ? "text-soil underline" : ""}>Connect</NavLink>
         </li>
       </ul>
     </nav>

@@ -27,14 +27,14 @@ function TechStack({TechStack}) {
         <div className='Techstack-categories bg-leaf rounded-t-xl shadow-md'>
           <ul className='flex flex-wrap py-2'>
             {/* Manually add All to the categories list of Techstack */}
-            <li className={`filter-category font-bold m-2 bg-forest text-foggy py-1 px-2 rounded shadow-[0_2px_6px_0] shadow-foggy w-fit cursor-pointer ${selectedCategory === 'All' ? 'check' : ''}`} onClick={() => filterItems('*', 'All')}>All</li>
+            <li className={`filter-category font-bold m-2 bg-forest text-foggy py-1 px-2 rounded shadow-[0_1px_6px_0] shadow-foggy w-fit cursor-pointer ${selectedCategory === 'All' ? 'check' : ''}`} onClick={() => filterItems('*', 'All')}>All</li>
             {TechStack.map((item, index) => {
                 // Check if the category is not already in the set
                 if (!uniqueSkillCategories.has(item.skill_categories.trim())) {
                     // Add the category to the set to mark it as seen
                     uniqueSkillCategories.add(item.skill_categories.trim());
             return (
-                <li key={index} className={`filter-category font-bold m-2 bg-forest text-foggy py-1 px-2 rounded shadow-[0_2px_6px_0] shadow-foggy w-fit cursor-pointer ${selectedCategory === item.skill_categories.toLowerCase() ? 'check' : ''}`} onClick={() => filterItems(`.${item.skill_categories.toLowerCase()}`, item.skill_categories.toLowerCase())}>{item.skill_categories}</li>
+                <li key={index} className={`filter-category font-bold m-2 bg-forest text-foggy py-1 px-2 rounded shadow-[0_1px_6px_0] shadow-foggy w-fit cursor-pointer ${selectedCategory === item.skill_categories.toLowerCase() ? 'check' : ''}`} onClick={() => filterItems(`.${item.skill_categories.toLowerCase()}`, item.skill_categories.toLowerCase())}>{item.skill_categories}</li>
 
             );
                 }
