@@ -50,8 +50,8 @@ const Connect = () => {
                             <SocialMedia linkedInLink={data.acf.linkedin_link} githubLink={data.acf.github_link}/>
                         }
                     </div>
-                    {data.acf.contact_email &&
-                        <CopyToClipboard emailAdress={data.acf.contact_email}/>
+                    {data.acf.contact_email &&                 
+                            <CopyToClipboard emailAdress={data.acf.contact_email}/>
                     }    
                 </article>
             </div>

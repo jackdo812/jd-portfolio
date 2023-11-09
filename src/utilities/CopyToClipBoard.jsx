@@ -16,8 +16,9 @@ function CopyToClipboard({emailAdress}) {
   };
 
   return (
-    <div className='flex justify-center my-8 pt-4'>
-      <button className={`${isCopied ? 'copied-email-button' : 'primary-button'}`} onClick={copyToClipboard}>
+    <div className='flex flex-col justify-center my-8 pt-4 gap-3'>
+      <p className='self-center'>Or email me at: <span className='font-bold'>{email}</span> </p>
+      <button className={`${isCopied ? 'copied-email-button' : 'primary-button'} w-fit self-center md:hover:primary-button-hover md:tranistion-all md:duration-500`} onClick={copyToClipboard}>
         {isCopied ? 'Email Copied!' : 'Copy my Email'}
       </button>
     </div>
