@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import Loading from '../components/Loading'
 import FullWidthTabs from '../components/FullWidthTabs'
 import Carousels from '../components/Carousels'
+import { Fade } from "react-awesome-reveal";
 
 // TanQuery Components
 import {useQuery} from '@tanstack/react-query';
@@ -21,6 +22,7 @@ const SingleProject = () => {
       if (error) return 'An error has occurred: ' + error.message
    
     return (
+    <Fade>
         <div className='single-project-content mx-4 bp-800:max-w-[1200px] bp-800:!mx-auto bp-800:my-0'>
                 
                 {/* Project Video Teaser - Mobile */}
@@ -119,6 +121,7 @@ const SingleProject = () => {
             
        
         </div>   
+     </Fade>
     )
 }
 

@@ -2,6 +2,7 @@ import Loading from '../components/Loading'
 import { Link } from 'react-router-dom';
 import {useState} from 'react';
 import ProjectCard from '../components/ProjectCard';
+import { Fade } from "react-awesome-reveal";
 
 // TanQuery Components
 import {useQuery} from '@tanstack/react-query';
@@ -36,6 +37,7 @@ const Home = ( ) => {
       if (postsError) return 'An error has occurred: ' + postsError.message
     
     return (
+        <Fade >
         <div className='wrapper md:max-w-[1200px] my-0 mx-auto'>
         {/* Animated Portrait */}
          {data.acf.portrait &&
@@ -46,14 +48,14 @@ const Home = ( ) => {
                     <section className='intro-section md:mt-28 md:flex md:gap-8'>
                         <div className='md:w-[60%]'>
                             {data.acf.title && 
-                                <h1 className='font-roboto text-[3rem] my-4 uppercase text-center md:text-[4.5rem] md:pt-8'>{data.acf.title}</h1>      
+                                <h1 className='font-roboto text-[3rem] my-4 uppercase text-center md:text-[4.5rem] md:pt-8 md:!mb-0'>{data.acf.title}</h1>      
                             }
                             {/* Intro Messages */}
                             {data.acf.intro_messages && 
-                                <h2 className='text-[1.3rem] text-center mt-8 uppercase underline underline-offset-[5px] decoration-[#ae8b0c75] decoration-4 md:text-[1.7rem] ' dangerouslySetInnerHTML={{__html:data.acf.intro_messages}}></h2>
+                                <h2 className='text-[1.3rem] text-center mt-2 uppercase underline underline-offset-[5px] decoration-[#ae8b0c75] decoration-4 md:text-[1.7rem] md:!pb-8 ' dangerouslySetInnerHTML={{__html:data.acf.intro_messages}}></h2>
                             }
                             {data.acf.intro_messages_2 && 
-                                <p className='text-[1.3rem] text-center mb-10 md:mt-6' dangerouslySetInnerHTML={{__html:data.acf.intro_messages_2}}></p>
+                                <p className='text-[1.3rem] text-center mb-10 md:mt-2 md:mb-4' dangerouslySetInnerHTML={{__html:data.acf.intro_messages_2}}></p>
                             }
                             <div className='md:min-[900px]:flex md:min-[900px]:justify-around'>
                                 {/* Primary CTA */}
@@ -112,6 +114,7 @@ const Home = ( ) => {
                 
             </article>
         </div>            
+    </Fade>
     )
 }
 

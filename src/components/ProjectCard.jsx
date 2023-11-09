@@ -55,7 +55,7 @@ const ProjectCard = ({postsData, isOnHome}) => {
                       }
                   </p>           
                   }
-                  <Link to={`/projects/${post.slug}`} className='primary-button my-4 mx-auto block w-fit'>More Info</Link>
+                  <Link to={`/projects/${post.slug}`} className='primary-button my-4 mx-auto block w-fit md:hover:primary-button-hover md:transition-all md:duration-500'>More Info</Link>
                 </div>
             </article>
           )}

@@ -3,6 +3,7 @@ import Loading from '../components/Loading'
 import { Link } from 'react-router-dom';
 import TechStack from '../components/TechStack'
 import LocationPin from '../assets/gifs/locationpin_ripple.gif'
+import { Fade } from "react-awesome-reveal";
 
 // TanQuery Components
 import {useQuery} from '@tanstack/react-query';
@@ -54,6 +55,7 @@ const About = () => {
       if (error) return 'An error has occurred: ' + error.message
       
     return (
+        <Fade>
         <div className='wrapper md:max-w-[1200px] md:mx-auto md:my-0'>
            
             <h1 className='hidden'>{data.title.rendered}</h1>
@@ -204,6 +206,7 @@ const About = () => {
             </article>
        
         </div>
+        </Fade>
     )
 }
 

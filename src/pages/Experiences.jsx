@@ -3,6 +3,7 @@ import Loading from '../components/Loading'
 import MyVerticallyCenteredModal from '../components/MyVerticallyCenteredModal';
 import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Fade } from "react-awesome-reveal";
 
 
 // TanQuery Components
@@ -58,6 +59,7 @@ const Experiences = () => {
    
 
     return (
+        <Fade>
         <>
             <article id={`post-${pageData.id}`}>
                 {pageData.title.rendered ? (
@@ -103,7 +105,7 @@ const Experiences = () => {
                 }
                 {pageData.acf.cta_text && pageData.acf.cta_link &&
                     <div className='flex justify-center pt-10 mb-10'>
-                    <a href={pageData.acf.cta_link} className='primary-button' target='_blank' rel='noopener'>
+                    <a href={pageData.acf.cta_link} className='primary-button md:hover:primary-button-hover md:transition-all md:duration-500' target='_blank' rel='noopener'>
                         {pageData.acf.cta_text}
                     </a>
                     </div>
@@ -111,6 +113,7 @@ const Experiences = () => {
             </article>
       
         </>
+        </Fade>
     )
 }
 

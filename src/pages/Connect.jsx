@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import Loading from '../components/Loading'
 import SocialMedia from '../components/SocialMedia';
 import CopyToClipboard from '../utilities/CopyToClipBoard';
+import { Fade } from "react-awesome-reveal";
 
 
 // TanQuery Components
@@ -10,17 +11,19 @@ import {getPage} from '../api/fetchData';
 
 
 const Connect = () => {
-
+    
     const { isPending, error, data } = useQuery({
         queryKey: ['connectData'],
         queryFn: () => getPage(30)
       })
+      
     
       if (isPending) return<Loading />
     
       if (error) return 'An error has occurred: ' + error.message
 
     return (
+    <Fade>
         <div className='wrapper flex flex-col md:max-w-[800px] md:my-0 md:mx-auto'>
             <div className='content flex-1'> 
                 <article id={`post-${data.id}`}>
@@ -38,6 +41,7 @@ const Connect = () => {
                 </article>
             </div>
         </div>
+    </Fade>
     )
 }
 
