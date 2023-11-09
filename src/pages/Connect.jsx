@@ -47,7 +47,7 @@ const Connect = () => {
                     </div>
                     <div className='flex justify-center pt-10'>
                         {(data.acf.linkedin_link || data.acf.github_link) &&
-                            <SocialMedia linkedInLink={data.acf.linkedin_link} githubLink={data.acf.github_link}/>
+                            <SocialMedia linkedInLink={data.acf.linkedin_link} githubLink={data.acf.github_link} isOnConnect={true}/>
                         }
                     </div>
                     {data.acf.contact_email &&                 
