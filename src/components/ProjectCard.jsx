@@ -63,7 +63,7 @@ const ProjectCard = ({postsData, isOnHome}) => {
                   {!post.acf.is_in_progress ? (
                   <Link to={`/projects/${post.slug}`} className='primary-button my-4 mx-auto block w-fit md:hover:primary-button-hover md:transition-all md:duration-500'>More Info</Link>
                   ) : (
-                    <p className='secondary-button my-4 mx-auto black w-fit cursor-not-allowed'>In Progress</p>
+                    <p className='secondary-button my-4 mx-auto black w-fit cursor-not-allowed'>In Progress. . .</p>
                   )
                 }
                 </div>

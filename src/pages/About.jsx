@@ -73,7 +73,7 @@ const About = () => {
         <Fade>
         <div className='wrapper md:max-w-[1200px] md:mx-auto md:my-0'>
            
-            <h1 className='hidden'>{data.title.rendered}</h1>
+            {/* <h1 className='screen-reader-text'>{data.title.rendered}</h1> */}
             <article id={`post-${data.id}`}>
                 {/* Portrait photo */}
                 <div className="entry-content mx-4" >
@@ -82,7 +82,7 @@ const About = () => {
                             <img className='w-[300px] pt-8 mx-auto my-0 md:w-[350px] lg:w-[400px]' onMouseEnter={mouseEnter} onMouseLeave={mouseLeave} src={isHover ? data.acf.about_page_portrait_hover : data.acf.about_page_portrait } alt="Portrait photo" />
                         </div>
                         <section className='bio-section md:w-[50%]'>
-                            <h2 className='font-bold font-roboto text-3xl uppercase pb-10 pt-6 text-center md:!text-left md:pt-10'>Me, Myself & I</h2>
+                            <h1 className='font-bold font-roboto text-3xl uppercase pb-10 pt-6 text-center md:!text-left md:pt-10'>Me, Myself & I</h1>
                             {/* Bio */}
                                 {data.acf.bio &&
                                     <div dangerouslySetInnerHTML={{__html:data.acf.bio}} className='pb-3'></div>

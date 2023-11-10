@@ -64,6 +64,7 @@ function AppRouter() {
     <BrowserRouter basename="/">
       <WindowScrollToTop />
         <div className="wrapper font-lato bg-foggybg text-forest min-h-screen flex flex-col">
+          <a href="#main" className="screen-reader-text">Skip to Main</a>
           <Header mediaData={mediaData.acf}/>
          
             <main id="main" className="mx-2 grow">
