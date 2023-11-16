@@ -25,10 +25,10 @@ const ProjectCard = ({postsData, isOnHome}) => {
                     <figure className="featured-image" dangerouslySetInnerHTML={featuredImage(post._embedded['wp:featuredmedia'][0])}></figure>
                 } */}
                 {post.acf.video_teaser &&
-                  <img className='w-[300px] mx-auto my-0' src={post.acf.video_teaser} alt="Animated Cartoonized Portrait" />
+                  <img className='w-[275px] mx-auto my-2 rounded shadow-md md:!my-0 md:!w-[300px]' src={post.acf.video_teaser} alt="Animated Cartoonized Portrait" />
                 }
                 {post.title.rendered &&
-                    <h3 className='font-bold text-[1.3rem] text-center' dangerouslySetInnerHTML={{ __html: post.title.rendered }} />     
+                    <h3 className='font-bold text-[1.3rem] text-center mt-4' dangerouslySetInnerHTML={{ __html: post.title.rendered }} />     
                 }
                 <Link to={`/projects/${post.slug}`} className='primary-button my-4 mx-auto block w-fit transition-all duration-500 md:hover:primary-button-hover'>More Info</Link>
 
