@@ -3,7 +3,7 @@ import 'react-tabs/style/react-tabs.css';
 import { Fade } from "react-awesome-reveal";
 
 function FullWidthTabs ({dataACF}) {
-  console.log(dataACF);
+  
     return (
   <Tabs className={'mt-4 shadow-[0_0_4px_1px_rgba(128,128,128,1)] rounded-[10px]'}>
     <TabList>

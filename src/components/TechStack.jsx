@@ -48,7 +48,7 @@ function TechStack({TechStack}) {
             .sort((a, b) => a.skills_name.localeCompare(b.skills_name)) // Sort alphabetically
             .map((item, index) => {
                 return (
-                    <li key={index} className={`element-item text-xl m-2 p-2 border bg-foggy rounded p-1 border-black shadow-md ${item.skill_categories.toLowerCase()}`}>{item.skills_name}</li>
+                    <li key={index} className={`element-item text-xl m-2 p-2 border bg-foggy rounded border-black shadow-md ${item.skill_categories.toLowerCase()}`}>{item.skills_name}</li>
                 );
             })}
         </ul>

@@ -44,7 +44,7 @@ const ProjectCard = ({postsData, isOnHome}) => {
                       <figure className="featured-image" dangerouslySetInnerHTML={featuredImage(post._embedded['wp:featuredmedia'][0])}></figure>
                   } */}
                   {post.acf.video_teaser &&
-                    <img className='w-[300px] mx-auto my-0' src={post.acf.video_teaser} alt="Animated Cartoonized Portrait" />
+                    <img className='w-[275px] mx-auto my-2 rounded-lg shadow-md min-[845px]:!my-8 min-[1200px]:!my-2' src={post.acf.video_teaser} alt="Animated Cartoonized Portrait" />
                   }
                   {post.title.rendered &&
                       <h3 className='font-bold text-[1.3rem] text-center' dangerouslySetInnerHTML={{ __html: post.title.rendered }} />  
