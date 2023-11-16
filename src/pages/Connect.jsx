@@ -4,6 +4,8 @@ import SocialMedia from '../components/SocialMedia';
 import CopyToClipboard from '../utilities/CopyToClipBoard';
 import { Fade } from "react-awesome-reveal";
 
+// SEO
+import { Helmet } from 'react-helmet-async';
 
 // TanQuery Components
 import {useQuery} from '@tanstack/react-query';
@@ -40,6 +42,23 @@ const Connect = () => {
     showLoading ? <Loading /> : (
     <Fade>
         <div className='wrapper flex flex-col md:max-w-[800px] md:my-0 md:mx-auto'>
+            {/* SEO */}
+            <Helmet>
+                {data.acf.seo_title_tag ? (
+                    <title>{data.acf.seo_title_tag}</title>
+                ) : (
+                    <title>Connect with me - Jack Do </title>
+                )
+                    
+                }
+                {data.acf.seo_meta_description ? (
+                    <meta name="description" content={data.acf.seo_meta_description} />
+                ) : (
+                    <meta name="description" content="Contact Page - Jack Do" />
+                )
+                
+                }
+            </Helmet>
             <div className='content flex-1'> 
                 <article id={`post-${data.id}`}>
                     <h1 className='font-bold font-roboto uppercase text-center text-3xl pt-20 mb-14'>{data.title.rendered}</h1>

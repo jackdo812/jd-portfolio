@@ -4,6 +4,9 @@ import {useState, useEffect} from 'react';
 import ProjectCard from '../components/ProjectCard';
 import { Fade } from "react-awesome-reveal";
 
+// SEO
+import { Helmet } from 'react-helmet-async';
+
 // TanQuery Components
 import {useQuery} from '@tanstack/react-query';
 import {getPage, getPost} from '../api/fetchData';
@@ -54,6 +57,23 @@ const Home = ( ) => {
     showLoading ? <Loading /> : (
         <Fade >
         <div className='wrapper md:max-w-[1200px] my-0 mx-auto'>
+        {/* SEO */}
+        <Helmet>
+            {data.acf.seo_title_tag ? (
+                <title>{data.acf.seo_title_tag}</title>
+            ) : (
+                <title>Jack Do - Front-End Web Developer</title>
+            )
+                
+            }
+            {data.acf.seo_meta_description ? (
+                <meta name="description" content={data.acf.seo_meta_description} />
+            ) : (
+                <meta name="description" content="Home - Jack Do" />
+            )
+            
+            }
+         </Helmet>
         {/* Animated Portrait */}
          {data.acf.portrait &&
             <img className='w-[300px] md:hidden my-2 mx-auto' src={data.acf.portrait} alt="Animated cartoonized portrait" />

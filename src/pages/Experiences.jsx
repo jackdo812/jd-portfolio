@@ -5,6 +5,8 @@ import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Fade } from "react-awesome-reveal";
 
+// SEO
+import { Helmet } from 'react-helmet-async';
 
 // TanQuery Components
 import {useQuery} from '@tanstack/react-query';
@@ -73,7 +75,24 @@ const Experiences = () => {
     return (
         showLoading ? <Loading /> : (
         <Fade>
-         <>
+         <div>
+            {/* SEO */}
+            <Helmet>
+                {pageData.acf.seo_title_tag ? (
+                    <title>{pageData.acf.seo_title_tag}</title>
+                ) : (
+                    <title>Experiences - Jack Do </title>
+                )
+                    
+                }
+                {pageData.acf.seo_meta_description ? (
+                    <meta name="description" content={pageData.acf.seo_meta_description} />
+                ) : (
+                    <meta name="description" content="Experiences Page - Jack Do" />
+                )
+                
+                }
+            </Helmet>
             <article id={`post-${pageData.id}`}>
                 {pageData.title.rendered ? (
                     <h1 className='text-3xl font-bold font-roboto text-center uppercase pb-10 pt-16'>{pageData.title.rendered}</h1>
@@ -125,7 +144,7 @@ const Experiences = () => {
                 }
             </article>
       
-         </>
+         </div>
         </Fade>
         )
     )

@@ -5,6 +5,9 @@ import TechStack from '../components/TechStack'
 import LocationPin from '../assets/gifs/locationpin_ripple.gif'
 import { Fade } from "react-awesome-reveal";
 
+// SEO
+import { Helmet } from 'react-helmet-async';
+
 // TanQuery Components
 import {useQuery} from '@tanstack/react-query';
 import {getPage} from '../api/fetchData';
@@ -67,11 +70,30 @@ const About = () => {
       if (isPending) return <Loading/>
     
       if (error) return 'An error has occurred: ' + error.message
+
+    
       
     return (
         showLoading ? <Loading /> : (
         <Fade>
         <div className='wrapper md:max-w-[1200px] md:mx-auto md:my-0'>
+           {/* SEO */}
+            <Helmet>
+                {data.acf.seo_title_tag ? (
+                    <title>{data.acf.seo_title_tag}</title>
+                ) : (
+                    <title>About Page - Jack Do </title>
+                )
+                    
+                }
+                {data.acf.seo_meta_description ? (
+                    <meta name="description" content={data.acf.seo_meta_description} />
+                ) : (
+                    <meta name="description" content="About Page - Jack Do" />
+                )
+                
+                }
+            </Helmet>
            
             {/* <h1 className='screen-reader-text'>{data.title.rendered}</h1> */}
             <article id={`post-${data.id}`}>

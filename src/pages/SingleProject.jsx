@@ -6,6 +6,9 @@ import FullWidthTabs from '../components/FullWidthTabs'
 import Carousels from '../components/Carousels'
 import { Fade } from "react-awesome-reveal";
 
+// SEO
+import { Helmet } from 'react-helmet-async';
+
 // TanQuery Components
 import {useQuery} from '@tanstack/react-query';
 import {getPost} from '../api/fetchData';
@@ -39,7 +42,11 @@ const SingleProject = () => {
     showLoading ? <Loading /> : (
     <Fade>
         <div className='single-project-content mx-4 bp-800:max-w-[1200px] bp-800:!mx-auto bp-800:my-0'>
-                
+                {/* SEO */}
+                <Helmet>          
+                    <title>Projects - {slug.charAt(0).toUpperCase() + slug.slice(1)}</title>
+                    <meta name="description" content={`This is the single project page, which showcases the details of ${slug.charAt(0).toUpperCase() + slug.slice(1)} project. Let's check it out!`} />
+                 </Helmet>
                 {/* Project Video Teaser - Mobile */}
                 {data[0].acf.video_teaser &&
                     <img className='gif-teaser-mobile bp-800:hidden w-[450px] mx-auto my-0' src={data[0].acf.video_teaser} alt="Video Teaser of this Project" />

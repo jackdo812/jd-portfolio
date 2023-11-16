@@ -3,6 +3,9 @@ import { useState, useEffect } from 'react';
 import ProjectCard from '../components/ProjectCard'
 import { Fade } from "react-awesome-reveal";
 
+// SEO
+import { Helmet } from 'react-helmet-async';
+
 // TanQuery Components
 import {useQuery} from '@tanstack/react-query';
 import {getPage, getPost} from '../api/fetchData';
@@ -46,6 +49,24 @@ const Projects = ( {featuredImage} ) => {
     showLoading ? <Loading /> : (
       <Fade>
         <div className='wrapper md:max-w-[1024px] md:my-0 md:mx-auto'>
+            {/* SEO */}
+            <Helmet>
+              {pageData.acf.seo_title_tag ? (
+                  <title>{pageData.acf.seo_title_tag}</title>
+              ) : (
+                  <title>Projects - Jack Do</title>
+              )
+                  
+              }
+              {pageData.acf.seo_meta_description ? (
+                  <meta name="description" content={pageData.acf.seo_meta_description} />
+              ) : (
+                  <meta name="description" content="Projects Page - Jack Do" />
+              )
+              
+              }
+          </Helmet>
+          {/* Page content */}
                 {pageData.title.rendered ?(
                   <h1 className='text-3xl font-bold font-roboto uppercase text-center pb-10 pt-16'>{pageData.title.rendered}</h1>
                   ) : (
