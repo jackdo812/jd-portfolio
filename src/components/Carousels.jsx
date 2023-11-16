@@ -19,8 +19,12 @@ function Carousels({singleProjectData}) {
   if (postsError) return 'An error has occurred: ' + postsError.message
   
   const idToRemove = singleProjectData.id;
+
+  // Remove the project that is in progress from the "See Other Project" Carousels
+  const newPostsData = postsData.filter((post) => !post.acf.is_in_progress);
  
-  const filteredPostsData = postsData.filter((post) => post.id !== idToRemove);
+  // Remove the current project page from the "See Other Project"
+  const filteredPostsData = newPostsData.filter((post) => post.id !== idToRemove);
   
   return (
     <Carousel indicators={false} nextIcon={<NextIconSvg />} prevIcon={<PrevIconSvg />}>
@@ -30,8 +34,8 @@ function Carousels({singleProjectData}) {
             <Carousel.Caption className='relative right-0 bottom-0 left-0 text-forest w-[75%] min-[500px]:w-[300px] mx-auto my-0'>
               <article className='border shadow-md shadow-forest border-leaf bg-foggy rounded pb-4'>
                 <Link to={`/projects/${post.slug}`}>
-                  <img className='w-[300px] my-0 mx-auto' src={post.acf.video_teaser} alt="Project's GIF teaser" />
-                  <h3 className='font-bold'>{post.title.rendered}</h3>
+                  <img className='w-[300px] my-0 mx-auto rounded-t' src={post.acf.video_teaser} alt="Project's GIF teaser" />
+                  <h3 className='font-bold mt-4' dangerouslySetInnerHTML={{__html:post.title.rendered}}></h3>
                   <p className='italic'>{post._embedded["wp:term"][1].map((tag, idx) => (
                     <span key={idx}>{tag.name}{idx < post._embedded["wp:term"][1].length - 1 ? " | " : null}</span>
                   ))}

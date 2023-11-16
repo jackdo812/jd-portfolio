@@ -47,7 +47,7 @@ const ProjectCard = ({postsData, isOnHome}) => {
                     <img className='w-[275px] mx-auto my-2 rounded-lg shadow-md min-[845px]:!my-8 min-[1200px]:!my-2' src={post.acf.video_teaser} alt="Animated Cartoonized Portrait" />
                   }
                   {post.title.rendered &&
-                      <h3 className='font-bold text-[1.3rem] text-center' dangerouslySetInnerHTML={{ __html: post.title.rendered }} />  
+                      <h3 className='font-bold text-[1.3rem] text-center mt-4' dangerouslySetInnerHTML={{ __html: post.title.rendered }} />  
                   }
                   <p className='italic text-center pb-2'>{post._embedded["wp:term"][1].map((tag, index) => (
                       <span key={index}>{tag.name}{index < post._embedded["wp:term"][1].length - 1 ? " | " : null}</span>
@@ -55,7 +55,7 @@ const ProjectCard = ({postsData, isOnHome}) => {
                   {post.acf.project_overview &&
                     <p className='text-center'>
                       {post.acf.project_overview.length > 20 ?
-                        `${post.acf.project_overview.split(' ').slice(0, 10).join(' ')}...` :
+                        `${post.acf.project_overview.split(' ').slice(0, 8).join(' ')}...` :
                         post.acf.project_overview
                       }
                   </p>           

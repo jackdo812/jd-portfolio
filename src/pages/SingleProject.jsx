@@ -51,7 +51,7 @@ const SingleProject = () => {
                         <div className='project-info-section bp-800:w-[55%]'>
                             {/* Project Title */}
                             {data[0].title.rendered &&
-                                <h1 className='font-bold font-roboto uppercase text-3xl pt-14'>{data[0].title.rendered}</h1>
+                                <h1 className='font-bold font-roboto uppercase text-3xl pt-14' dangerouslySetInnerHTML={{__html:data[0].title.rendered}}></h1>
                             }
                             {/* Project Tech Stack */}
                             {data[0]._embedded["wp:term"][1] &&
@@ -85,7 +85,7 @@ const SingleProject = () => {
                             {/* Project Role */}
                             {data[0].acf.roles &&
                                 <p className='mb-3'>
-                                    Role:
+                                    Role(s):
                                     <span className='font-bold'> {data[0].acf.roles.join(', ')}</span>
                                 </p>
                             }
@@ -130,7 +130,7 @@ const SingleProject = () => {
                         <FullWidthTabs dataACF={data[0].acf}/>
                     }
                     {/* See other project carousels */}
-                    <h2 className='mt-12 font-roboto font-bold text-2xl'>See other projects</h2>
+                    <h2 className='mt-12 font-roboto font-bold text-2xl'>See Other Projects</h2>
                     <Carousels singleProjectData={data[0]}/>
                 </article>
             
