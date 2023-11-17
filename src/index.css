@@ -163,9 +163,16 @@
   }
 
   .react-tabs__tab-panel h3 {
-	  font-size: calc(0.7rem + 0.5vw);
+	  font-size: 1.1rem;
 	  font-weight: 700;
 	  color: #053B06;
+	  padding: 1rem 0;
+  }
+
+  .react-tabs__tab-panel h4 {
+	  font-size: 1rem;
+	  text-decoration: underline;
+	  font-style: italic;
 	  padding: 1rem 0;
   }
 
@@ -210,5 +217,18 @@
 	}
 }
 
+/* Code Embed in Tabs */
+
+.embedPastebin {
+	background-color: #252525 !important;
+}
+
+.highlighted-code {
+	border: 0px solid #333;
+}
+
+.embedPastebin .embedFooter {
+	display: none !important;
+}
 
 

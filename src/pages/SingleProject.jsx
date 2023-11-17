@@ -60,7 +60,7 @@ const SingleProject = () => {
                 }
 
                 <article id={`post-${data[0].id}`} className="entry-content bp-800:mx-6">
-                    <div className='project-overview-wrapper bp-800:mt-8 bp-800:flex'>
+                    <div className='project-overview-wrapper bp-800:mt-16 bp-800:flex bp-800:gap-4'>
 
                         <div className='project-info-section bp-800:w-[55%]'>
                             {/* Project Title */}
@@ -117,13 +117,13 @@ const SingleProject = () => {
 
                             {data[0].acf.project_video_teaser &&
                             
-                            <video className={`gif-teaser-desktop hidden bp-800:block ${data[0].acf.video_teaser_vertically ? 'w-[300px]' : 'w-[450px]'} mx-auto my-10 rounded shadow-md`} controls autoPlay muted loop>
+                            <video className={`gif-teaser-desktop hidden bp-800:block ${data[0].acf.video_teaser_vertically ? 'w-[300px]' : 'w-[450px]'} mx-auto my-10 rounded shadow-[0_0_4px_1px_gray]`} controls autoPlay muted loop>
                                 <source src={data[0].acf.project_video_teaser.url} type="video/mp4" />
                                 Your browser does not support the video tag.
                             </video>
                
                }
-                            <div className='flex justify-evenly min-[1045px]:w-[450px]'>
+                            <div className='flex justify-evenly'>
 
                                 {/* Primary CTA*/}
                                 {(data[0].acf.single_project_primary_cta_text && data[0].acf.single_project_primary_cta_link) &&
