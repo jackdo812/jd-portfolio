@@ -155,18 +155,27 @@ const About = () => {
                                 <img className={`absolute z-20 w-[65px] left-[13.5%] bottom-[49%] cursor-pointer`} src={LocationPin} alt="Location Pin GIF" onClick={revealHobby3}/>
                                 <div className={` ${isHobby1Flipped ? 'block animate-zoom' : 'hidden'} rounded-[10px] shadow-[0_2px_8px_0] shadow-black absolute right-[35%] top-[10%] z-30 w-[200px] min-[950px]:w-[250px] `}>
                                     <img className={`w-[200px] rounded-[10px] z-30 min-[950px]:w-[250px]`} src={data.acf.hobby_1} alt="Hobby 1" />
-                                    <span className={`absolute right-[10px] top-0 z-30 text-white text-2xl cursor-pointer underline`}>x</span>
-                                    <span className={`absolute right-[10px] top-0 z-30 text-sun animate-ping text-2xl cursor-pointer underline`} onClick={revealHobby1}>x</span>
+                                    <span className={`absolute right-[10px] top-0 z-30 text-[#FF0000] text-2xl cursor-pointer `}>x</span>
+                                    <span className={`absolute right-[10px] top-0 z-30 text-white animate-ping text-2xl cursor-pointer`} onClick={revealHobby1}>x</span>
+                                    {data.acf.hobby_1_badge &&
+                                                    <img className={`absolute w-[50px] left-[10px] top-0 z-20`} src={data.acf.hobby_1_badge} alt='Hobby 1 Badge Illustration'/>
+                                     }
                                 </div>
                                 <div className={` ${isHobby2Flipped ? 'block animate-zoom' : 'hidden'} rounded-[10px] shadow-[0_2px_8px_0] shadow-black absolute right-[10%] bottom-[12%] z-30 w-[200px] min-[950px]:w-[250px] min-[950px]:bottom-[8%] min-[950px]:right-[15%] min-[1100px]:bottom-[15%]`}>
                                     <img className={`w-[200px] rounded-[10px] z-30 min-[950px]:w-[250px]`} src={data.acf.hobby_2} alt="Hobby 2" />
-                                    <span className={`absolute right-[10px] top-0 z-30 text-white text-2xl cursor-pointer underline`}>x</span>
-                                    <span className={`absolute right-[10px] top-0 z-30 text-sun animate-ping text-2xl cursor-pointer underline`} onClick={revealHobby2}>x</span>
+                                    <span className={`absolute right-[10px] top-0 z-30 text-[#FF0000] text-2xl cursor-pointer `}>x</span>
+                                    <span className={`absolute right-[10px] top-0 z-30 text-white animate-ping text-2xl cursor-pointer `} onClick={revealHobby2}>x</span>
+                                    {data.acf.hobby_2_badge &&
+                                                    <img className={`absolute w-[50px] left-[10px] top-0 z-20`} src={data.acf.hobby_2_badge} alt='Hobby 2 Badge Illustration'/>
+                                     }
                                 </div>
                                 <div className={` ${isHobby3Flipped ? 'block animate-zoom' : 'hidden'} rounded-[10px] shadow-[0_2px_8px_0] shadow-black absolute left-[5%] bottom-[25%] z-30 w-[200px] min-[950px]:w-[250px] min-[950px]:bottom-[25%] min-[950px]:left-[5%] min-[1100px]:bottom-[30%] min-[1100px]:left-[10%]`}>
                                     <img className={`w-[200px] rounded-[10px] z-30 min-[950px]:w-[250px]`} src={data.acf.hobby_3} alt="Hobby 2" />
-                                    <span className={`absolute right-[10px] top-0 z-30 text-white text-2xl cursor-pointer underline`}>x</span>
-                                    <span className={`absolute right-[10px] top-0 z-30 text-sun animate-ping text-2xl cursor-pointer underline`} onClick={revealHobby3}>x</span>
+                                    <span className={`absolute right-[10px] top-0 z-30 text-[#FF0000] text-2xl cursor-pointer `}>x</span>
+                                    <span className={`absolute right-[10px] top-0 z-30 text-white animate-ping text-2xl cursor-pointer `} onClick={revealHobby3}>x</span>
+                                    {data.acf.hobby_3_badge &&
+                                                    <img className={`absolute w-[50px] left-[10px] top-0 z-20`} src={data.acf.hobby_3_badge} alt='Hobby 3 Badge Illustration'/>
+                                     }
                                 </div>
                             </div>
                         }
@@ -186,8 +195,11 @@ const About = () => {
                                     <div className="back-component">
                                             <div className={`flip-card-back mx-auto my-0 rounded-[10px] w-[240px] transform rotate-y-180 backface-hidden relative shadow-[0_2px_8px_0] shadow-black `}>
                                                 <img className={`w-[240px] rounded-[10px]`} src={data.acf.hobby_1} alt="Hobby 1" />
-                                                <span className={`absolute right-[10px] top-0 z-20 text-white text-2xl cursor-pointer underline`}>x</span>
-                                                <span className={`absolute right-[10px] top-0 z-20 text-sun animate-ping text-2xl cursor-pointer underline`} onClick={revealHobby1}>x</span>
+                                                <span className={`absolute right-[10px] top-0 z-20 text-[#FF0000] text-2xl cursor-pointer`}>x</span>
+                                                <span className={`absolute right-[10px] top-0 z-20 text-white animate-ping text-2xl cursor-pointer`} onClick={revealHobby1}>x</span>
+                                                {data.acf.hobby_1_badge &&
+                                                    <img className={`absolute w-[50px] left-[10px] top-0 z-20`} src={data.acf.hobby_1_badge} alt='Hobby 1 Badge Illustration'/>
+                                                }
                                             </div>
                                     </div>
                                     </ReactCardFlip>
@@ -209,8 +221,11 @@ const About = () => {
                                     <div className="back-component">
                                             <div className={`flip-card-back mx-auto my-0 rounded-[10px] w-[240px] transform rotate-y-180 backface-hidden relative shadow-[0_2px_8px_0] shadow-black`}>
                                                 <img className={`w-[240px] rounded-[10px]`} src={data.acf.hobby_2} alt="Hobby 1" />
-                                                <span className={`absolute right-[10px] top-0 z-20 text-white text-2xl cursor-pointer underline`}>x</span>
-                                                <span className={`absolute right-[10px] top-0 z-20 text-sun animate-ping text-2xl cursor-pointer underline`} onClick={revealHobby2}>x</span>
+                                                <span className={`absolute right-[10px] top-0 z-20 text-[#FF0000] text-2xl cursor-pointer`}>x</span>
+                                                <span className={`absolute right-[10px] top-0 z-20 text-white animate-ping text-2xl cursor-pointer`} onClick={revealHobby2}>x</span>
+                                                {data.acf.hobby_2_badge &&
+                                                    <img className={`absolute w-[50px] left-[10px] top-0 z-20`} src={data.acf.hobby_2_badge} alt='Hobby 2 Badge Illustration'/>
+                                                }
                                             </div>
                                     </div>
                                     </ReactCardFlip>
@@ -230,8 +245,11 @@ const About = () => {
                                     <div className="back-component">
                                             <div className={`flip-card-back mx-auto my-0 rounded-[10px] w-[240px] transform rotate-y-180 backface-hidden relative shadow-[0_2px_8px_0] shadow-black`}>
                                                 <img className={`w-[240px] rounded-[10px]`} src={data.acf.hobby_3} alt="Hobby 1" />
-                                                <span className={`absolute right-[10px] top-0 z-20 text-white text-2xl cursor-pointer underline`}>x</span>
-                                                <span className={`absolute right-[10px] top-0 z-20 text-sun animate-ping text-2xl cursor-pointer underline`} onClick={revealHobby3}>x</span>
+                                                <span className={`absolute right-[10px] top-0 z-20 text-[#FF0000] text-2xl cursor-pointer`}>x</span>
+                                                <span className={`absolute right-[10px] top-0 z-20 text-white animate-ping text-2xl cursor-pointer`} onClick={revealHobby3}>x</span>
+                                                {data.acf.hobby_3_badge &&
+                                                    <img className={`absolute w-[50px] left-[10px] top-0 z-20`} src={data.acf.hobby_3_badge} alt='Hobby 3 Badge Illustration'/>
+                                                }
                                             </div>
                                     </div>
                                     </ReactCardFlip>
