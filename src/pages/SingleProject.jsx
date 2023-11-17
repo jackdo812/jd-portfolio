@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom'
 import Loading from '../components/Loading'
 import FullWidthTabs from '../components/FullWidthTabs'
 import Carousels from '../components/Carousels'
-import { Fade } from "react-awesome-reveal";
+import { Fade } from "react-awesome-reveal"
+
 
 // SEO
 import { Helmet } from 'react-helmet-async';
@@ -37,7 +38,7 @@ const SingleProject = () => {
       if (isPending) return <Loading />
     
       if (error) return 'An error has occurred: ' + error.message
-   
+    console.log(data[0]);
     return (
     showLoading ? <Loading /> : (
     <Fade>
@@ -47,18 +48,24 @@ const SingleProject = () => {
                     <title>Projects - {slug.charAt(0).toUpperCase() + slug.slice(1)}</title>
                     <meta name="description" content={`This is the single project page, which showcases the details of ${slug.charAt(0).toUpperCase() + slug.slice(1)} project. Let's check it out!`} />
                  </Helmet>
-                {/* Project Video Teaser - Mobile */}
-                {data[0].acf.video_teaser &&
-                    <img className='gif-teaser-mobile bp-800:hidden w-[450px] mx-auto my-0' src={data[0].acf.video_teaser} alt="Video Teaser of this Project" />
-                }
+             
+                {/* Project Video Teaser- Mobile */}
+                {data[0].acf.project_video_teaser &&
+                   
+                    <video className={`gif-teaser-mobile bp-800:hidden ${data[0].acf.video_teaser_vertically ? 'w-[300px]' : 'w-[450px]'} mx-auto my-10 rounded shadow-md`} controls autoPlay muted loop>
+                        <source src={data[0].acf.project_video_teaser.url} type="video/mp4" />
+                        Your browser does not support the video tag.
+                    </video>
                 
+                }
+
                 <article id={`post-${data[0].id}`} className="entry-content bp-800:mx-6">
                     <div className='project-overview-wrapper bp-800:mt-8 bp-800:flex'>
 
                         <div className='project-info-section bp-800:w-[55%]'>
                             {/* Project Title */}
                             {data[0].title.rendered &&
-                                <h1 className='font-bold font-roboto uppercase text-3xl pt-14' dangerouslySetInnerHTML={{__html:data[0].title.rendered}}></h1>
+                                <h1 className='font-bold font-roboto uppercase text-3xl pt-2' dangerouslySetInnerHTML={{__html:data[0].title.rendered}}></h1>
                             }
                             {/* Project Tech Stack */}
                             {data[0]._embedded["wp:term"][1] &&
@@ -107,9 +114,15 @@ const SingleProject = () => {
                         <div className='videos-ctas-section bp-800:w-[45%]'>
 
                             {/* Video Teaser - Desktop */}
-                            {data[0].acf.video_teaser &&
-                                <img className='gif-teaser-desktop hidden bp-800:block w-[450px]' src={data[0].acf.video_teaser} alt="Video Teaser of this Project" />
-                            }
+
+                            {data[0].acf.project_video_teaser &&
+                            
+                            <video className={`gif-teaser-desktop hidden bp-800:block ${data[0].acf.video_teaser_vertically ? 'w-[300px]' : 'w-[450px]'} mx-auto my-10 rounded shadow-md`} controls autoPlay muted loop>
+                                <source src={data[0].acf.project_video_teaser.url} type="video/mp4" />
+                                Your browser does not support the video tag.
+                            </video>
+               
+               }
                             <div className='flex justify-evenly min-[1045px]:w-[450px]'>
 
                                 {/* Primary CTA*/}
