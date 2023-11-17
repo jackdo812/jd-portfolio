@@ -38,7 +38,7 @@ const SingleProject = () => {
       if (isPending) return <Loading />
     
       if (error) return 'An error has occurred: ' + error.message
-    console.log(data[0]);
+   
     return (
     showLoading ? <Loading /> : (
     <Fade>
