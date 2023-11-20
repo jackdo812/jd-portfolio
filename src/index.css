@@ -248,4 +248,50 @@
 	}
 }
 
+/* Fireflies animation */
+.flying-animation {
+	animation: flying 15s ease-in-out infinite;
+  }
 
+  @keyframes flying {
+	0% {
+		transform: translate(0, 0);
+	}
+	25% {
+		transform: translate(55px, 25px);
+	}
+	50% {
+		transform: translate(100px, 50px);
+	}
+	75% {
+		transform: translate(70px, 20px);
+	}
+	100% {
+		transform: translate(0, 0);
+	}
+  }
+
+
+
+
+  .flying-animation-2 {
+	animation: flying-2 10s ease-in-out infinite;
+  }
+
+  @keyframes flying-2 {
+	0% {
+		transform: translate(0, 0);
+	  }
+	25% {
+		transform: translate(-25px, 75px);
+	}
+	50% {
+		transform: translate(50px, 150px);
+	}
+	75% {
+		transform: translate(20px, 70px);
+	}
+	100% {
+		transform: translate(0, 0);
+	}
+  }

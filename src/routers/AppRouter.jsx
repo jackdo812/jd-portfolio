@@ -52,8 +52,10 @@ function AppRouter() {
           <a href="#main" className="screen-reader-text">Skip to Main</a>
           <Header mediaData={mediaData.acf}/>
          
-            <main id="main" className="mx-2 grow">
-              <div className="w-4 h-4 rounded-full"></div>
+            <main id="main" className="mx-2 grow relative">
+              {/* Fireflies effect */}
+              <div className={`flying-animation w-12 h-12 rounded-full bg-sun animate-pulse absolute left-[10%] top-[25%] blur-lg ${isDarkMode ? 'opacity-70' : 'opacity-20'}`}></div>
+              <div className={`flying-animation-2 w-8 h-8 rounded-full bg-sun animate-pulse absolute right-[10%] top-[35%] blur-lg ${isDarkMode ? 'opacity-70' : 'opacity-20'}`}></div>
               <Routes>
                 <Route path='/' element={<Home restBase={restBase} />} />
                 <Route path='/about' element={<About restBase={restBase} />} />
