@@ -296,7 +296,7 @@
 		transform: translate(-25px, 75px);
 	}
 	50% {
-		transform: translate(50px, 150px);
+		transform: translate(30px, 150px);
 	}
 	75% {
 		transform: translate(20px, 70px);
