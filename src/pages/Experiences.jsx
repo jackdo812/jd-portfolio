@@ -3,6 +3,7 @@ import Loading from '../components/Loading'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Fade } from "react-awesome-reveal";
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 // SEO
 import { Helmet } from 'react-helmet-async';
@@ -19,6 +20,7 @@ import { MdWork } from "react-icons/md";
 
 
 const Experiences = () => {
+    const isDarkMode = useSelector((state) => state.darkMode);
     const [showLoading, setShowLoading] = useState(true);
 
     useEffect(() => {
@@ -111,8 +113,9 @@ const Experiences = () => {
                                    key={index}
                                    className="vertical-timeline-element--work"
                                    contentStyle={{ background: '#FAFBEE', border: '1px solid #04773B', color: '#053B06' }}
-                                   contentArrowStyle={{ borderRight: '7px solid #04773B' }}                           
+                                   contentArrowStyle={isDarkMode ? { borderRight: '7px solid #FAFBEE' } : { borderRight: '7px solid #04773B' }}                           
                                    date={cpt.acf.work_duration}
+                                   dateClassName={isDarkMode? 'text-foggy' : 'text-forest'}
                                    iconStyle={{ background: '#f1c834', color: '#fff', border: '2px solid green' }}
                                    iconClassName='border-2 border-green-600'
                                    icon={<MdWork />}
