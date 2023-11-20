@@ -1,9 +1,8 @@
 import { useState, useEffect } from 'react'
 import Loading from '../components/Loading'
-import MyVerticallyCenteredModal from '../components/MyVerticallyCenteredModal';
-import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Fade } from "react-awesome-reveal";
+import { Link } from 'react-router-dom';
 
 // SEO
 import { Helmet } from 'react-helmet-async';
@@ -137,9 +136,9 @@ const Experiences = () => {
                 }
                 {pageData.acf.cta_text && pageData.acf.cta_link &&
                     <div className='flex justify-center pt-10 mb-10'>
-                    <a href={pageData.acf.cta_link} className='primary-button md:hover:primary-button-hover md:transition-all md:duration-500' target='_blank' rel='noopener'>
+                    <Link to={pageData.acf.cta_link} className='primary-button md:hover:primary-button-hover md:transition-all md:duration-500' target='_blank' rel='noopener'>
                         {pageData.acf.cta_text}
-                    </a>
+                    </Link>
                     </div>
                 }
             </article>

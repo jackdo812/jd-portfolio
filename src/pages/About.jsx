@@ -118,12 +118,12 @@ const About = () => {
                             <div className='CTA-buttons-section md:flex md:justify-between bp-850:justify-start bp-850:gap-8'>           
                                 {/* Primary CTA */}
                                 {data.acf.primary_cta_text_about && data.acf.primary_cta_link_about &&
-                                    <Link className='primary-button block my-4 mx-auto w-fit md:!mx-0 md:hover:primary-button-hover md:transition-all md:duration-500' to={data.acf.primary_cta_link_about} > {data.acf.primary_cta_text_about}
+                                    <Link className='primary-button block my-4 mx-auto w-fit md:!mx-0 md:hover:primary-button-hover md:transition-all md:duration-500' to={data.acf.primary_cta_link_about} target='_blank' rel='noopener' > {data.acf.primary_cta_text_about}
                                     </Link>
                                 }
                                 {/* Secondary CTA */}
                                 {data.acf.secondary_cta_text_about && data.acf.secondary_cta_link_about &&
-                                    <Link className='secondary-button block my-2 mx-auto w-fit px-[8px] py-[6px] md:h-fit md:self-center md:!mx-0 md:py-[8px] md:hover:secondary-button-hover md:transition-all md:duration-500' to={data.acf.secondary_cta_link_about} > {data.acf.secondary_cta_text_about}
+                                    <Link className='secondary-button block my-2 mx-auto w-fit px-[8px] py-[6px] md:h-fit md:self-center md:!mx-0 md:py-[8px] md:hover:secondary-button-hover md:transition-all md:duration-500' to={data.acf.secondary_cta_link_about} target='_blank' rel='noopener' > {data.acf.secondary_cta_text_about}
                                     </Link>
                                 }
                             </div>
