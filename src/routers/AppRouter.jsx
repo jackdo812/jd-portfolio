@@ -1,7 +1,7 @@
 // Router Components
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import React, {useEffect } from 'react';
-
+import React from 'react';
+import { useSelector } from 'react-redux'; // Import useSelector
 
 
 import Header from "../components/Header";
@@ -21,6 +21,8 @@ import {useQuery} from '@tanstack/react-query';
 import {getPage} from '../api/fetchData';
 
 function AppRouter() {
+  // Use useSelector to get the isDarkMode state from Redux store
+  const isDarkMode = useSelector((state) => state.darkMode);
   
   const restBase = 'https://jackthecoder.com/zxbpsrwen/wp-json/wp/v2/'
 
@@ -42,28 +44,28 @@ function AppRouter() {
   if (medieError) return 'An error has occurred: ' + medieError.message
   
   
-  const featuredImage = ( featuredImageObject ) => {
-    let imgWidth = featuredImageObject.media_details.sizes.full.width;
-    let imgHeight = featuredImageObject.media_details.sizes.full.height;
-    let imgURL = featuredImageObject.source_url;
-    let img = `<img src="${imgURL}" 
-        width="${imgWidth}"
-        height="${imgHeight}"
-        alt="${featuredImageObject.alt_text}"
-        srcset="${imgURL} ${imgWidth}w,
-        ${featuredImageObject.media_details.sizes.full ? featuredImageObject.media_details.sizes.full.source_url + ' 1024w,' : ''}
-        ${featuredImageObject.media_details.sizes.medium_large ? featuredImageObject.media_details.sizes.medium_large.source_url + ' 768w,' : ''}
-        ${featuredImageObject.media_details.sizes.medium ? featuredImageObject.media_details.sizes.medium.source_url + ' 300w' : ''}"
-        sizes="(max-width: ${imgWidth}) 100vw, ${imgWidth}px">`;
-    return {__html: img}
-  }
+  // const featuredImage = ( featuredImageObject ) => {
+  //   let imgWidth = featuredImageObject.media_details.sizes.full.width;
+  //   let imgHeight = featuredImageObject.media_details.sizes.full.height;
+  //   let imgURL = featuredImageObject.source_url;
+  //   let img = `<img src="${imgURL}" 
+  //       width="${imgWidth}"
+  //       height="${imgHeight}"
+  //       alt="${featuredImageObject.alt_text}"
+  //       srcset="${imgURL} ${imgWidth}w,
+  //       ${featuredImageObject.media_details.sizes.full ? featuredImageObject.media_details.sizes.full.source_url + ' 1024w,' : ''}
+  //       ${featuredImageObject.media_details.sizes.medium_large ? featuredImageObject.media_details.sizes.medium_large.source_url + ' 768w,' : ''}
+  //       ${featuredImageObject.media_details.sizes.medium ? featuredImageObject.media_details.sizes.medium.source_url + ' 300w' : ''}"
+  //       sizes="(max-width: ${imgWidth}) 100vw, ${imgWidth}px">`;
+  //   return {__html: img}
+  // }
 
 
 
   return (
     <BrowserRouter basename="/">
       <WindowScrollToTop />
-        <div className="wrapper font-lato bg-foggybg text-forest min-h-screen flex flex-col">
+        <div className={`wrapper font-lato ${isDarkMode ? 'bg-forest text-foggy': 'bg-foggybg text-forest'}  min-h-screen flex flex-col`}>
           <a href="#main" className="screen-reader-text">Skip to Main</a>
           <Header mediaData={mediaData.acf}/>
          
@@ -71,7 +73,7 @@ function AppRouter() {
               <Routes>
                 <Route path='/' element={<Home restBase={restBase} />} />
                 <Route path='/about' element={<About restBase={restBase} />} />
-                <Route path='/projects' element={<Projects restBase={restBase} featuredImage={featuredImage} />} />
+                <Route path='/projects' element={<Projects restBase={restBase} />} />
                 <Route path='/projects/:slug' element={<SingleProject restBase={restBase} />} />
                 <Route path='/experiences' element={<Experiences restBase={restBase} />} />
                 <Route path='/connect' element={<Connect restBase={restBase} />} />

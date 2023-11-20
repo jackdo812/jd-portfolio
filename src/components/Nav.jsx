@@ -1,5 +1,5 @@
 import { NavLink, useLocation } from "react-router-dom";
-import SocialMedia from "./SocialMedia";
+import ToggleButton from "./ToggleButton";
 
 const Nav = () => {
 
@@ -32,6 +32,9 @@ const Nav = () => {
         <li className="md:text-[1.1rem] min-[900px]:text-xl md:hover:scale-[1.2] md:transition-all md:duration-300 md:ease-in-out">
           <NavLink to="/connect"      
             className={`${location.pathname === "/connect" ? "text-soil underline" : ""} py-4 px-2`}>Connect</NavLink>
+        </li>
+        <li>
+          <ToggleButton />
         </li>
       </ul>
     </nav>

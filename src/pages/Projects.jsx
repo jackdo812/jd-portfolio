@@ -10,7 +10,7 @@ import { Helmet } from 'react-helmet-async';
 import {useQuery} from '@tanstack/react-query';
 import {getPage, getPost} from '../api/fetchData';
 
-const Projects = ( {featuredImage} ) => {
+const Projects = () => {
 
     const [showLoading, setShowLoading] = useState(true);
 

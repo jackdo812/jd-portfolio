@@ -21,9 +21,6 @@ const ProjectCard = ({postsData, isOnHome}) => {
           {newPostsData.map(post => 
            
             <article key={post.id} id={`post-${post.id}`} className='border-2 shadow-md rounded bg-foggy my-8 mx-auto max-w-[300px] md:max-w-[250px] min-[950px]:max-w-[300px]'>
-                {/* {post.featured_media !== 0 && post._embedded &&
-                    <figure className="featured-image" dangerouslySetInnerHTML={featuredImage(post._embedded['wp:featuredmedia'][0])}></figure>
-                } */}
                 {post.acf.video_teaser &&
                   <img className='w-[275px] mx-auto my-2 rounded-t shadow-md md:!my-0 md:!w-[300px]' src={post.acf.video_teaser} alt="Animated Cartoonized Portrait" />
                 }
@@ -40,9 +37,6 @@ const ProjectCard = ({postsData, isOnHome}) => {
         {newPostsData.map(post => 
             <article key={post.id} id={`post-${post.id}`} className='border-2 shadow-md rounded bg-foggy my-8 max-w-[300px] mx-auto min-[845px]:max-w-[350px] min-[1200px]:max-w-[300px]'>
                 <div className='mx-2'>
-                  {/* {post.featured_media !== 0 && post._embedded &&
-                      <figure className="featured-image" dangerouslySetInnerHTML={featuredImage(post._embedded['wp:featuredmedia'][0])}></figure>
-                  } */}
                   {post.acf.video_teaser &&
                     <img className='w-[275px] mx-auto my-2 rounded-lg shadow-md min-[845px]:!my-8 min-[1200px]:!my-2' src={post.acf.video_teaser} alt="Animated Cartoonized Portrait" />
                   }
