@@ -33,11 +33,11 @@ const Nav = () => {
           <NavLink to="/experiences"         
             className={`${location.pathname === "/experiences" && currentPage} py-4 px-2 `}>Experiences</NavLink>
         </li>
-        <li className="md:text-[1.1rem] min-[900px]:text-xl md:hover:scale-[1.2] md:transition-all md:duration-300 md:ease-in-out">
+        <li className="md:pr-4 md:text-[1.1rem] min-[900px]:text-xl md:hover:scale-[1.2] md:transition-all md:duration-300 md:ease-in-out">
           <NavLink to="/connect"      
             className={`${location.pathname === "/connect" && currentPage} py-4 px-2`}>Connect</NavLink>
         </li>
-        <li>
+        <li className="md:hover:scale-[1.2] md:transition-all md:duration-300 md:ease-in-out">
           <ToggleButton />
         </li>
       </ul>
