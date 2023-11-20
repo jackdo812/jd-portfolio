@@ -42,23 +42,6 @@ function AppRouter() {
   
   if (mediaPending) return <Loading />; 
   if (medieError) return 'An error has occurred: ' + medieError.message
-  
-  
-  // const featuredImage = ( featuredImageObject ) => {
-  //   let imgWidth = featuredImageObject.media_details.sizes.full.width;
-  //   let imgHeight = featuredImageObject.media_details.sizes.full.height;
-  //   let imgURL = featuredImageObject.source_url;
-  //   let img = `<img src="${imgURL}" 
-  //       width="${imgWidth}"
-  //       height="${imgHeight}"
-  //       alt="${featuredImageObject.alt_text}"
-  //       srcset="${imgURL} ${imgWidth}w,
-  //       ${featuredImageObject.media_details.sizes.full ? featuredImageObject.media_details.sizes.full.source_url + ' 1024w,' : ''}
-  //       ${featuredImageObject.media_details.sizes.medium_large ? featuredImageObject.media_details.sizes.medium_large.source_url + ' 768w,' : ''}
-  //       ${featuredImageObject.media_details.sizes.medium ? featuredImageObject.media_details.sizes.medium.source_url + ' 300w' : ''}"
-  //       sizes="(max-width: ${imgWidth}) 100vw, ${imgWidth}px">`;
-  //   return {__html: img}
-  // }
 
 
 
@@ -70,6 +53,7 @@ function AppRouter() {
           <Header mediaData={mediaData.acf}/>
          
             <main id="main" className="mx-2 grow">
+              <div className="w-4 h-4 rounded-full"></div>
               <Routes>
                 <Route path='/' element={<Home restBase={restBase} />} />
                 <Route path='/about' element={<About restBase={restBase} />} />

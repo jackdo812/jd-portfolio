@@ -130,11 +130,11 @@ const Home = ( ) => {
                                 <path d="M10.024 4h6.015l7.961 8-7.961 8h-6.015l7.961-8-7.961-8zm-10.024 16h6.015l7.961-8-7.961-8h-6.015l7.961 8-7.961 8z"/></svg>
                         </div>
                     </a>
-                    <section id='featured-projects-section' className='featured-projects mb-8 md:pt-20'>
+                    <section id='featured-projects-section' className='featured-projects mb-8 md:pt-20 md:flex md:flex-col'>
                         {data.acf.section_2_title &&
-                            <h2 className='font-roboto text-2xl text-center mt-20 mb-4 md:!text-left md:pl-4'>{data.acf.section_2_title}</h2>
+                            <h2 className='font-roboto text-2xl text-center mt-20 mb-4 md:!text-left md:self-center'>{data.acf.section_2_title}</h2>
                         }
-                        <div className='md:flex'>
+                        <div className='md:flex md:self-center md:gap-20'>
                             {/* Project List */}
                             {postsData &&
                                 <ProjectCard postsData={postsData} isOnHome={true} />
