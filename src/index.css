@@ -47,24 +47,23 @@
 	.primary-button {
 		color: #fafbee;
 		background-color: #04773B;
-		border-color: #04773B;
 		border: 1px solid #04773B;
 		border-radius: 10px;
 		text-transform: uppercase;
 		padding: .5rem 1rem;
 		font-weight: 700;
 	}
+
 	.primary-button-hover {
 		color: #053B06;
 		background-color: #f1c834;
-		border-color: #f1c834;
+		border: 1px solid #f1c834;
 		font-weight: 700;
 	}
 
 	.copied-email-button {
 		color: #053B06;
 		background-color: #f1c834;
-		border-color: #f1c834;
 		border: 1px solid #f1c834;
 		border-radius: 10px;
 		text-transform: uppercase;
@@ -74,8 +73,16 @@
 
 	.secondary-button {
 		color: #04773B;
-		border-color: #04773B;
 		border: 2px solid #04773B;
+		border-radius: 10px;
+		text-transform: uppercase;
+		padding: .5rem 1rem;
+		font-weight: 700;
+	}
+
+	.secondary-button-dark {
+		color: #FAFBEE;
+		border: 2px solid #FAFBEE;
 		border-radius: 10px;
 		text-transform: uppercase;
 		padding: .5rem 1rem;
@@ -83,14 +90,38 @@
 	}
 	.secondary-button-hover {
 		color: #ae8b0c;
-		border-color: #ae8b0c;
 		border: 2px solid #ae8b0c;
+		font-weight: 700;
+	}
+
+	.secondary-button-hover-dark {
+		color: #f1c834;
+		border: 2px solid #f1c834;
 		font-weight: 700;
 	}
 
 	.check {
 		background-color: #f1c834 !important;
 		color: #053B06 !important;
+	}
+
+	.home-intro p {
+		font-size: 1.2rem;
+		margin-top: 2.5rem;
+		margin-bottom: 2.5rem;
+	}
+
+	@media (min-width: 37.5rem) {
+		.home-intro p {
+			font-size: 1.3rem;
+		}
+	}
+
+	@media (min-width: 48rem) {
+		.home-intro p {
+			margin-top: 1.5rem;
+			margin-bottom: 1rem;
+		}
 	}
 }
 

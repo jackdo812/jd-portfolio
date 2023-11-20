@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import {useState, useEffect} from 'react';
 import ProjectCard from '../components/ProjectCard';
 import { Fade } from "react-awesome-reveal";
+import { useSelector } from 'react-redux';
 
 // SEO
 import { Helmet } from 'react-helmet-async';
@@ -12,6 +13,7 @@ import {useQuery} from '@tanstack/react-query';
 import {getPage, getPost} from '../api/fetchData';
 
 const Home = ( ) => {
+    const isDarkMode = useSelector((state) => state.darkMode);
     const [showLoading, setShowLoading] = useState(true);
 
     useEffect(() => {
@@ -86,12 +88,14 @@ const Home = ( ) => {
                                 <h1 className='font-roboto text-[3rem] my-4 uppercase text-center md:text-[4.5rem] md:pt-8 md:!mb-0'>{data.acf.title}</h1>      
                             }
                             {/* Intro Messages */}
-                            {data.acf.intro_messages && 
-                                <h2 className='text-[1.2rem] text-center uppercase underline underline-offset-[5px] decoration-[#ae8b0c75] decoration-4 min-[500px]:text-[1.4rem] min-[600px]:text-[1.5rem] md:text-[1.7rem] md:!pb-8 ' dangerouslySetInnerHTML={{__html:data.acf.intro_messages}}></h2>
+                          
+                            {data.acf.intro_messages && !isDarkMode &&
+                                <div className={`home-intro text-[1.2rem] text-center decoration-4 min-[500px]:text-[1.4rem] min-[600px]:text-[1.5rem] md:text-[1.7rem] md:!pb-8`} dangerouslySetInnerHTML={{__html:data.acf.intro_messages}}></div>
                             }
-                            {data.acf.intro_messages_2 && 
-                                <p className='text-[1.2rem] text-center my-10 min-[600px]:text-[1.3rem] md:mt-2 md:mb-4' dangerouslySetInnerHTML={{__html:data.acf.intro_messages_2}}></p>
+                            {data.acf.intro_messages_2 && isDarkMode &&
+                                <div className={`home-intro text-[1.2rem] text-center decoration-4 min-[500px]:text-[1.4rem] min-[600px]:text-[1.5rem] md:text-[1.7rem] md:!pb-8`} dangerouslySetInnerHTML={{__html:data.acf.intro_messages_2}}></div>
                             }
+                            
                             <div className='md:min-[900px]:flex md:min-[900px]:justify-around'>
                                 {/* Primary CTA */}
                                 {(data.acf.primary_cta_text && data.acf.primary_cta_link) &&
@@ -101,7 +105,7 @@ const Home = ( ) => {
                                 }
                                 {/* Secondary CTA */}
                                 {(data.acf.secondary_cta_text && data.acf.secondary_cta_link) && 
-                                    <Link to={data.acf.secondary_cta_link} className='block my-2 mx-auto w-fit transition-all duration-500 secondary-button md:hover:secondary-button-hover' target='_blank' rel='noopener'> 
+                                    <Link to={data.acf.secondary_cta_link} className={`block my-2 mx-auto w-fit transition-all duration-500 ${isDarkMode ? 'secondary-button-dark md:hover:secondary-button-hover-dark' : 'secondary-button md:hover:secondary-button-hover'} `} target='_blank' rel='noopener'> 
                                         {data.acf.secondary_cta_text}
                                     </Link>
                                 }
@@ -121,7 +125,7 @@ const Home = ( ) => {
                     {/* Scroll down arrow */}
                     <a href='#featured-projects-section' className='block w-fit my-0 mx-auto'>
                         <div className='animate-bounce mt-20 md:mt-30 min-[900px]:mt-36'>
-                            <svg className='w-[48px] h-[48px] rotate-90 fill-soil md:hover:fill-forest md:transition-all md:duration-500' role="img" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <svg className={`w-[48px] h-[48px] rotate-90 ${isDarkMode ? 'fill-sun md:hover:fill-foggy ' : 'fill-soil md:hover:fill-forest'} md:transition-all md:duration-500`} role="img" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                                 <title>scrolling down arrow icon</title>
                                 <path d="M10.024 4h6.015l7.961 8-7.961 8h-6.015l7.961-8-7.961-8zm-10.024 16h6.015l7.961-8-7.961-8h-6.015l7.961 8-7.961 8z"/></svg>
                         </div>
