@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import TechStack from '../components/TechStack'
 import LocationPin from '../assets/gifs/locationpin_ripple.gif'
 import { Fade } from "react-awesome-reveal";
+import { useSelector } from 'react-redux';
 
 // SEO
 import { Helmet } from 'react-helmet-async';
@@ -16,7 +17,7 @@ import ReactCardFlip from 'react-card-flip';
 
 
 const About = () => {
-
+    const isDarkMode = useSelector((state) => state.darkMode);
     const [showLoading, setShowLoading] = useState(true);
 
     useEffect(() => {
@@ -95,7 +96,6 @@ const About = () => {
                 }
             </Helmet>
            
-            {/* <h1 className='screen-reader-text'>{data.title.rendered}</h1> */}
             <article id={`post-${data.id}`}>
                 {/* Portrait photo */}
                 <div className="entry-content mx-4" >
@@ -123,7 +123,7 @@ const About = () => {
                                 }
                                 {/* Secondary CTA */}
                                 {data.acf.secondary_cta_text_about && data.acf.secondary_cta_link_about &&
-                                    <Link className='secondary-button block my-2 mx-auto w-fit px-[8px] py-[6px] md:h-fit md:self-center md:!mx-0 md:py-[8px] md:hover:secondary-button-hover md:transition-all md:duration-500' to={data.acf.secondary_cta_link_about} target='_blank' rel='noopener' > {data.acf.secondary_cta_text_about}
+                                    <Link className={` block my-2 mx-auto w-fit px-[8px] py-[6px] ${isDarkMode ? 'secondary-button-dark md:hover:secondary-button-hover-dark' : 'secondary-button md:hover:secondary-button-hover'} md:h-fit md:self-center md:!mx-0 md:py-[8px] md:transition-all md:duration-500`} to={data.acf.secondary_cta_link_about} target='_blank' rel='noopener' > {data.acf.secondary_cta_text_about}
                                     </Link>
                                 }
                             </div>
@@ -148,7 +148,7 @@ const About = () => {
                         }
                         {/* Hobbies Info - Desktop */}
                         {data.acf.hobby_illustration_desktop &&
-                            <div className='hidden md:block md:relative md:min-h-[650px] md:max-w-[1200px] md:my-0 md:mx-auto min-[800px]:min-h-[700px] min-[900px]:min-h-[800px] min-[1075px]:min-h-[900px] min-[1100px]:min-h-[1000px]'>
+                            <div className={`hidden ${isDarkMode && 'md:bg-foggy rounded-lg'} md:block md:relative md:min-h-[650px] md:max-w-[1200px] md:my-0 md:mx-auto min-[800px]:min-h-[700px] min-[900px]:min-h-[800px] min-[1075px]:min-h-[900px] min-[1100px]:min-h-[1000px]`}>
                                 <img className='hidden md:block md:absolute md:bottom-0 ' src={data.acf.hobby_illustration_desktop} alt="3 Mountains Drawing" />
                                 <img className={`absolute z-20 w-[65px] left-[52%] bottom-[65%] cursor-pointer`} src={LocationPin} alt="Location Pin GIF" onClick={revealHobby1}/>
                                 <img className={`absolute z-20 w-[65px] left-[70%] bottom-[35%] cursor-pointer`} src={LocationPin} alt="Location Pin GIF" onClick={revealHobby2}/>
