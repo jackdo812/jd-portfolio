@@ -99,7 +99,7 @@ const Experiences = () => {
                     <h1>Experiences</h1>
                 )
                 }
-                <div className="text-center pb-4 mx-2" dangerouslySetInnerHTML={{__html:pageData.content.rendered}}>
+                <div className="experiences-page-intro text-center pb-4 mx-2" dangerouslySetInnerHTML={{__html:pageData.content.rendered}}>
                 </div>
                 {/* Timeline section */}
                 {cptData && 

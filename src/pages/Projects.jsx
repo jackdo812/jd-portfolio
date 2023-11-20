@@ -74,7 +74,7 @@ const Projects = () => {
                   )
                 }
                 {pageData.acf.project_page_description &&
-                    <div className='text-center mb-14' dangerouslySetInnerHTML={{__html:pageData.acf.project_page_description}}></div>
+                    <div className='project-page-intro text-center mb-14' dangerouslySetInnerHTML={{__html:pageData.acf.project_page_description}}></div>
                 }
                 
                {postsData ? 

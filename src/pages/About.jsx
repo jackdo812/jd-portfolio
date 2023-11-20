@@ -107,14 +107,8 @@ const About = () => {
                             <h1 className='font-bold font-roboto text-3xl uppercase pb-10 pt-6 text-center md:!text-left md:pt-10'>Me, Myself & I</h1>
                             {/* Bio */}
                                 {data.acf.bio &&
-                                    <div dangerouslySetInnerHTML={{__html:data.acf.bio}} className='pb-3'></div>
-                                }
-                                {data.acf.bio_2 &&
-                                    <div dangerouslySetInnerHTML={{__html:data.acf.bio_2}} className='pb-3'></div>
-                                }
-                                {data.acf.bio_3 &&
-                                    <div dangerouslySetInnerHTML={{__html:data.acf.bio_3}} className='pb-3'></div>
-                                }         
+                                    <div dangerouslySetInnerHTML={{__html:data.acf.bio}} className='about-bio pb-3'></div>
+                                }        
                             <div className='CTA-buttons-section md:flex md:justify-between bp-850:justify-start bp-850:gap-8'>           
                                 {/* Primary CTA */}
                                 {data.acf.primary_cta_text_about && data.acf.primary_cta_link_about &&

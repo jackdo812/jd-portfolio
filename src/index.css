@@ -123,6 +123,16 @@
 			margin-bottom: 1rem;
 		}
 	}
+
+	.about-bio p {
+		padding-bottom: 1rem;
+	}
+	.about-bio a,
+	.project-page-intro a,
+	.experiences-page-intro a {
+		text-decoration: underline;
+		color:#ae8b0c;
+	}
 }
 
 
@@ -295,3 +305,6 @@
 		transform: translate(0, 0);
 	}
   }
+
+ 
+
