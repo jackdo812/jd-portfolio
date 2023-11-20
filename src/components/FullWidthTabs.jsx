@@ -5,7 +5,7 @@ import { Fade } from "react-awesome-reveal";
 function FullWidthTabs ({dataACF}) {
   
     return (
-  <Tabs className={'mt-4 shadow-[0_0_4px_1px_rgba(128,128,128,1)] rounded-[10px]'}>
+  <Tabs className={`text-forest mt-4 shadow-[0_0_4px_1px_rgba(128,128,128,1)] rounded-[10px]`}>
     <TabList>
       <Tab>{dataACF.project_details_heading_1}</Tab>
       <Tab>{dataACF.project_details_heading_2}</Tab>

@@ -47,7 +47,7 @@
 	.primary-button {
 		color: #fafbee;
 		background-color: #04773B;
-		border: 1px solid #04773B;
+		border: 2px solid #04773B;
 		border-radius: 10px;
 		text-transform: uppercase;
 		padding: .5rem 1rem;
@@ -57,14 +57,14 @@
 	.primary-button-hover {
 		color: #053B06;
 		background-color: #f1c834;
-		border: 1px solid #f1c834;
+		border: 2px solid #f1c834;
 		font-weight: 700;
 	}
 
 	.copied-email-button {
 		color: #053B06;
 		background-color: #f1c834;
-		border: 1px solid #f1c834;
+		border: 2px solid #f1c834;
 		border-radius: 10px;
 		text-transform: uppercase;
 		padding: .5rem 1rem;

@@ -5,6 +5,7 @@ import Loading from '../components/Loading'
 import FullWidthTabs from '../components/FullWidthTabs'
 import Carousels from '../components/Carousels'
 import { Fade } from "react-awesome-reveal"
+import { useSelector } from 'react-redux';
 
 
 // SEO
@@ -15,6 +16,7 @@ import {useQuery} from '@tanstack/react-query';
 import {getPost} from '../api/fetchData';
 
 const SingleProject = () => {
+    const isDarkMode = useSelector((state) => state.darkMode);
     const [showLoading, setShowLoading] = useState(true);
 
     useEffect(() => {
@@ -133,7 +135,7 @@ const SingleProject = () => {
                                 }
                                 {/* Secondary CTA*/}
                                 {(data[0].acf.single_project_secondary_cta_text && data[0].acf.single_project_secondary_cta_link) &&
-                                    <Link to={data[0].acf.single_project_secondary_cta_link} className='secondary-button md:hover:secondary-button-hover md:transition-all md:duration-500' target='_blank' rel='noopener'> 
+                                    <Link to={data[0].acf.single_project_secondary_cta_link} className={` ${isDarkMode ? 'secondary-button-dark md:hover:secondary-button-hover-dark' : 'secondary-button md:hover:secondary-button-hover'} md:transition-all md:duration-500`} target='_blank' rel='noopener'> 
                                         {data[0].acf.single_project_secondary_cta_text}
                                     </Link>
                                 }
