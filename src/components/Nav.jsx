@@ -10,7 +10,7 @@ const Nav = () => {
   }
 
   return (
-    <nav className={`main-nav self-center hidden md:block md:justify-evenly md:transition-all md:duration-500`} onClick={blur}>
+    <nav className={`main-nav self-center hidden md:block md:justify-evenly`} onClick={blur}>
 
       <ul className="font-bold text-left ml-8 flex">
         <li className="md:pr-4 md:text-[1.1rem] min-[900px]:text-xl min-[900px]:pr-8  md:hover:scale-[1.2] md:transition-all md:duration-300 md:ease-in-out">

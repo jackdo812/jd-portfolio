@@ -3,6 +3,7 @@ import Loading from '../components/Loading'
 import SocialMedia from '../components/SocialMedia';
 import CopyToClipboard from '../utilities/CopyToClipBoard';
 import { Fade } from "react-awesome-reveal";
+import { useSelector } from 'react-redux'; 
 
 // SEO
 import { Helmet } from 'react-helmet-async';
@@ -13,7 +14,7 @@ import {getPage} from '../api/fetchData';
 
 
 const Connect = () => {
-
+    const isDarkMode = useSelector((state) => state.darkMode);
     const [showLoading, setShowLoading] = useState(true);
 
     useEffect(() => {
@@ -66,7 +67,7 @@ const Connect = () => {
                     </div>
                     <div className='flex justify-center pt-10'>
                         {(data.acf.linkedin_link || data.acf.github_link) &&
-                            <SocialMedia linkedInLink={data.acf.linkedin_link} githubLink={data.acf.github_link} isOnConnect={true}/>
+                            <SocialMedia linkedInLink={data.acf.linkedin_link} githubLink={data.acf.github_link} isOnConnect={true} isDarkMode={isDarkMode}/>
                         }
                     </div>
                     {data.acf.contact_email &&                 

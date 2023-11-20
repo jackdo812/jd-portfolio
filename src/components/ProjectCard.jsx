@@ -17,7 +17,7 @@ const ProjectCard = ({postsData, isOnHome}) => {
   return (
     <>
       {isOnHome ? (
-        <div className='md:flex md:gap-8 min-[900px]:gap-16 min-[1200px]:gap-24'> 
+        <div className='text-forest md:flex md:gap-8 min-[900px]:gap-16 min-[1200px]:gap-24'> 
           {newPostsData.map(post => 
            
             <article key={post.id} id={`post-${post.id}`} className='border-2 shadow-md rounded bg-foggy my-8 mx-auto max-w-[300px] md:max-w-[250px] min-[950px]:max-w-[300px]'>
@@ -33,7 +33,7 @@ const ProjectCard = ({postsData, isOnHome}) => {
             )}
           </div>  
       ): (
-        <div className='mx-4 md:grid md:grid-cols-2 min-[1200px]:grid-cols-3'>
+        <div className='text-forest mx-4 md:grid md:grid-cols-2 min-[1200px]:grid-cols-3'>
         {newPostsData.map(post => 
             <article key={post.id} id={`post-${post.id}`} className='border-2 shadow-md rounded bg-foggy my-8 max-w-[300px] mx-auto min-[845px]:max-w-[350px] min-[1200px]:max-w-[300px]'>
                 <div className='mx-2'>
