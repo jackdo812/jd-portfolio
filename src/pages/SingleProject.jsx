@@ -152,7 +152,7 @@ const SingleProject = () => {
                     ) : (
                         <h2 className='mt-12 font-roboto font-bold text-2xl'>Project Details</h2>
                     )}
-                    {data[0].acf.project_details_heading_1 && data[0].acf.project_details_content_1 && data[0].acf.project_details_heading_2 && data[0].acf.project_details_content_2 && data[0].acf.project_details_heading_3 && data[0].acf.project_details_content_3 && 
+                    {data[0].acf.single_project_details && 
                         <FullWidthTabs dataACF={data[0].acf}/>
                     }
                     {/* See other project carousels */}
