@@ -3,6 +3,7 @@ import Loading from '../components/Loading'
 import { Link } from 'react-router-dom';
 import TechStack from '../components/TechStack'
 import LocationPin from '../assets/gifs/locationpin_ripple.gif'
+import LocationPinLetter from '../assets/gifs/LocationPin_Ripple_letters.gif'
 import { Fade } from "react-awesome-reveal";
 import { useSelector } from 'react-redux';
 
@@ -182,7 +183,7 @@ const About = () => {
                                     <div className="front-component">
                                             <div className='flip-card-front mx-auto my-0 rounded-[10px] max-w-[250px] backface-hidden z-20 h-[300px] border relative bg-white shadow-[0_2px_8px_0] shadow-black'>
                                                 <img className={`absolute w-[250px] z-10 left-0 bottom-0`} src={data.acf.hobby_1_illustration} alt="Illustration for Hobby 1" />
-                                                <img className={`absolute z-20 w-[50px] left-[48%] bottom-[37%] cursor-pointer`} src={LocationPin} alt="Location Pin GIF" onClick={revealHobby1}/>
+                                                <img className={`absolute z-20 w-[70px] left-[45%] bottom-[34%] cursor-pointer`} src={LocationPinLetter} alt="Location Pin GIF" onClick={revealHobby1}/>
                                             </div>
                                     </div>
 
@@ -208,7 +209,7 @@ const About = () => {
                                     <div className="front-component">
                                             <div className='flip-card-front mx-auto my-0 rounded-[10px] max-w-[250px] backface-hidden z-20 h-[300px] border relative bg-white shadow-[0_2px_8px_0] shadow-black'>
                                                 <img className={`absolute w-[250px] z-10 left-0 bottom-0`} src={data.acf.hobby_2_illustration} alt="Illustration for Hobby 1" />
-                                                <img className={`absolute z-20 w-[50px] left-[38%] bottom-[26%] cursor-pointer`} src={LocationPin} alt="Location Pin GIF" onClick={revealHobby2}/>
+                                                <img className={`absolute z-20 w-[70px] left-[38%] bottom-[26%] cursor-pointer`} src={LocationPinLetter} alt="Location Pin GIF" onClick={revealHobby2}/>
                                             </div>
                                     </div>
 
@@ -232,7 +233,7 @@ const About = () => {
                                     <div className="front-component">
                                             <div className='flip-card-front mx-auto my-0 rounded-[10px] max-w-[250px] backface-hidden z-20 h-[320px] border relative bg-white shadow-[0_2px_8px_0] shadow-black'>
                                                 <img className={`absolute w-[250px] z-10 left-0 bottom-0`} src={data.acf.hobby_3_illustration} alt="Illustration for Hobby 1" />
-                                                <img className={`absolute z-20 w-[50px] left-[58%] bottom-[21%] cursor-pointer`} src={LocationPin} alt="Location Pin GIF" onClick={revealHobby3}/>
+                                                <img className={`absolute z-20 w-[70px] left-[58%] bottom-[17%] cursor-pointer`} src={LocationPinLetter} alt="Location Pin GIF" onClick={revealHobby3}/>
                                             </div>
                                     </div>
 
