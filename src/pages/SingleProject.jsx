@@ -40,7 +40,7 @@ const SingleProject = () => {
       if (isPending) return <Loading />
     
       if (error) return 'An error has occurred: ' + error.message
-   
+     
     return (
     showLoading ? <Loading /> : (
     <Fade>
@@ -124,12 +124,16 @@ const SingleProject = () => {
                                 Your browser does not support the video tag.
                             </video>
                
-               }
+                             }    
+                             {/* Output Message if the project is a browser-based game only */}
+                             {data[0].slug &&
+                                <p className={`${data[0].slug==='typomon' ? 'block' : 'hidden'} italic pb-4 md:hidden`}>Note: Please try the game on desktop screen size &#40;Best experience at full screen: 1512px x 945px&#41;.</p>
+                             }
                             <div className='flex justify-evenly'>
 
                                 {/* Primary CTA*/}
                                 {(data[0].acf.single_project_primary_cta_text && data[0].acf.single_project_primary_cta_link) &&
-                                    <Link to={data[0].acf.single_project_primary_cta_link} className='primary-button md:hover:primary-button-hover md:transition-all md:duration-500 ' target='_blank' rel='noopener'> 
+                                    <Link to={data[0].acf.single_project_primary_cta_link} className={`${data[0].slug==='typomon' && 'hidden'} primary-button md:block md:hover:primary-button-hover md:transition-all md:duration-500`} target='_blank' rel='noopener'> 
                                         {data[0].acf.single_project_primary_cta_text}
                                     </Link>
                                 }
