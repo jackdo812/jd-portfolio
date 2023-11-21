@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 // Load the initial dark mode state from local storage
 const loadDarkModeFromStorage = () => {
-  let isDarkMode = localStorage.getItem('');
+  let isDarkMode = localStorage.getItem('isDarkMode');
   if (isDarkMode === null) {
     isDarkMode = false;
   } else {
