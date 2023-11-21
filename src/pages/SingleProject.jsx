@@ -54,9 +54,7 @@ const SingleProject = () => {
                 {/* Project Video Teaser- Mobile */}
                 {data[0].acf.project_video_teaser &&
                    
-                    <video className={`gif-teaser-mobile bp-800:hidden ${data[0].acf.video_teaser_vertically ? 'w-[300px]' : 'w-[450px]'} mx-auto my-10 rounded shadow-md`} controls autoPlay muted loop>
-                        <source src={data[0].acf.project_video_teaser.url} type="video/mp4" />
-                        Your browser does not support the video tag.
+                    <video src={data[0].acf.project_video_teaser.url} className={`gif-teaser-mobile bp-800:hidden ${data[0].acf.video_teaser_vertically ? 'w-[300px]' : 'w-[450px]'} mx-auto my-10 rounded shadow-md`} controls autoPlay muted loop>
                     </video>
                 
                 }
@@ -119,9 +117,7 @@ const SingleProject = () => {
 
                             {data[0].acf.project_video_teaser &&
                             
-                            <video className={`gif-teaser-desktop hidden bp-800:block ${data[0].acf.video_teaser_vertically ? 'w-[300px]' : 'w-[450px]'} mx-auto my-10 rounded shadow-[0_0_4px_1px_gray]`} controls autoPlay muted loop>
-                                <source src={data[0].acf.project_video_teaser.url} type="video/mp4" />
-                                Your browser does not support the video tag.
+                            <video src={data[0].acf.project_video_teaser.url} className={`gif-teaser-desktop hidden bp-800:block ${data[0].acf.video_teaser_vertically ? 'w-[300px]' : 'w-[450px]'} mx-auto my-10 rounded shadow-[0_0_4px_1px_gray]`} controls autoPlay muted loop>
                             </video>
                
                              }    

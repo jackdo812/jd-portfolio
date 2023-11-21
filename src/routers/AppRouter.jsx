@@ -13,6 +13,7 @@ import SingleProject from '../pages/SingleProject'
 import Experiences from '../pages/Experiences'
 import Connect from '../pages/Connect'
 import Loading from '../components/Loading'
+import PageNotFound from '../pages/PageNotFound'
 import WindowScrollToTop from '../utilities/WindowScrollToTop'
 
 
@@ -63,6 +64,7 @@ function AppRouter() {
                 <Route path='/projects/:slug' element={<SingleProject restBase={restBase} />} />
                 <Route path='/experiences' element={<Experiences restBase={restBase} />} />
                 <Route path='/connect' element={<Connect restBase={restBase} />} />
+                <Route path="*" element={<PageNotFound />} />
               </Routes>
             </main>
           
