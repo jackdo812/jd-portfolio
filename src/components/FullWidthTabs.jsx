@@ -33,10 +33,10 @@ function FullWidthTabs ({dataACF}) {
         // If the Project Details list is 1, then display the content without the Tabs layout
         listProjectsDetails.map((item, index) => {
             return (
-              <div>
+              <div className='bg-foggy rounded mt-4 shadow-[0_0_4px_1px_gray] py-2'>
                 <Fade>
-                  <h3>{item.single_project_details_heading}</h3>
-                 <div dangerouslySetInnerHTML={{__html:item.single_project_details_content}}></div>
+                  <h3 className='font-bold text-[1.2rem] pt-1 pb-3 text-forest my-2 mx-4 border-b-2'>{item.single_project_details_heading}</h3>
+                 <div className='single-project-details-content text-forest my-2 mx-4 ' dangerouslySetInnerHTML={{__html:item.single_project_details_content}}></div>
                 </Fade>
               </div>
             )

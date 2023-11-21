@@ -141,6 +141,24 @@
 	.drop-shadow-moon {
 		filter: drop-shadow(0px 0px 11px rgb(0 0 0 / 0.9));
 	}
+
+	.single-project-details-content h4 {
+		font-weight: 700;
+		padding-bottom: 0.5rem;
+	}
+
+	.single-project-details-content ul{
+		list-style: disc;
+		list-style-position: inside;
+	}
+
+	.single-project-details-content li {
+		padding-bottom: 0.5rem;
+	}
+
+	.single-project-details-content p {
+		padding-bottom: 0.5rem;
+	}
 }
 
 
