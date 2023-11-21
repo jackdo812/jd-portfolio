@@ -3,7 +3,7 @@ import ToggleButton from "./ToggleButton";
 import { useSelector } from 'react-redux';
 
 const Nav = () => {
-  const isDarkMode = useSelector((state) => state.darkMode);
+  const isDarkMode = useSelector((state) => state.darkMode.isDarkMode);
   const location = useLocation();
 
   function blur(e) {
@@ -21,11 +21,11 @@ const Nav = () => {
           <NavLink to="/"
             className={`${location.pathname === "/" && currentPage} py-4 px-2 `}>Home</NavLink>
         </li>
-        <li className="md:pr-4 md:text-[1.1rem] min-[900px]:text-xl min-[900px]:pr-8 md:hover:scale-[1.2] md:transition-all md:duration-300 md:ease-in-out md:relative md:after:content-[''] md:after:absolute md:after:h-[2px] md:after:bg-soil md:after:bottom-0 md:after:top-0 ">
+        <li className="md:pr-4 md:text-[1.1rem] min-[900px]:text-xl min-[900px]:pr-8 md:hover:scale-[1.2] md:transition-all md:duration-300 md:ease-in-out">
           <NavLink to="/about" 
             className={`${location.pathname === "/about" && currentPage} py-4 px-2 `}>About</NavLink>
         </li >
-        <li className="md:pr-4 md:text-[1.1rem] min-[900px]:text-xl min-[900px]:pr-8 md:hover:scale-[1.2] md:transition-all md:duration-300 md:ease-in-out md:underline-animation::after md:hover:underline-animation:hover::after">
+        <li className="md:pr-4 md:text-[1.1rem] min-[900px]:text-xl min-[900px]:pr-8 md:hover:scale-[1.2] md:transition-all md:duration-300 md:ease-in-out">
           <NavLink to="/projects"          
             className={`${location.pathname === "/projects" && currentPage} py-4 px-2 `}>Projects</NavLink>
         </li>

@@ -4,7 +4,7 @@ import { setDarkMode } from '../features/darkMode/darkModeSlice';
 
 const ToggleButton = () => {
     const dispatch = useDispatch();
-    const isDarkMode = useSelector((state) => state.darkMode);
+    const isDarkMode = useSelector((state) => state.darkMode.isDarkMode);
 
     const handleToggle = () => {
         dispatch(setDarkMode(!isDarkMode));

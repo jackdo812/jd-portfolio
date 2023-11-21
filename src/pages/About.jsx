@@ -18,7 +18,7 @@ import ReactCardFlip from 'react-card-flip';
 
 
 const About = () => {
-    const isDarkMode = useSelector((state) => state.darkMode);
+    const isDarkMode = useSelector((state) => state.darkMode.isDarkMode);
     const [showLoading, setShowLoading] = useState(true);
 
     useEffect(() => {

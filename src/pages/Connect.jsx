@@ -14,7 +14,7 @@ import {getPage} from '../api/fetchData';
 
 
 const Connect = () => {
-    const isDarkMode = useSelector((state) => state.darkMode);
+    const isDarkMode = useSelector((state) => state.darkMode.isDarkMode);
     const [showLoading, setShowLoading] = useState(true);
 
     useEffect(() => {

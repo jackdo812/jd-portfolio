@@ -16,7 +16,7 @@ import {useQuery} from '@tanstack/react-query';
 import {getPost} from '../api/fetchData';
 
 const SingleProject = () => {
-    const isDarkMode = useSelector((state) => state.darkMode);
+    const isDarkMode = useSelector((state) => state.darkMode.isDarkMode);
     const [showLoading, setShowLoading] = useState(true);
 
     useEffect(() => {

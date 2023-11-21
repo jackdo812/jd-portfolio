@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux'; // Import useSelector
 
 const Footer = ({connectData}) => {
   // Use useSelector to get the isDarkMode state from Redux store
-  const isDarkMode = useSelector((state) => state.darkMode);
+  const isDarkMode = useSelector((state) => state.darkMode.isDarkMode);
 
   const location = useLocation();
   const isConnectPage = location.pathname === '/connect';

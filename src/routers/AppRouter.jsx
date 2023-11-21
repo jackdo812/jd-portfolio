@@ -22,7 +22,7 @@ import {getPage} from '../api/fetchData';
 
 function AppRouter() {
   // Use useSelector to get the isDarkMode state from Redux store
-  const isDarkMode = useSelector((state) => state.darkMode);
+  const isDarkMode = useSelector((state) => state.darkMode.isDarkMode);
   
   const restBase = 'https://jackthecoder.com/zxbpsrwen/wp-json/wp/v2/'
 

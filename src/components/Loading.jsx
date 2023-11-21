@@ -3,7 +3,7 @@ import loadingDarkMode from '../assets/gifs/Loading_darkmode.gif';
 import { useSelector } from 'react-redux';
 
 const Loading = () => {
-    const isDarkMode = useSelector((state) => state.darkMode);
+    const isDarkMode = useSelector((state) => state.darkMode.isDarkMode);
     return (
         <div className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'>
             {isDarkMode ?

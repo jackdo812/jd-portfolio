@@ -13,7 +13,7 @@ import {useQuery} from '@tanstack/react-query';
 import {getPage, getPost} from '../api/fetchData';
 
 const Home = ( ) => {
-    const isDarkMode = useSelector((state) => state.darkMode);
+    const isDarkMode = useSelector((state) => state.darkMode.isDarkMode);
     const [showLoading, setShowLoading] = useState(true);
 
     useEffect(() => {

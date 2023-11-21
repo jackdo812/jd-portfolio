@@ -20,7 +20,7 @@ import { MdWork } from "react-icons/md";
 
 
 const Experiences = () => {
-    const isDarkMode = useSelector((state) => state.darkMode);
+    const isDarkMode = useSelector((state) => state.darkMode.isDarkMode);
     const [showLoading, setShowLoading] = useState(true);
 
     useEffect(() => {
