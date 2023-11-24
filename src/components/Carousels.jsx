@@ -34,7 +34,7 @@ function Carousels({singleProjectData}) {
             <Carousel.Caption className='relative right-0 bottom-0 left-0 text-forest w-[75%] min-[500px]:w-[300px] mx-auto my-0'>
               <article className='border shadow-md shadow-forest border-leaf bg-foggy rounded pb-4 '>
                 <Link to={`/projects/${post.slug}`}>
-                  <img className='w-[300px] my-0 mx-auto rounded-t' src={post.acf.video_teaser} alt="Project's GIF teaser" />
+                  <img className='w-[300px] my-0 mx-auto rounded-t' src={post.acf.video_teaser} alt="Project's GIF teaser" loading='lazy'/>
                   <h3 className='font-bold mt-4' dangerouslySetInnerHTML={{__html:post.title.rendered}}></h3>
                   <p className='italic h-[40px]'>{post._embedded["wp:term"][1].map((tag, idx) => (
                     <span key={idx}>{tag.name}{idx < post._embedded["wp:term"][1].length - 1 ? " | " : null}</span>
