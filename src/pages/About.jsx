@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react'
 import Loading from '../components/Loading'
 import { Link } from 'react-router-dom';
 import TechStack from '../components/TechStack'
-import LocationPin from '../assets/gifs/locationpin_ripple.gif'
-import LocationPinLetter from '../assets/gifs/LocationPin_Ripple_letters.gif'
+import LocationPin from '../assets/gifs/LocationPin_Ripple_notext_100x100.gif'
+import LocationPinLetter from '../assets/gifs/LocationPin_Ripple_text_100x100.gif'
 import { Fade } from "react-awesome-reveal";
 import { useSelector } from 'react-redux';
 
