@@ -40,15 +40,24 @@ const SingleProject = () => {
       if (isPending) return <Loading />
     
       if (error) return 'An error has occurred: ' + error.message
-     
+    
+    // Function to format the title
+    function formatTitle(slug) {
+    // Replace "-" with a space and capitalize each word
+    return slug
+        .replace(/-./g, match => ' ' + match.charAt(1))
+        .replace(/\b\w/g, match => match.toUpperCase())
+        .trim();
+}
+
     return (
     showLoading ? <Loading /> : (
     <Fade>
         <div className='single-project-content mx-4 bp-800:max-w-[1200px] bp-800:!mx-auto bp-800:my-0'>
                 {/* SEO */}
                 <Helmet>          
-                    <title>Projects - {slug.charAt(0).toUpperCase() + slug.slice(1)}</title>
-                    <meta name="description" content={`This is the single project page, which showcases the details of ${slug.charAt(0).toUpperCase() + slug.slice(1)} project. Let's check it out!`} />
+                    <title>Projects - {formatTitle(slug)}</title>
+                    <meta name="description" content={`This is the single project page, which showcases the details of ${formatTitle(slug)} project. Let's check it out!`} />
                  </Helmet>
              
                 {/* Project Video Teaser- Mobile */}
