@@ -13,7 +13,7 @@ function FullWidthTabs ({dataACF}) {
           <TabList className={`text-foggy font-bold rounded-t-[10px] bg-leaf flex text-center ${listProjectsDetailsLength === 3 && 'text-[0.8rem] min-[400px]:text-[1rem] md:text-[1.1rem]'}`}> 
             {listProjectsDetails.map((item, index) => {
                 return (
-                    <Tab className={`${listProjectsDetailsLength === 2 ? 'w-[50%] text-[1.1rem]' : 'w-[33.3%]'} cursor-pointer p-2 md:hover:bg-sun md:hover:text-forest md:hover:rounded-t-[7px] md:transition-all md:duration-300`} selectedClassName={`${listProjectsDetailsLength === 2 ? 'w-[50%]' : 'w-[33.4%]'} bg-foggy text-forest font-bold underline rounded-t-[7px] decoration-soil decoration-4 underline-offset-4 md:hover:bg-foggy md:hover:text-forest`} key={index}>{item.single_project_details_heading}</Tab>
+                    <Tab className={`${listProjectsDetailsLength === 2 ? 'w-[50%] text-[1.1rem]' : 'w-[33.3%]'} cursor-pointer p-2 md:hover:bg-sun md:hover:text-forest md:hover:rounded-t-[7px]`} selectedClassName={`${listProjectsDetailsLength === 2 ? 'w-[50%]' : 'w-[33.4%]'} bg-foggy text-forest font-bold underline rounded-t-[7px] decoration-soil decoration-4 underline-offset-4 md:hover:!bg-foggy md:hover:!text-forest focus-visible:outline-none`} key={index}>{item.single_project_details_heading}</Tab>
                 );
             })}
           </TabList>
